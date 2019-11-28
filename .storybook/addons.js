@@ -1,2 +1,2 @@
-import '@storybook/addon-actions/register';
-import '@storybook/addon-links/register';
+/* eslint-disable import/no-extraneous-dependencies */
+import '@storybook/addon-knobs/register';
