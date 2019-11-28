@@ -16,11 +16,16 @@
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test:unit": "vue-cli-service test:unit",
+    "test": "jest"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^5.2.6",
-    "@storybook/addon-knobs": "^5.2.6"
+    "@storybook/addon-knobs": "^5.2.6",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "jest": "^24.9.0",
+    "vue-jest": "^3.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -34,6 +39,7 @@
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "cross-env": "^6.0.3",
+    "jest-serializer-vue": "^2.0.2",
     "minimist": "^1.2.0",
     "rollup": "^1.26.3",
     "rollup-plugin-commonjs": "^10.1.0",
