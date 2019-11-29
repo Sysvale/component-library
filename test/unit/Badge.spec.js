@@ -1,6 +1,4 @@
 import { mount, createLocalVue } from '@vue/test-utils';
-console.log('------------------------------------>');
-
 import BootstrapVue from 'bootstrap-vue';
 import Badge from '../../src/components/Badge.vue';
 
