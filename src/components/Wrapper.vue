@@ -66,24 +66,17 @@
 						</div>
 					</div>
 				</b-collapse>
-				<div
-					v-for="data in componentData"
-					:key="data.name"
-				>
-					<div v-if="data.props">
-						<h2 class="heading mt-5">
-							Props table
-						</h2>
+				<h2 class="heading mt-5">
+					Props table
+				</h2>
 
-						<b-table
-							class="mt-4 props-table"
-							hover
-							:fixed="true"
-							:no-border-collapse="false"
-							:items="formattedProps"
-						/>
-					</div>
-				</div>
+				<b-table
+					class="mt-4 props-table"
+					hover
+					:fixed="true"
+					:no-border-collapse="false"
+					:items="formattedProps"
+				/>
 			</div>
 		</b-container>
 	</div>
@@ -147,8 +140,11 @@ export default {
 	},
 
 	mounted() {
+		console.log('this.componentData: ', this.componentData);
+		
 		_.values(this.componentData.props).forEach((item, index) => {
 			const formattedProp = {};
+console.log('ola');
 
 			formattedProp.name = _.keys(this.componentData.props)[index];
 			formattedProp.type = item.type.name || '--';
@@ -158,6 +154,9 @@ export default {
 
 			this.formattedProps.push(formattedProp);
 		});
+
+		console.log('this.formattedProps: ', this.formattedProps);
+		
 
 		this.highlight();
 		const link = document.createElement('link');
