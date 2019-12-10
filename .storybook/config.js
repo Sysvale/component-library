@@ -9,11 +9,12 @@ Object.defineProperty(Vue.prototype, '_', { value: _ });
 
 import {
 	Badge,
+	StepperCounter,
 	CustomWrapper,
 } from '../src/components';
 
-
 Vue.component('s-badge', Badge);
+Vue.component('s-stepper-counter', StepperCounter);
 Vue.component('wrapper', CustomWrapper);
 
 Vue.use(BootstrapVue);
