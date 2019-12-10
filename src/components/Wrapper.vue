@@ -140,11 +140,8 @@ export default {
 	},
 
 	mounted() {
-		console.log('this.componentData: ', this.componentData);
-		
 		_.values(this.componentData.props).forEach((item, index) => {
 			const formattedProp = {};
-console.log('ola');
 
 			formattedProp.name = _.keys(this.componentData.props)[index];
 			formattedProp.type = item.type.name || '--';
@@ -154,9 +151,6 @@ console.log('ola');
 
 			this.formattedProps.push(formattedProp);
 		});
-
-		console.log('this.formattedProps: ', this.formattedProps);
-		
 
 		this.highlight();
 		const link = document.createElement('link');

@@ -60,7 +60,7 @@ if (!argv.format || argv.format === 'es') {
     ...baseConfig,
     external,
     output: {
-      file: 'dist/component-library.esm.js',
+      file: 'dist/@sysvale/component-library.esm.js',
       format: 'esm',
       exports: 'named',
     },
@@ -79,7 +79,7 @@ if (!argv.format || argv.format === 'cjs') {
     external,
     output: {
       compact: true,
-      file: 'dist/component-library.ssr.js',
+      file: 'dist/@sysvale/component-library.ssr.js',
       format: 'cjs',
       name: 'ComponentLibrary',
       exports: 'named',
@@ -106,7 +106,7 @@ if (!argv.format || argv.format === 'iife') {
     external,
     output: {
       compact: true,
-      file: 'dist/component-library.min.js',
+      file: 'dist/@sysvale/component-library.min.js',
       format: 'iife',
       name: 'ComponentLibrary',
       exports: 'named',
