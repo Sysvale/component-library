@@ -15,7 +15,7 @@
                 >
                     <span
                         v-if="!step.concluded"
-                        class="not_concluded_step fs-14"
+                        class="not_concluded_step_text_color fs-14"
                     >
                         {{ index + 1 }}
                     </span>
@@ -82,13 +82,13 @@ export default {
             let style = '';
 
             if (step.concluded) {
-                style += 'concluded_step_background';
+                style += 'concluded_step';
             } else {
-                style += 'circle';
+                style += 'active_step';
             }
 
             if (!step.active && !step.concluded) {
-                style += ' not_active';
+                style += ' not_active_step';
             } else {
                 style += ' cricle';
             }
@@ -109,14 +109,31 @@ export default {
 }
 </script>
 <style>
-    .circle {
+    .active_step, .not_active_step, .concluded_step {
         border-radius: 50px;
-        border: 1.5px solid #00CBAD;
         min-width: 30px;
         min-height: 30px;
+        border: 1.5px;
+        border-style: solid;
     }
 
-    .not_concluded_step {
+    .active_step {
+        border-color: #00CBAD;
+    }
+
+    .concluded_step { 
+        background-color: #00CBAD;
+        border-color: #00CBAD;
+        width: 30px;
+        height: 30px;
+    }
+
+    .not_active_step {
+        color: #BFC2C5;
+        border-color: #BFC2C5;
+    }
+
+    .not_concluded_step_text_color {
         color: #00CBAD;
     }
 
@@ -141,14 +158,6 @@ export default {
         color: #fff;
     }
 
-    .concluded_step_background { 
-        background-color: #00CBAD;
-        border-radius: 50px;
-        border: 1.5px solid #00CBAD;
-        min-width: 30px;
-        min-height: 30px;
-    }
-
     .label-container {
         max-width: 70px;
         margin-left: -10px;
@@ -158,14 +167,6 @@ export default {
 
     .fs-14 {
         font-size: 14px;
-    }
-
-    .not_active {
-        color: #BFC2C5;
-        border-radius: 50px;
-        border: 1.5px solid #BFC2C5;
-        min-width: 30px;
-        min-height: 30px;
     }
 
     .cursor_pointer {
