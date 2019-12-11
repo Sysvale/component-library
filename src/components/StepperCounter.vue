@@ -77,6 +77,16 @@ export default {
             }
 
             return style;
+        },
+
+        changeStep(index) {
+            this.steps[index].active = true;
+            this.steps.forEach((item, i) => {
+                item.active = i === index ? true : false;
+                
+            });
+            
+            this.$emit('step-changed', index, this.steps[index]);
         }
     }
 }
