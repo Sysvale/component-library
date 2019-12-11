@@ -99,17 +99,6 @@ export const stepper_counter = () => ({
 				{ label: 'Bandeira 5', concluded: false, active: false },
 			]),
 		},
-		status_type: {
-			default: () => select('Status type', {
-				Negative: 'Negative',
-				Positive: 'Positive',
-				Neutral: 'Neutral',
-			}, 'Negative'),
-		},
 	},
-	template:
-		`<s-stepper-counter
-			:steps="steps"
-		>
-		</s-stepper-counter>`,
+	template: template,
 });
