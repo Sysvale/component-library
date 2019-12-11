@@ -11,7 +11,7 @@ import Badge from './Badge.vue';
 const template = `
 // Where 'steps' is a object containing the properties 'labels', 'active', and 'concluded'
 <s-stepper-counter
-	:numberOfSteps="5"
+	:steps="steps"
 />`;
 
 const componentDescription = 'Stepper counters are small status descriptors used, primarly, to highlight important metadata about features or content.';
