@@ -9,7 +9,7 @@ exports[`Component is mounted properly 1`] = `
         </svg></div>
       <div class="in_progress_stepper_divider"></div>
     </div>
-    <div class="label-container mt-2"><small>Dummy label 1</small></div>
+    <div class="label-container mt-2 not_active_step_label"><small>Dummy label 1</small></div>
   </div>
   <div class="w-100">
     <div id="step-2" class="d-flex align-items-center">
@@ -20,14 +20,14 @@ exports[`Component is mounted properly 1`] = `
     </div>
     <div class="label-container mt-2"><small>Dummy label 3</small></div>
   </div>
-  <div class="w-100">
+  <div class="">
     <div id="step-3" class="d-flex align-items-center">
       <div class="d-flex justify-content-center align-items-center cursor_pointer  not_active_step"><span class="not_concluded_step_text_color fs-14">
                     3
                 </span></div>
       <!---->
     </div>
-    <div class="label-container mt-2"><small>Dummy label 2</small></div>
+    <div class="label-container mt-2 not_active_step_label"><small>Dummy label 2</small></div>
   </div>
 </div>
 `;
