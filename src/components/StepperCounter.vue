@@ -7,6 +7,7 @@
         >
             <div
                 class="d-flex align-items-center"
+                :id="`step-${index + 1}`"
                 @click="changeStep(index)"
             >
                 <div
