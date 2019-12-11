@@ -35,10 +35,13 @@
                 />
                 <div 
                     v-else-if="
-                        index !== steps.length - 1 &&
+                        (index !== steps.length - 1 &&
                         index > 0 &&
                         steps[index].concluded &&
-                        steps[index - 1].concluded
+                        steps[index - 1].concluded) ||
+                        (index !== steps.length - 1 &&
+                        index === 0 &&
+                        steps[index].concluded)
                     "
                     class="in_progress_stepper_divider"
                 />
