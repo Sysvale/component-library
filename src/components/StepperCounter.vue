@@ -141,7 +141,7 @@ export default {
 
     .common_stepper_divider, .in_progress_stepper_divider, .concluded_stepper_divider {
         height: 3px;
-        width: 83%;
+        width: 100%;
     }
 
     .common_stepper_divider {
