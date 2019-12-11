@@ -28,19 +28,17 @@ const docsDecorator = () => {
 			`<div>
 				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="StepperCounter">
 					<div slot="usage">
-						<h5>Use Badges when:</h5>
+						<h5>Use Stepper Controllers when:</h5>
 						<ul>
-							<li>You want to show, in a visual way, associated with your logic business or users actions</li>
-							<li>You want to highlight important metadata about features or content</li>
-							<li>You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.)</li>
-							<li>The badge is readonly</li>
+							<li>You want to show, in a visual way, the current state and the current step of a stepper</li>
+							<li>You have a multistep modal</li>
+							<li>You have a series of inputs or actions that you want to show the progress of the filling and the hour and date of the states or the actions aren't necessary</li>
 						</ul>
 						<br>
-						<h5>Don't use Badges when:</h5>
+						<h5>Don't use Stepper Controllers when:</h5>
 						<ul>
-							<li>The status that the badge represents, can be setted or removed by the user</li>
-							<li>Clicking the component should trigger a functionality or execute an action.</li>
-							<li>You want to categorize something</li>
+							<li>You are looking for a timeline component</li>
+							<li>The order of the steps, events, or actions are relevant</li>
 						</ul>
 					</div>
 					<story slot="component-preview"/>
