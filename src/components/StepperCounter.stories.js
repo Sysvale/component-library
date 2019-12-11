@@ -40,6 +40,9 @@ const docsDecorator = () => {
 							<li>You are looking for a timeline component</li>
 							<li>The order of the steps, events, or actions are relevant</li>
 						</ul>
+
+						<p class="mt-5	">Obs.: When clicked, the stepper emits an event called 'step_changed' that sends to to you the index of the step clicked,
+						and the data of this step.</p>
 					</div>
 					<story slot="component-preview"/>
 				</wrapper>
