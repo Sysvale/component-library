@@ -68,6 +68,7 @@ export default {
         steps: {
             type: Array,
             default: () => [],
+            required: true,
             description: `A object with the properties 'label', and 'concluded'.
                 The 'label' property is the text that will be displayed under
                 the counter, and 'concluded' is the status (boolean) of the step.`,
