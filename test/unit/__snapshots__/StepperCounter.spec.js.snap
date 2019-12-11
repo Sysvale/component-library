@@ -4,30 +4,30 @@ exports[`Component is mounted properly 1`] = `
 <div class="d-flex justify-content-between">
   <div class="w-100">
     <div id="step-1" class="d-flex align-items-center">
-      <div class="d-flex justify-content-center align-items-center cursor_pointer concluded_step"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="concluded_step feather feather-check">
+      <div class="d-flex justify-content-center align-items-center cursor-pointer concluded-step"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="concluded-step feather feather-check">
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg></div>
-      <div class="in_progress_stepper_divider"></div>
+      <div class="in-progress-stepper-divider"></div>
     </div>
-    <div class="label-container mt-2"><small>Dummy label 1</small></div>
+    <div class="label-container mt-2 not-active-step-label"><small>Dummy label 1</small></div>
   </div>
   <div class="w-100">
     <div id="step-2" class="d-flex align-items-center">
-      <div class="d-flex justify-content-center align-items-center cursor_pointer active_step"><span class="not_concluded_step_text_color fs-14">
+      <div class="d-flex justify-content-center align-items-center cursor-pointer active-step"><span class="not-concluded-step-text-color fs-14">
                     2
                 </span></div>
-      <div class="common_stepper_divider"></div>
+      <div class="common-stepper-divider"></div>
     </div>
     <div class="label-container mt-2"><small>Dummy label 3</small></div>
   </div>
-  <div class="w-100">
+  <div class="">
     <div id="step-3" class="d-flex align-items-center">
-      <div class="d-flex justify-content-center align-items-center cursor_pointer  not_active_step"><span class="not_concluded_step_text_color fs-14">
+      <div class="d-flex justify-content-center align-items-center cursor-pointer  not-active-step"><span class="not-concluded-step-text-color fs-14">
                     3
                 </span></div>
       <!---->
     </div>
-    <div class="label-container mt-2"><small>Dummy label 2</small></div>
+    <div class="label-container mt-2 not-active-step-label"><small>Dummy label 2</small></div>
   </div>
 </div>
 `;

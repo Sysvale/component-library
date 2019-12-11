@@ -3,7 +3,7 @@
         <div
             v-for="(step, index) in steps"
             :key="index"
-            class="w-100"
+            :class="index !== steps.length - 1 ? 'w-100' : ''"
         >
             <div
                 class="d-flex align-items-center"
@@ -11,19 +11,19 @@
                 @click="changeStep(index)"
             >
                 <div
-                    class="d-flex justify-content-center align-items-center cursor_pointer"
+                    class="d-flex justify-content-center align-items-center cursor-pointer"
                     :class="circleStyle(step)"
                 >
                     <span
                         v-if="!step.concluded"
-                        class="not_concluded_step_text_color fs-14"
+                        class="not-concluded-step-text-color fs-14"
                     >
                         {{ index + 1 }}
                     </span>
                     <check-icon
                         v-else
                         size="1x"
-                        class="concluded_step"
+                        class="concluded-step"
                     />
                 </div>
 
@@ -33,7 +33,7 @@
                         steps[index].concluded &&
                         steps[index + 1].concluded
                     "
-                    class="concluded_stepper_divider"
+                    class="concluded-stepper-divider"
                 />
                 <div 
                     v-else-if="
@@ -45,15 +45,18 @@
                         index === 0 &&
                         steps[index].concluded)
                     "
-                    class="in_progress_stepper_divider"
+                    class="in-progress-stepper-divider"
                 />
                 <div 
                     v-else-if="index !== steps.length - 1"
-                    class="common_stepper_divider"
+                    class="common-stepper-divider"
                 />
 
             </div>
-            <div class="label-container mt-2">
+            <div
+                class="label-container mt-2"
+                :class="!step.active ? 'not-active-step-label' : ''"
+            >
                 <small>{{ step.label }}</small>
             </div>
         </div>
@@ -84,15 +87,15 @@ export default {
             let style = '';
 
             if (step.concluded) {
-                style += 'concluded_step';
+                style += 'concluded-step';
             } 
             
             if (step.active){
-                style += 'active_step';
+                style += 'active-step';
             }
 
             if (!step.active && !step.concluded) {
-                style += ' not_active_step';
+                style += ' not-active-step';
             }
 
             return style;
@@ -110,7 +113,7 @@ export default {
 }
 </script>
 <style>
-    .active_step, .not_active_step, .concluded_step {
+    .active-step, .not-active-step, .concluded-step {
         border-radius: 50px;
         min-width: 30px;
         min-height: 30px;
@@ -118,44 +121,44 @@ export default {
         border-style: solid;
     }
 
-    .active_step {
+    .active-step {
         border-color: #00CBAD;
     }
 
-    .concluded_step { 
+    .concluded-step { 
         background-color: #00CBAD;
         border-color: #00CBAD;
         width: 30px;
         height: 30px;
     }
 
-    .not_active_step {
+    .not-active-step {
         color: #BFC2C5;
         border-color: #BFC2C5;
     }
 
-    .not_concluded_step_text_color {
+    .not-concluded-step-text-color {
         color: #00CBAD;
     }
 
-    .common_stepper_divider, .in_progress_stepper_divider, .concluded_stepper_divider {
+    .common-stepper-divider, .in-progress-stepper-divider, .concluded-stepper-divider {
         height: 3px;
         width: 100%;
     }
 
-    .common_stepper_divider {
+    .common-stepper-divider {
         background-color: #BFC2C5;
     }
 
-    .in_progress_stepper_divider {
+    .in-progress-stepper-divider {
         background: linear-gradient(90deg, #43E4CC 0%, #BFC2C5 67.57%);
     }
 
-    .concluded_stepper_divider {
+    .concluded-stepper-divider {
         background: #00CBAD;
     }
 
-    .concluded_step {
+    .concluded-step {
         color: #fff;
     }
 
@@ -170,7 +173,11 @@ export default {
         font-size: 14px;
     }
 
-    .cursor_pointer {
+    .cursor-pointer {
         cursor: pointer;
+    }
+
+    .not-active-step-label {
+        color: #5d6369;
     }
 </style>
