@@ -89,8 +89,6 @@ export default {
 
             if (!step.active && !step.concluded) {
                 style += ' not_active_step';
-            } else {
-                style += ' cricle';
             }
 
             return style;
