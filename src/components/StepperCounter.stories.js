@@ -2,7 +2,7 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import {
-	withKnobs, text, select, array, object,
+	withKnobs, object,
 } from '@storybook/addon-knobs';
 
 import StepperCounter from './StepperCounter.vue';
@@ -62,30 +62,6 @@ export default {
 		},
 	},
 };
-
-// const measurements = [
-// 	{
-// 		value: 'R$ 12,31',
-// 	},
-// 	{
-// 		value: 'R$ 53,20',
-// 	},
-// ];
-
-// export const actionBar = () => ({
-// 	props: {
-// 		items: {
-// 			default: () => object('Items:', measurements),
-// 		},
-// 	},
-// 	template:
-// 		`<s-toolbar
-// 			:items="items"
-// 			disabled-delete-button-popover-text="Contas pagas não podem ser excluídas"
-// 			:invalid-statuses="['paid']"
-// 		/>`,
-// });
-
 
 export const stepper_counter = () => ({
 	props: {
