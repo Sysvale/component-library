@@ -35,7 +35,7 @@ describe("Divider styles test", () => {
 				steps: mocked_data,
 			},
 		});
-		expect(wrapper.findAll('.common_stepper_divider').length).toBe(2);
+		expect(wrapper.findAll('.common-stepper-divider').length).toBe(2);
 	});
 
 	test('if one of the stepper divider is rendered as an in_progress divider and others are rendered as common dividers', () => {
@@ -51,8 +51,8 @@ describe("Divider styles test", () => {
 				steps: mocked_data,
 			},
 		});
-		expect(wrapper.findAll('.in_progress_stepper_divider').length).toBe(1);
-		expect(wrapper.findAll('.common_stepper_divider').length).toBe(1);
+		expect(wrapper.findAll('.in-progress-stepper-divider').length).toBe(1);
+		expect(wrapper.findAll('.common-stepper-divider').length).toBe(1);
 	});
 
 	test('if one of the stepper divider is rendered as a concluded divider and the other is rendered as an in_progress divider', () => {
@@ -68,8 +68,8 @@ describe("Divider styles test", () => {
 				steps: mocked_data,
 			},
 		});
-		expect(wrapper.findAll('.concluded_stepper_divider').length).toBe(1);
-		expect(wrapper.findAll('.in_progress_stepper_divider').length).toBe(1);
+		expect(wrapper.findAll('.concluded-stepper-divider').length).toBe(1);
+		expect(wrapper.findAll('.in-progress-stepper-divider').length).toBe(1);
 	});
 });
 
