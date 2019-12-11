@@ -102,7 +102,6 @@ export default {
             this.steps[index].active = true;
             this.steps.forEach((item, i) => {
                 item.active = i === index ? true : false;
-                
             });
 
             this.$emit('step_changed', index, this.steps[index]);
