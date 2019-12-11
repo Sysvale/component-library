@@ -151,4 +151,8 @@ export default {
         width: 30px;
         height: 30px;
     }
+
+    .cursor_pointer {
+        cursor: pointer;
+    }
 </style>
