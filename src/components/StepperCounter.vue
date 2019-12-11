@@ -1,8 +1,9 @@
 <template>
-    <div class="d-flex">
+    <div class="d-flex justify-content-between">
         <div
             v-for="(step, index) in steps"
             :key="index"
+            class="w-100"
         >
             <div
                 class="d-flex align-items-center"
@@ -111,8 +112,8 @@ export default {
     .circle {
         border-radius: 50px;
         border: 1.5px solid #00CBAD;
-        width: 30px;
-        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
     }
 
     .not_concluded_step {
@@ -121,7 +122,7 @@ export default {
 
     .common_stepper_divider, .in_progress_stepper_divider, .concluded_stepper_divider {
         height: 3px;
-        width: 100px;
+        width: 83%;
     }
 
     .common_stepper_divider {
@@ -144,8 +145,8 @@ export default {
         background-color: #00CBAD;
         border-radius: 50px;
         border: 1.5px solid #00CBAD;
-        width: 30px;
-        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
     }
 
     .label-container {
@@ -163,8 +164,8 @@ export default {
         color: #BFC2C5;
         border-radius: 50px;
         border: 1.5px solid #BFC2C5;
-        width: 30px;
-        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
     }
 
     .cursor_pointer {
