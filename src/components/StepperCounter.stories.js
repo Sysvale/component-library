@@ -13,7 +13,7 @@ const template = `
 	:steps="steps"
 />`;
 
-const componentDescription = 'Stepper counters are components that controlls and displays the steps of a stepper.';
+const componentDescription = 'Stepper counters are components that control and display the steps of a stepper.';
 
 const docsDecorator = () => {
 	return {
