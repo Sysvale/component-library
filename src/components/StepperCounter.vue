@@ -85,7 +85,9 @@ export default {
 
             if (step.concluded) {
                 style += 'concluded_step';
-            } else {
+            } 
+            
+            if (step.active){
                 style += 'active_step';
             }
 
