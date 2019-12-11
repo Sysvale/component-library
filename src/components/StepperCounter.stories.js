@@ -13,7 +13,7 @@ const template = `
 	:steps="steps"
 />`;
 
-const componentDescription = 'Stepper counters are small status descriptors used, primarly, to highlight important metadata about features or content.';
+const componentDescription = 'Stepper counters are components that controlls and displays the steps of a stepper.';
 
 const docsDecorator = () => {
 	return {
