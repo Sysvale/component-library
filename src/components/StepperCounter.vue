@@ -53,7 +53,10 @@
                 />
 
             </div>
-            <div class="label-container mt-2">
+            <div
+                class="label-container mt-2"
+                :class="!step.active ? 'not_active_step_label' : ''"
+            >
                 <small>{{ step.label }}</small>
             </div>
         </div>
