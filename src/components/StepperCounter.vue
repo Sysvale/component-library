@@ -102,7 +102,7 @@ export default {
                 item.active = i === index ? true : false;
                 
             });
-            
+
             this.$emit('step-changed', index, this.steps[index]);
         }
     }
