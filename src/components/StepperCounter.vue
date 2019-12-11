@@ -1,17 +1,19 @@
 <template>
     <div class="d-flex">
         <div
-            v-for="(n, index) in steps"
+            v-for="(step, index) in steps"
             :key="index"
-            class="align-items-center"
         >
-            <div class="d-flex align-items-center">
+            <div
+                class="d-flex align-items-center"
+                @click="changeStep(index)"
+            >
                 <div
-                    class="d-flex justify-content-center align-items-center"
-                    :class="circleStyle(n)"
+                    class="d-flex justify-content-center align-items-center cursor_pointer"
+                    :class="circleStyle(step)"
                 >
                     <span
-                        v-if="!n.concluded"
+                        v-if="!step.concluded"
                         class="not_concluded_step fs-14"
                     >
                         {{ index + 1 }}
@@ -22,21 +24,32 @@
                         class="concluded_step"
                     />
                 </div>
+
                 <div 
-                    v-if="index !== steps.length - 1 && steps[index].concluded && steps[index + 1].concluded"
-                    class="stepper_divider3"
+                    v-if="
+                        index !== steps.length - 1 &&
+                        steps[index].concluded &&
+                        steps[index + 1].concluded
+                    "
+                    class="concluded_stepper_divider"
                 />
                 <div 
-                    v-else-if="index !== steps.length - 1 && index > 0 && steps[index].concluded && steps[index - 1].concluded"
-                    class="stepper_divider2"
+                    v-else-if="
+                        index !== steps.length - 1 &&
+                        index > 0 &&
+                        steps[index].concluded &&
+                        steps[index - 1].concluded
+                    "
+                    class="in_progress_stepper_divider"
                 />
                 <div 
                     v-else-if="index !== steps.length - 1"
-                    class="stepper_divider"
+                    class="common_stepper_divider"
                 />
+
             </div>
             <div class="label-container mt-2">
-                <small>{{ n.label }}</small>
+                <small>{{ step.label }}</small>
             </div>
         </div>
     </div>
@@ -61,16 +74,16 @@ export default {
     },
 
     methods: {
-        circleStyle(n) {
+        circleStyle(step) {
             let style = '';
 
-            if (n.concluded) {
+            if (step.concluded) {
                 style += 'concluded_step_background';
             } else {
                 style += 'circle';
             }
 
-            if (!n.active && !n.concluded) {
+            if (!step.active && !step.concluded) {
                 style += ' not_active';
             } else {
                 style += ' cricle';
@@ -114,14 +127,10 @@ export default {
 
     .in_progress_stepper_divider {
         background: linear-gradient(90deg, #43E4CC 0%, #BFC2C5 67.57%);
-        height: 3px;
-        width: 100px;
     }
 
     .concluded_stepper_divider {
         background: #00CBAD;
-        height: 3px;
-        width: 100px;
     }
 
     .concluded_step {
