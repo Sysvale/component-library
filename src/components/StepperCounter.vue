@@ -103,19 +103,22 @@ export default {
         color: #00CBAD;
     }
 
-    .stepper_divider {
-        background-color: #BFC2C5;
+    .common_stepper_divider, .in_progress_stepper_divider, .concluded_stepper_divider {
         height: 3px;
         width: 100px;
     }
 
-    .stepper_divider2 {
+    .common_stepper_divider {
+        background-color: #BFC2C5;
+    }
+
+    .in_progress_stepper_divider {
         background: linear-gradient(90deg, #43E4CC 0%, #BFC2C5 67.57%);
         height: 3px;
         width: 100px;
     }
 
-    .stepper_divider3 {
+    .concluded_stepper_divider {
         background: #00CBAD;
         height: 3px;
         width: 100px;
