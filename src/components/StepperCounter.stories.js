@@ -70,8 +70,7 @@ export const stepper_counter = () => ({
 	props: {
 		steps: {
 			default: () => object('Steps:', [
-				{ label: 'Dados da operadora', concluded: true, active: false },
-				{ label: 'Bandeira 1', concluded: false, active: true },
+				{ label: 'Dados da operadora', concluded: false, active: true },
 				{ label: 'Bandeira 2', concluded: false, active: false },
 				{ label: 'Bandeira 3', concluded: false, active: false },
 				{ label: 'Bandeira 4', concluded: false, active: false },
