@@ -9,6 +9,7 @@ import StepperCounter from './StepperCounter.vue';
 import Badge from './Badge.vue';
 
 const template = `
+// Where 'steps' is a object containing the properties 'labels', 'active', and 'concluded'
 <s-stepper-counter
 	:numberOfSteps="5"
 />`;
