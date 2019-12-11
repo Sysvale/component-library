@@ -103,7 +103,7 @@ export default {
                 
             });
 
-            this.$emit('step-changed', index, this.steps[index]);
+            this.$emit('step_changed', index, this.steps[index]);
         }
     }
 }
