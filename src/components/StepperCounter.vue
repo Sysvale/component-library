@@ -176,4 +176,8 @@ export default {
     .cursor_pointer {
         cursor: pointer;
     }
+
+    .not_active_step_label {
+        color: #5d6369;
+    }
 </style>
