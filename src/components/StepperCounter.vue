@@ -3,7 +3,7 @@
         <div
             v-for="(step, index) in steps"
             :key="index"
-            class="w-100"
+            :class="index !== steps.length - 1 ? 'w-100' : ''"
         >
             <div
                 class="d-flex align-items-center"
