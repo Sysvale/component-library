@@ -123,6 +123,7 @@ export default {
 
     .active-step {
         border-color: #00CBAD;
+        box-shadow: 0px 0px 8px rgba(67, 228, 204, 0.3);
     }
 
     .concluded-step { 
