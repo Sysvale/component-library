@@ -8,7 +8,7 @@
             <div
                 class="d-flex align-items-center"
                 :id="`step-${index + 1}`"
-                @click="changeStep(index)"
+                @click="!changeStepOnClick || changeStep(index)"
             >
                 <div
                     class="d-flex justify-content-center align-items-center cursor-pointer"
