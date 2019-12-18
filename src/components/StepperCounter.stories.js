@@ -2,7 +2,7 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import {
-	withKnobs, object,
+	withKnobs, object, boolean,
 } from '@storybook/addon-knobs';
 
 import StepperCounter from './StepperCounter.vue';
