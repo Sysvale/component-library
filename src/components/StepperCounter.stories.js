@@ -11,6 +11,7 @@ const template = `
 // Where 'steps' is a object containing the properties 'labels', 'active', and 'concluded'
 <s-stepper-counter
 	:steps="steps"
+	:changeStepOnClick="changeStepOnClick"
 />`;
 
 const componentDescription = 'Stepper counters are components that control and display the steps of a stepper.';
