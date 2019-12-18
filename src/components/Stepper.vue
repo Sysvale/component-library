@@ -74,7 +74,7 @@ export default {
             required: true,
             description: `A object with the properties 'label', and 'concluded'.
                 The 'label' property is the text that will be displayed under
-                the counter, and 'concluded' is the status (boolean) of the step.`,
+                the stepper, and 'concluded' is the status (boolean) of the step.`,
         },
         changeStepOnClick: {
             type: Boolean,
