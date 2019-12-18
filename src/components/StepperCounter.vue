@@ -75,6 +75,12 @@ export default {
             description: `A object with the properties 'label', and 'concluded'.
                 The 'label' property is the text that will be displayed under
                 the counter, and 'concluded' is the status (boolean) of the step.`,
+        },
+        changeStepOnClick: {
+            type: Boolean,
+            default: true,
+            required: false,
+            description: 'Enables or disables the feature to change steps clicking on them.'
         }
     },
 
