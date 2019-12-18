@@ -78,6 +78,9 @@ export const stepper_counter = () => ({
 				{ label: 'Bandeira 5', concluded: false, active: false },
 			]),
 		},
+		changeStepOnClick: {
+			default: boolean('changeStepOnClick', true)
+		},
 	},
 	template: template,
 });
