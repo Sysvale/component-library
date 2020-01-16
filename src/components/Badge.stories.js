@@ -70,13 +70,28 @@ export const badge = () => ({
 		text: {
 			default: () => text('Label text:', 'Negative'),
 		},
-		status_type: {
-			default: () => select('Status type', {
-				Negative: 'Negative',
-				Positive: 'Positive',
-				Neutral: 'Neutral',
-			}, 'Negative'),
+		bgColor: {
+			default: () => text('Background color:', '#dc354526')
 		},
+		color: {
+			default: () => text('Color:', '#dc3545')
+		},
+		variant: {
+			default: () => select('Variant', {
+				variant1: 'variant-1',
+				variant2: 'variant-2',
+				variant3: 'variant-3',
+				variant4: 'variant-4',
+				variant5: 'variant-5',
+				variant6: 'variant-6',
+			}, 'variant-1'),
+		},
+		variantMode: {
+			default: () => boolean('Variant Mode', true)
+		},
+		colorCodeMode: {
+			default: () => boolean('Color Code Mode', false)
+		}
 	},
 	template:
 		`<s-badge
