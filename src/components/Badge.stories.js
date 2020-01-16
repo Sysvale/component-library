@@ -90,9 +90,6 @@ export const badge = () => ({
 				gray: 'gray',
 			}, 'yellow'),
 		},
-		variantMode: {
-			default: () => boolean('Variant Mode', true)
-		},
 		colorCodeMode: {
 			default: () => boolean('Color Code Mode', false)
 		}
