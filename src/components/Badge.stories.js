@@ -30,7 +30,7 @@ const docsDecorator = () => {
 					<div slot="usage">
 						<h5>Use Badges when:</h5>
 						<ul>
-							<li>You want to show, in a visual way, associated with your logic business or users actions</li>
+							<li>You want to show status associated with your logic business or users actions</li>
 							<li>You want to highlight important metadata about features or content</li>
 							<li>You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.)</li>
 							<li>The badge is readonly</li>
