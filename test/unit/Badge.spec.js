@@ -107,7 +107,6 @@ describe("Prop 'bgColor' and 'color' tests", () => {
 			localVue,
 			propsData: {
 				colorCodeMode: true,
-				variantMode: false,
 				color: 'white',
 				bgColor: 'blue',
 				content: 'Test',
