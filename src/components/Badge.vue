@@ -2,7 +2,7 @@
 	<div
 		class="badge-container px-3 d-flex justify-content-center"
 		:style="colorCodeMode ? styleVariables : ''"
-		:class="variantMode ? predefinedStyle : ''"
+		:class="!colorCodeMode ? predefinedStyle : ''"
 	>
 		<small class="regular">
 			{{ content }}
@@ -33,13 +33,6 @@ export default {
 			description: `If the color code mode is set,
 				you can pass the hex value of the background
 				color of the badge.`,
-		},
-		variantMode: {
-			type: Boolean,
-			default: true,
-			description: `The property that specifies 
-				if the badge will work in variant mode
-				or not.`,
 		},
 		colorCodeMode: {
 			type: Boolean,
