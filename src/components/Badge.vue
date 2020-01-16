@@ -107,6 +107,8 @@ export default {
 .badge-container {
 	border-radius: 8px !important;
 	width: fit-content;
+	background-color: var(--bg-color);
+	color: var(--color);
 }
 
 .variant-1 {
