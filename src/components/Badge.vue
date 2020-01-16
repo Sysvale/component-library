@@ -26,6 +26,12 @@ export default {
 			description: 'The text that will be displayed inside the badge.',
 			required: true,
 		},
+		color: {
+			type: String,
+			default: '#28A745',
+			description: `If the color code mode is set,
+				you can pass the hex value of the text
+				color of the badge.`,
 	},
 
 	computed: {
