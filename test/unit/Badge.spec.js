@@ -101,15 +101,19 @@ describe("Prop 'variant' tests", () => {
 	});
 });
 
-	test("if the computed property changes when the prop status_type is setted to 'neutral'", () => {
+describe("Prop 'bgColor' and 'color' tests", () => {
+	test("if the computed property 'styleVariables' changes when the prop 'colorCodeMode' is setted to 'true'", () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
-				status_type: 'Neutral',
+				colorCodeMode: true,
+				variantMode: false,
+				color: 'white',
+				bgColor: 'blue',
 				content: 'Test',
 			},
 		});
 
-		expect(wrapper.vm.style).toBe('neutral-badge');
+		expect(wrapper.vm.styleVariables).toStrictEqual({"--bg-color": "blue", "--color": "white"});
 	});
 });
