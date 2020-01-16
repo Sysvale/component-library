@@ -9,8 +9,12 @@ import Badge from './Badge.vue';
 
 const template = `
 <s-badge
-	status_type="Negative"
-	content="Negativo"
+	:color="color"
+	:bgColor="bgColor"
+	:content="text"
+	:variantMode="variantMode"
+	:variant="variant"
+	:colorCodeMode="colorCodeMode"
 />`;
 
 const componentDescription = 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.';
@@ -93,10 +97,5 @@ export const badge = () => ({
 			default: () => boolean('Color Code Mode', false)
 		}
 	},
-	template:
-		`<s-badge
-			:status_type="status_type"
-			:content="text"
-		>
-		</s-badge>`,
+	template: template,
 });
