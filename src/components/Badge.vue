@@ -67,9 +67,21 @@ export default {
 	computed: {
 		style() {
 			let computed_style = '';
-			switch (this.status_type) {
-				case 'Neutral':
-					computed_style = 'neutral-badge';
+			switch (this.variant) {
+				case 'variant-1':
+					computed_style = 'variant-1';
+					break;
+				case 'variant-2':
+					computed_style = 'variant-2';
+					break;
+				case 'variant-3':
+					computed_style = 'variant-3';
+					break;
+				case 'variant-4':
+					computed_style = 'variant-4';
+					break;
+				case 'variant-5':
+					computed_style = 'variant-5';
 					break;
 				case 'Positive':
 					computed_style = 'positive-badge';
