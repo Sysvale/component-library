@@ -84,8 +84,8 @@ export default {
 				case 'variant-5':
 					computed_style = 'variant-5';
 					break;
-				case 'Positive':
-					computed_style = 'positive-badge';
+				case 'variant-6':
+					computed_style = 'variant-6';
 					break;
 				default:
 					computed_style = 'negative-badge';
