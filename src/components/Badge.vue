@@ -66,7 +66,7 @@ export default {
 	},
 
 	computed: {
-		style() {
+		predefinedStyle() {
 			let computed_style = '';
 			switch (this.variant) {
 				case 'variant-1':
