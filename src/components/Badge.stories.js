@@ -82,13 +82,13 @@ export const badge = () => ({
 		},
 		variant: {
 			default: () => select('Variant', {
-				variant1: 'variant-1',
-				variant2: 'variant-2',
-				variant3: 'variant-3',
-				variant4: 'variant-4',
-				variant5: 'variant-5',
-				variant6: 'variant-6',
-			}, 'variant-1'),
+				yellow: 'yellow',
+				green: 'green',
+				red: 'red',
+				blue: 'blue',
+				purple: 'purple',
+				gray: 'gray',
+			}, 'yellow'),
 		},
 		variantMode: {
 			default: () => boolean('Variant Mode', true)
