@@ -100,8 +100,23 @@ export default {
 	background-color: #28a74526;
 }
 
-.negative-badge {
-	color: #dc3545;
-	background-color: #dc354526;
+.variant-3 {
+	color: #8c1520;
+	background-color: #e2757f40;
+}
+
+.variant-4 {
+	color: #00469c;
+	background-color: #60c4ff40;
+}
+
+.variant-5 {
+	color: #621e83;
+	background-color: #e47aff40;
+}
+
+.variant-6 {
+	color: #2f2f2f;
+	background-color: #acacac40;
 }
 </style>
