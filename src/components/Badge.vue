@@ -50,10 +50,10 @@ export default {
 		},
 		variant: {
 			type: String,
-			default: 'variant-1',
+			default: 'yellow',
 			description: `Variant mode gives 6 predefined badges 
 				to work with. Seting this property to 'true',
-				you can use 'variant-1', 'variant-2', ... 'variant-6'
+				you can use 'yellow', 'green', ... 'gray'
 				to use the predefined badge styles.`,
 		},
 	},
@@ -62,26 +62,26 @@ export default {
 		predefinedStyle() {
 			let computed_style = '';
 			switch (this.variant) {
-				case 'variant-1':
-					computed_style = 'variant-1';
+				case 'yellow':
+					computed_style = 'yellow';
 					break;
-				case 'variant-2':
-					computed_style = 'variant-2';
+				case 'green':
+					computed_style = 'green';
 					break;
-				case 'variant-3':
-					computed_style = 'variant-3';
+				case 'red':
+					computed_style = 'red';
 					break;
-				case 'variant-4':
-					computed_style = 'variant-4';
+				case 'blue':
+					computed_style = 'blue';
 					break;
-				case 'variant-5':
-					computed_style = 'variant-5';
+				case 'purple':
+					computed_style = 'purple';
 					break;
-				case 'variant-6':
-					computed_style = 'variant-6';
+				case 'gray':
+					computed_style = 'gray';
 					break;
 				default:
-					computed_style = 'variant-1';
+					computed_style = 'yellow';
 					break;
 			}
 
@@ -105,32 +105,32 @@ export default {
 	color: var(--color);
 }
 
-.variant-1 {
+.yellow {
 	color: #5a4300;
 	background-color: #ffbf004d;
 }
 
-.variant-2 {
+.green {
 	color: #005a15;
 	background-color: #28a74526;
 }
 
-.variant-3 {
+.red {
 	color: #8c1520;
 	background-color: #e2757f40;
 }
 
-.variant-4 {
+.blue {
 	color: #00469c;
 	background-color: #60c4ff40;
 }
 
-.variant-5 {
+.purple {
 	color: #621e83;
 	background-color: #e47aff40;
 }
 
-.variant-6 {
+.gray {
 	color: #2f2f2f;
 	background-color: #acacac40;
 }
