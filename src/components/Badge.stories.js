@@ -2,15 +2,18 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import {
-	withKnobs, text, select,
+	withKnobs, text, select, boolean,
 } from '@storybook/addon-knobs';
 
 import Badge from './Badge.vue';
 
 const template = `
 <s-badge
-	status_type="Negative"
-	content="Negativo"
+	:color="color"
+	:bgColor="bgColor"
+	:content="text"
+	:variant="variant"
+	:colorCodeMode="colorCodeMode"
 />`;
 
 const componentDescription = 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.';
@@ -30,7 +33,7 @@ const docsDecorator = () => {
 					<div slot="usage">
 						<h5>Use Badges when:</h5>
 						<ul>
-							<li>You want to show, in a visual way, associated with your logic business or users actions</li>
+							<li>You want to show status associated with your logic business or users actions</li>
 							<li>You want to highlight important metadata about features or content</li>
 							<li>You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.)</li>
 							<li>The badge is readonly</li>
@@ -70,18 +73,25 @@ export const badge = () => ({
 		text: {
 			default: () => text('Label text:', 'Negative'),
 		},
-		status_type: {
-			default: () => select('Status type', {
-				Negative: 'Negative',
-				Positive: 'Positive',
-				Neutral: 'Neutral',
-			}, 'Negative'),
+		bgColor: {
+			default: () => text('Background color:', '#dc354526')
 		},
+		color: {
+			default: () => text('Color:', '#dc3545')
+		},
+		variant: {
+			default: () => select('Variant', {
+				yellow: 'yellow',
+				green: 'green',
+				red: 'red',
+				blue: 'blue',
+				purple: 'purple',
+				gray: 'gray',
+			}, 'yellow'),
+		},
+		colorCodeMode: {
+			default: () => boolean('Color Code Mode', false)
+		}
 	},
-	template:
-		`<s-badge
-			:status_type="status_type"
-			:content="text"
-		>
-		</s-badge>`,
+	template: template,
 });

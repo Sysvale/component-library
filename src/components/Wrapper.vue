@@ -146,7 +146,7 @@ export default {
 			formattedProp.name = _.keys(this.componentData.props)[index];
 			formattedProp.type = item.type.name || '--';
 			formattedProp.required = item.required || false;
-			formattedProp.defaultValue = item.default || '--';
+			formattedProp.defaultValue = item.default === false ? false : (item.default || '--');
 			formattedProp.description = item.description || '--';
 
 			this.formattedProps.push(formattedProp);
