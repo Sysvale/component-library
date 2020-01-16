@@ -90,9 +90,9 @@ export default {
 	width: fit-content;
 }
 
-.neutral-badge {
-	color: #efb300;
-	background-color: #ffc10726;
+.variant-1 {
+	color: #5a4300;
+	background-color: #ffbf004d;
 }
 
 .positive-badge {
