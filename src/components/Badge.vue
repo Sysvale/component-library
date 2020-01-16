@@ -14,13 +14,6 @@
 
 export default {
 	props: {
-		status_type: {
-			type: String,
-			default: 'Negative',
-			description: `A status that defines the color of the badge that will be redered.
-				The options are: 'Negative', 'Neutral', and 'Positive'`,
-			required: false,
-		},
 		content: {
 			type: String,
 			default: 'Negativo',
@@ -33,7 +26,7 @@ export default {
 			description: `If the color code mode is set,
 				you can pass the hex value of the text
 				color of the badge.`,
-	},
+		},
 		bgColor: {
 			type: String,
 			default: '#28a74526',
