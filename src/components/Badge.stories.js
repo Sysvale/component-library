@@ -12,7 +12,6 @@ const template = `
 	:color="color"
 	:bgColor="bgColor"
 	:content="text"
-	:variantMode="variantMode"
 	:variant="variant"
 	:colorCodeMode="colorCodeMode"
 />`;
