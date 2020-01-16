@@ -23,81 +23,81 @@ describe("Computed property 'predefinedStyle' test", () => {
 				content: 'Test',
 			},
 		});
-		expect(wrapper.vm.predefinedStyle).toBe('variant-1');
+		expect(wrapper.vm.predefinedStyle).toBe('yellow');
 	});
 });
 
 describe("Prop 'variant' tests", () => {
-	test("if the computed property changes when the prop variant is setted to 'variant-1'", () => {
+	test("if the computed property changes when the prop variant is setted to 'yellow'", () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
-				variant: 'variant-1',
+				variant: 'yellow',
 				content: 'Test',
 			},
 		});
 
-		expect(wrapper.vm.predefinedStyle).toBe('variant-1');
+		expect(wrapper.vm.predefinedStyle).toBe('yellow');
 	});
 
-	test("if the computed property changes when the prop variant is setted to 'variant-2'", () => {
+	test("if the computed property changes when the prop variant is setted to 'green'", () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
-				variant: 'variant-2',
+				variant: 'green',
 				content: 'Test',
 			},
 		});
 
-		expect(wrapper.vm.predefinedStyle).toBe('variant-2');
+		expect(wrapper.vm.predefinedStyle).toBe('green');
 	});
 
-	test("if the computed property changes when the prop variant is setted to 'variant-3'", () => {
+	test("if the computed property changes when the prop variant is setted to 'red'", () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
-				variant: 'variant-3',
+				variant: 'red',
 				content: 'Test',
 			},
 		});
 
-		expect(wrapper.vm.predefinedStyle).toBe('variant-3');
+		expect(wrapper.vm.predefinedStyle).toBe('red');
 	});
 
-	test("if the computed property changes when the prop variant is setted to 'variant-4'", () => {
+	test("if the computed property changes when the prop variant is setted to 'blue'", () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
-				variant: 'variant-4',
+				variant: 'blue',
 				content: 'Test',
 			},
 		});
 
-		expect(wrapper.vm.predefinedStyle).toBe('variant-4');
+		expect(wrapper.vm.predefinedStyle).toBe('blue');
 	});
 
-	test("if the computed property changes when the prop variant is setted to 'variant-5'", () => {
+	test("if the computed property changes when the prop variant is setted to 'purple'", () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
-				variant: 'variant-5',
+				variant: 'purple',
 				content: 'Test',
 			},
 		});
 
-		expect(wrapper.vm.predefinedStyle).toBe('variant-5');
+		expect(wrapper.vm.predefinedStyle).toBe('purple');
 	});
 
-	test("if the computed property changes when the prop variant is setted to 'variant-6'", () => {
+	test("if the computed property changes when the prop variant is setted to 'gray'", () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
-				variant: 'variant-6',
+				variant: 'gray',
 				content: 'Test',
 			},
 		});
 
-		expect(wrapper.vm.predefinedStyle).toBe('variant-6');
+		expect(wrapper.vm.predefinedStyle).toBe('gray');
 	});
 });
 
