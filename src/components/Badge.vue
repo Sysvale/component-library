@@ -95,8 +95,8 @@ export default {
 	background-color: #ffbf004d;
 }
 
-.positive-badge {
-	color: #28A745;
+.variant-2 {
+	color: #005a15;
 	background-color: #28a74526;
 }
 
