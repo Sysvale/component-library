@@ -93,6 +93,13 @@ export default {
 
 			return computed_style;
 		},
+
+		styleVariables() {
+			return {
+				'--bg-color': this.bgColor,
+				'--color': this.color,
+			};
+		},
 	},
 };
 </script>
