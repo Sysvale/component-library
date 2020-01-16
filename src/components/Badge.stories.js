@@ -2,7 +2,7 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import {
-	withKnobs, text, select,
+	withKnobs, text, select, boolean,
 } from '@storybook/addon-knobs';
 
 import Badge from './Badge.vue';
