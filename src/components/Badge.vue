@@ -1,7 +1,8 @@
 <template>
 	<div
 		class="badge-container px-3 d-flex justify-content-center"
-		:class="style"
+		:style="colorCodeMode ? styleVariables : ''"
+		:class="variantMode ? predefinedStyle : ''"
 	>
 		<small class="regular">
 			{{ content }}
