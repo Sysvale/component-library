@@ -88,7 +88,7 @@ export default {
 					computed_style = 'variant-6';
 					break;
 				default:
-					computed_style = 'negative-badge';
+					computed_style = 'variant-1';
 					break;
 			}
 
