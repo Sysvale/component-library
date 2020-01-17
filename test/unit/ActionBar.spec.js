@@ -47,3 +47,20 @@ test('if the event is emited correctly when the dismissible icon is clicked', ()
 	expect(wrapper.emitted().close).toBeTruthy();
 	expect(wrapper.emitted().close).toEqual([ [ true ] ]);
 });
+
+test("if the the color sent to the prop 'bgData' is applied", () => {
+	const wrapper = mount(ActionBar, {
+		localVue,
+		propsData: {
+			bgColor: 'rgb(0, 0, 0)',
+		},
+	});
+
+	expect(
+		wrapper
+		.find('.toolbar')
+		.element
+		.style['background-color'])
+		.toEqual('rgb(0, 0, 0)'
+	);
+});
