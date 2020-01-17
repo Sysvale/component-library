@@ -18,6 +18,9 @@ import {
 Vue.component('s-badge', Badge);
 Vue.component('s-stepper-counter', StepperCounter);
 Vue.component('wrapper', CustomWrapper);
+Vue.component('s-action-bar', ActionBar);
+Vue.component('check-circle-icon', CheckCircleIcon);
+
 
 Vue.use(BootstrapVue);
 
