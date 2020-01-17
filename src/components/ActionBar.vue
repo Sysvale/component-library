@@ -83,7 +83,7 @@ export default {
 
 .icon-container {
 	padding: 2px 4px;
-    background-color: #0000002d;
+	background-color: #0000002d;
 	border-radius: 50%;
 	cursor: pointer;
 }
