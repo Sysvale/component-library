@@ -22,3 +22,14 @@ test('if the dismiss icon is shown when the prop isDismissible is setted to true
 
 	expect(wrapper.findAll('.icon-container').length).toBe(1);
 });
+
+test("if the 'fixed' class is used when the floatingMode is setted to true", () => {
+	const wrapper = mount(ActionBar, {
+		localVue,
+		propsData: {
+			floatingMode: true,
+		},
+	});
+
+	expect(wrapper.findAll('.fixed').length).toBe(1);
+});
