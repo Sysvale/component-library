@@ -8,7 +8,7 @@
             <div
                 class="d-flex align-items-center"
                 :id="`step-${index + 1}`"
-                @click="changeStep(index)"
+                @click="!changeStepOnClick || changeStep(index)"
             >
                 <div
                     class="d-flex justify-content-center align-items-center cursor-pointer"
@@ -74,7 +74,13 @@ export default {
             required: true,
             description: `A object with the properties 'label', and 'concluded'.
                 The 'label' property is the text that will be displayed under
-                the counter, and 'concluded' is the status (boolean) of the step.`,
+                the stepper, and 'concluded' is the status (boolean) of the step.`,
+        },
+        changeStepOnClick: {
+            type: Boolean,
+            default: true,
+            required: false,
+            description: 'Enables or disables the feature to change steps clicking on them.'
         }
     },
 
@@ -123,6 +129,7 @@ export default {
 
     .active-step {
         border-color: #00CBAD;
+        box-shadow: 0px 0px 8px rgba(67, 228, 204, 0.3);
     }
 
     .concluded-step { 

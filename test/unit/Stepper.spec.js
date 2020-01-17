@@ -1,6 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import BootstrapVue from 'bootstrap-vue';
-import StepperCounter from '../../src/components/StepperCounter.vue';
+import Stepper from '../../src/components/Stepper.vue';
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
@@ -12,7 +12,7 @@ test('Component is mounted properly', () => {
 		{ label: 'Dummy label 2', concluded: false, active: false },
 	];
 
-	const wrapper = mount(StepperCounter, {
+	const wrapper = mount(Stepper, {
 		localVue,
 		propsData: {
 			steps: mocked_data,
@@ -29,7 +29,7 @@ describe("Divider styles test", () => {
 			{ label: 'Dummy label 3', concluded: false, active: false },
 		];
 
-		const wrapper = mount(StepperCounter, {
+		const wrapper = mount(Stepper, {
 			localVue,
 			propsData: {
 				steps: mocked_data,
@@ -45,7 +45,7 @@ describe("Divider styles test", () => {
 			{ label: 'Dummy label 3', concluded: false, active: false },
 		];
 
-		const wrapper = mount(StepperCounter, {
+		const wrapper = mount(Stepper, {
 			localVue,
 			propsData: {
 				steps: mocked_data,
@@ -62,7 +62,7 @@ describe("Divider styles test", () => {
 			{ label: 'Dummy label 3', concluded: false, active: true },
 		];
 
-		const wrapper = mount(StepperCounter, {
+		const wrapper = mount(Stepper, {
 			localVue,
 			propsData: {
 				steps: mocked_data,
@@ -73,7 +73,7 @@ describe("Divider styles test", () => {
 	});
 });
 
-describe("Change step event tests", () => {
+describe('Change step event tests', () => {
 	test('if a event is emited when the stepper is clicked', () => {
 		let mocked_data = [
 			{ label: 'Dummy label 1', concluded: false, active: true },
@@ -81,7 +81,7 @@ describe("Change step event tests", () => {
 			{ label: 'Dummy label 3', concluded: false, active: false },
 		];
 
-		const wrapper = mount(StepperCounter, {
+		const wrapper = mount(Stepper, {
 			localVue,
 			propsData: {
 				steps: mocked_data,
