@@ -32,7 +32,7 @@
 import { XIcon } from 'vue-feather-icons'
 export default {
 	components: {
-    	XIcon,
+		XIcon,
   	},
 	props: {
 		floatingMode: {
@@ -89,6 +89,6 @@ export default {
 }
 
 .icon-container:hover {
-    background-color: #00000041;
+	background-color: #00000041;
 }
 </style>
