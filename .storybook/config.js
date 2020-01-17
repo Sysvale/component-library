@@ -12,6 +12,7 @@ import {
 	Badge,
 	StepperCounter,
 	CustomWrapper,
+	ActionBar
 } from '../src/components';
 
 Vue.component('s-badge', Badge);
