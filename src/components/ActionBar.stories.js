@@ -39,7 +39,7 @@ const template = `
 	</template>
 </s-action-bar>`;
 
-const componentDescription = 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.';
+const componentDescription = 'ActionBars are toolbars that can display actions and information to the user.';
 
 const docsDecorator = () => {
 	return {
@@ -52,21 +52,24 @@ const docsDecorator = () => {
 		},
 		template:
 			`<div>
-				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Badge">
+				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="ActionBar">
 					<div slot="usage">
-						<h5>Use Badges when:</h5>
+						<h5>Use ActionBars when:</h5>
 						<ul>
-							<li>You want to show status associated with your logic business or users actions</li>
-							<li>You want to highlight important metadata about features or content</li>
-							<li>You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.)</li>
-							<li>The badge is readonly</li>
+							<li>You need to group actions that the user can make</li>
+							<li>You have no space in the menus and in other places to display actions and information</li>
 						</ul>
 						<br>
-						<h5>Don't use Badges when:</h5>
+						<h5>Don't use ActionBars when:</h5>
 						<ul>
-							<li>The status that the badge represents, can be setted or removed by the user</li>
-							<li>Clicking the component should trigger a functionality or execute an action.</li>
-							<li>You want to categorize something</li>
+							<li>To display statuses of the system</li>
+							<li>In floating mode and it makes the ActionBar to hide information when floating</li>
+						</ul>
+						<h5>Obs.:</h5>
+						<ul>
+							<li>You can display information in the ActionBar using the 'description' slot</li>
+							<li>You can add buttons in the ActionBar using the 'buttons' slot</li>
+							<li>More info about how to use the slots can be found in the code bellow</li>
 						</ul>
 					</div>
 					<story slot="component-preview"/>
