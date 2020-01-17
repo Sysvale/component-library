@@ -11,3 +11,14 @@ test('Component is mounted properly', () => {
 	});
 	expect(wrapper).toMatchSnapshot();
 });
+
+test('if the dismiss icon is shown when the prop isDismissible is setted to true', () => {
+	const wrapper = mount(ActionBar, {
+		localVue,
+		propsData: {
+			isDismissible: true,
+		},
+	});
+
+	expect(wrapper.findAll('.icon-container').length).toBe(1);
+});
