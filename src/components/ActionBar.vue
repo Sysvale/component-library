@@ -38,14 +38,23 @@ export default {
 		floatingMode: {
 			type: Boolean,
 			default: false,
+			description: `When setted to true this prop makes
+				the ActionBar to work floating above the content
+				of the view, being placed in the bottom of the page.`
 		},
 		isDismissible: {
 			type: Boolean,
 			default: false,
+			description: `When setted to true this prop displays
+				an 'x' icon that emits a event that can be handled
+				to close the ActionBar.`
 		},
 		bgColor: {
 			type: String,
 			default: '',
+			description: `You can send colors in any format applicable
+				to the 'background-color' property in order to overwrite
+				the default ActionBar color.`
 		},
 	},
 };
