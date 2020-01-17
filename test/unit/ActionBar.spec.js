@@ -33,3 +33,17 @@ test("if the 'fixed' class is used when the floatingMode is setted to true", () 
 
 	expect(wrapper.findAll('.fixed').length).toBe(1);
 });
+
+test('if the event is emited correctly when the dismissible icon is clicked', () => {
+	const wrapper = mount(ActionBar, {
+		localVue,
+		propsData: {
+			isDismissible: true,
+		},
+	});
+
+	wrapper.find('.icon-container').trigger('click');
+
+	expect(wrapper.emitted().close).toBeTruthy();
+	expect(wrapper.emitted().close).toEqual([ [ true ] ]);
+});
