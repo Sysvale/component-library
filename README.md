@@ -21,17 +21,17 @@
 
 ### How to install and run
 
-Clone the repository:
+- Clone the repository:
 
 ```
 git clone git@github.com:Sysvale/component-library.git
 ```
-Install the dependencies:
+- Install the dependencies:
 
 ```
 npm i
 ```
-Running the component library
+- Running the component library
 
 ```
 npm run storybook
