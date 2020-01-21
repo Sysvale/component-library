@@ -3,7 +3,8 @@ import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-import { CheckCircleIcon } from 'vue-feather-icons'
+import { CheckCircleIcon } from 'vue-feather-icons';
+import customTheme from './theme';
 
 import _ from 'lodash';
 Object.defineProperty(Vue.prototype, '_', { value: _ });
@@ -30,6 +31,7 @@ addParameters({
 		addonPanelInRight: true,
 		sidebarAnimations: true, 
 		isToolshown: false,
+		theme: customTheme,
 	},
 });
 
