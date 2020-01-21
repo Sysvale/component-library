@@ -11,16 +11,16 @@ Object.defineProperty(Vue.prototype, '_', { value: _ });
 import {
 	Badge,
 	StepperCounter,
-	CustomWrapper,
 	ActionBar
 } from '../src/components';
+
+import CustomWrapper from '../src/Wrapper.vue';
 
 Vue.component('s-badge', Badge);
 Vue.component('s-stepper-counter', StepperCounter);
 Vue.component('wrapper', CustomWrapper);
 Vue.component('s-action-bar', ActionBar);
 Vue.component('check-circle-icon', CheckCircleIcon);
-
 
 Vue.use(BootstrapVue);
 
