@@ -33,4 +33,4 @@ addParameters({
 	},
 });
 
-configure(require.context('../src/components', true, /\.stories\.js$/), module);
+configure(require.context('../src/stories', true, /\.stories\.js$/), module);
