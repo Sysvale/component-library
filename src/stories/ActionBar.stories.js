@@ -5,7 +5,7 @@ import {
 	withKnobs, text, color, boolean,
 } from '@storybook/addon-knobs';
 
-import ActionBar from './ActionBar.vue';
+import ActionBar from '../components/ActionBar.vue';
 
 const template = `
 <s-action-bar
