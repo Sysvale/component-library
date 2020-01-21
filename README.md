@@ -31,13 +31,13 @@ git clone git@github.com:Sysvale/component-library.git
 ```
 npm i
 ```
-- Running the component library
+- Run the component library:
 
 ```
 npm run storybook
 ```
 
-### Running the tests
+### How to run the tests
 
 ```
 npm run test
