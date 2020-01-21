@@ -14,7 +14,7 @@
     <img src="https://www.codefactor.io/repository/github/sysvale/component-library/badge" alt="CodeFactor" />
   </a>
   
-  <a href="https://www.codefactor.io/repository/github/sysvale/component-library">
+  <a href="https://travis-ci.com/Sysvale/component-library">
     <img src="https://travis-ci.com/Sysvale/component-library.svg?branch=master" alt="CodeFactor" />
   </a>
 </p>
