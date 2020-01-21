@@ -4,10 +4,10 @@
   </a>
 </p>
 
-<p align="center">
+<div align="center">
   A component library built by Sysvale, using storybook and Vue components
-  https://sysvale.github.io/component-library
-</p>
+  <p align="center">https://sysvale.github.io/component-library</p>
+</div>
 
 <p align="center">
   <a href="https://www.codefactor.io/repository/github/sysvale/component-library">
