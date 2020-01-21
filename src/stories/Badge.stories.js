@@ -5,7 +5,7 @@ import {
 	withKnobs, text, select, boolean,
 } from '@storybook/addon-knobs';
 
-import Badge from './Badge.vue';
+import Badge from '../components/Badge.vue';
 
 const template = `
 <s-badge
