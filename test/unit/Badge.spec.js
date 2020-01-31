@@ -15,52 +15,104 @@ test('Component is mounted properly', () => {
 	expect(wrapper).toMatchSnapshot();
 });
 
-describe("Computed property 'style' test", () => {
-	test('if the computed property style works properly with the default value for the prop status_type', () => {
+describe("Computed property 'predefinedStyle' test", () => {
+	test('if the computed property predefinedStyle works properly with the default value for the prop variant', () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
 				content: 'Test',
 			},
 		});
-		expect(wrapper.vm.style).toBe('negative-badge');
+		expect(wrapper.vm.predefinedStyle).toBe('yellow');
 	});
 });
 
-describe("Prop 'status_type' tests", () => {
-	test("if the computed property changes when the prop status_type is setted to 'negative'", () => {
+describe("Prop 'variant' tests", () => {
+	test("if the computed property changes when the prop variant is setted to 'yellow'", () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
-				status_type: 'Negative',
+				variant: 'yellow',
 				content: 'Test',
 			},
 		});
 
-		expect(wrapper.vm.style).toBe('negative-badge');
+		expect(wrapper.vm.predefinedStyle).toBe('yellow');
 	});
 
-	test("if the computed property changes when the prop status_type is setted to 'positive'", () => {
+	test("if the computed property changes when the prop variant is setted to 'green'", () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
-				status_type: 'Positive',
+				variant: 'green',
 				content: 'Test',
 			},
 		});
 
-		expect(wrapper.vm.style).toBe('positive-badge');
+		expect(wrapper.vm.predefinedStyle).toBe('green');
 	});
 
-	test("if the computed property changes when the prop status_type is setted to 'neutral'", () => {
+	test("if the computed property changes when the prop variant is setted to 'red'", () => {
 		const wrapper = mount(Badge, {
 			localVue,
 			propsData: {
-				status_type: 'Neutral',
+				variant: 'red',
 				content: 'Test',
 			},
 		});
 
-		expect(wrapper.vm.style).toBe('neutral-badge');
+		expect(wrapper.vm.predefinedStyle).toBe('red');
+	});
+
+	test("if the computed property changes when the prop variant is setted to 'blue'", () => {
+		const wrapper = mount(Badge, {
+			localVue,
+			propsData: {
+				variant: 'blue',
+				content: 'Test',
+			},
+		});
+
+		expect(wrapper.vm.predefinedStyle).toBe('blue');
+	});
+
+	test("if the computed property changes when the prop variant is setted to 'purple'", () => {
+		const wrapper = mount(Badge, {
+			localVue,
+			propsData: {
+				variant: 'purple',
+				content: 'Test',
+			},
+		});
+
+		expect(wrapper.vm.predefinedStyle).toBe('purple');
+	});
+
+	test("if the computed property changes when the prop variant is setted to 'gray'", () => {
+		const wrapper = mount(Badge, {
+			localVue,
+			propsData: {
+				variant: 'gray',
+				content: 'Test',
+			},
+		});
+
+		expect(wrapper.vm.predefinedStyle).toBe('gray');
+	});
+});
+
+describe("Prop 'bgColor' and 'color' tests", () => {
+	test("if the computed property 'styleVariables' changes when the prop 'colorCodeMode' is setted to 'true'", () => {
+		const wrapper = mount(Badge, {
+			localVue,
+			propsData: {
+				colorCodeMode: true,
+				color: 'white',
+				bgColor: 'blue',
+				content: 'Test',
+			},
+		});
+
+		expect(wrapper.vm.styleVariables).toStrictEqual({"--bg-color": "blue", "--color": "white"});
 	});
 });
