@@ -1,10 +1,35 @@
 <template>
 	<div>
-		<b-table striped hover :items="items" :fields="fields"></b-table>
+		<b-table hover :items="items" :fields="fields">
+			 <template v-slot:head(selectable)="selectable">
+				<div
+					class="action-icons d-flex justify-content-start"
+				>
+					<square-icon
+						v-if="!isAllSelected"
+						size="1.1x"
+						v-b-tooltip.hover
+						class="clickable"
+						:title="'Clique para remover as seleções'"
+						@click="selectAll(false)"
+					/>
+					<check-square-icon
+						v-else
+						size="1.1x"
+						v-b-tooltip.hover
+						class="clickable"
+						:title="'Clique para selecionar todos'"
+						@click="selectAll(true)"
+					/>
+				</div>
+			</template>
+		</b-table>
 	</div>
 </template>
 
 <script>
+import { SquareIcon } from 'vue-feather-icons';
+import { CheckSquareIcon } from 'vue-feather-icons';
 
 export default {
 	props: {
@@ -23,10 +48,15 @@ export default {
 			description: 'alo galera',
 		},
 	},
+	components: {
+		SquareIcon,
+		CheckSquareIcon,
+	},
 
 	data() {
 		return {
-
+			isAllSelected: false,
+			filteredItems: [],
 		};
 	},
 
@@ -50,7 +80,34 @@ export default {
 	},
 
 	methods: {
+		selectAll(status) {
+			console.log('status1: ', this.isAllSelected);
+			
+			this.filteredItems.forEach((item) => {
+				if (item.isSelected && status) {
+					return;
+				}
 
+				item.isSelected = status;
+				this.isAllSelected = status;
+				console.log('status2: ', this.isAllSelected);
+				item._rowVariant = status === true ? 'primary' : '';
+				this.$emit('item-selected', item);
+			});
+		},
 	},
 };
 </script>
+<style>
+	.clickable {
+		cursor: pointer;
+	}
+
+	.action-icons {
+		font-size: 18px;
+		color: #707070;
+		padding: 3px;
+		display: flex;
+		justify-content: flex-end;
+	}
+</style>
