@@ -2,7 +2,7 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import {
-	withKnobs, object, array,
+	withKnobs, object, array, boolean,
 } from '@storybook/addon-knobs';
 
 import Table from '../components/Table.vue';
@@ -11,6 +11,7 @@ const template = `
 <s-table
 	:fields="fields"
 	:items="items"
+	:allowSelection="allowSelection"
 />`;
 
 const componentDescription = 'Stepper counters are components that control and display the steps of a stepper.';
@@ -64,6 +65,9 @@ export default {
 
 export const table = () => ({
 	props: {
+		allowSelection: {
+			default: () => boolean('Allow selection', false)
+		},
 		fields: {
 			default: () => array('Fields:', [
 				{ key: 'selectable', label: '' },

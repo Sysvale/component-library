@@ -3,6 +3,7 @@
 		<b-table hover :items="items" :fields="fields">
 			 <template v-slot:head(selectable)="selectable">
 				<div
+					v-if="allowSelection"
 					class="action-icons d-flex justify-content-start"
 				>
 					<square-icon
@@ -28,6 +29,7 @@
 				v-slot:cell(selectable)="data"
 			>
 				<div
+					v-if="allowSelection"
 					class="action-icons d-flex justify-content-start"
 				>
 					<square-icon
@@ -58,15 +60,16 @@ export default {
 			type: Array,
 			default: () => [],
 			required: true,
-			description: `The labels of the table. An array of objects containing 'key' and 'label'.
-				The 'key' property is the identifier value of the object,
-				and the 'label' property is the text that will be displayed as its respective column title.`,
+			description: ``,
 		},
 		items: {
 			type: Array,
 			default: () => [],
 			required: true,
-			description: 'alo galera',
+		},
+		allowSelection: {
+			type: Boolean,
+			default: false,			
 		},
 	},
 	components: {
