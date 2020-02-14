@@ -11,7 +11,7 @@
 						v-b-tooltip.hover
 						class="clickable"
 						:title="'Clique para remover as seleções'"
-						@click="selectAll(false)"
+						@click="selectAll(true)"
 					/>
 					<check-square-icon
 						v-else
@@ -19,7 +19,28 @@
 						v-b-tooltip.hover
 						class="clickable"
 						:title="'Clique para selecionar todos'"
-						@click="selectAll(true)"
+						@click="selectAll(false)"
+					/>
+				</div>
+			</template>
+
+			<template
+				v-slot:cell(selectable)="data"
+			>
+				<div
+					class="action-icons d-flex justify-content-start"
+				>
+					<square-icon
+						v-if="!data.rowSelected"
+						size="1.1x"
+						class="clickable"
+						@click="hadleRowSelection(data)"
+					/>
+					<check-square-icon
+						v-else
+						size="1.1x"
+						class="clickable"
+						@click="hadleRowSelection(data)"
 					/>
 				</div>
 			</template>
@@ -80,9 +101,7 @@ export default {
 	},
 
 	methods: {
-		selectAll(status) {
-			console.log('status1: ', this.isAllSelected);
-			
+		selectAll(status) {			
 			this.filteredItems.forEach((item) => {
 				if (item.isSelected && status) {
 					return;
