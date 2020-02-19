@@ -6,6 +6,11 @@ node_js: '8'
 before_script:
 - npm run build-storybook
 
+# Run pipeline only on master branch
+branches:
+  only:
+  - master
+
 # Deployment information
 deploy:
   - provider: pages # Tell Travis we want to deploy to Github Pages
