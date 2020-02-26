@@ -2,7 +2,7 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import {
-	withKnobs, object, array, boolean,
+	withKnobs, array, boolean, text,
 } from '@storybook/addon-knobs';
 
 import Table from '../components/Table.vue';
@@ -12,6 +12,7 @@ const template = `
 	:fields="fields"
 	:items="items"
 	:allowSelection="allowSelection"
+	:filterPlaceholder="filterPlaceholder"
 />`;
 
 const componentDescription = 'Stepper counters are components that control and display the steps of a stepper.';
@@ -65,6 +66,9 @@ export default {
 
 export const table = () => ({
 	props: {
+		filterPlaceholder: {
+			default: () => text('Description:', 'Some description'),
+		},
 		allowSelection: {
 			default: () => boolean('Allow selection', false)
 		},
@@ -84,7 +88,20 @@ export const table = () => ({
 			default: () => array('Items:', [
 				{
 					id: "ZGQ2MCJ9",
-					description: "sdasda",
+					description: "Conta show 1",
+					value: "R$ 1806,73",
+					status: "received",
+					contact: "Bi Acrilicos",
+					contact_id: "e5YTBkNzQyNGQzIn0=",
+					expected_receive_date: "2020-01-02T16:47:56.000000Z",
+					_rowVariant: "",
+					dates: "02/01/2020",
+					fancy_status: "Não recebida",
+					_status_variant: "red",
+				},
+				{
+					id: "ZGQ2MCJ9",
+					description: "Conta test",
 					value: "R$ 56,51",
 					status: "not_received",
 					contact: "Bi Acrilicos",
@@ -97,21 +114,8 @@ export const table = () => ({
 				},
 				{
 					id: "ZGQ2MCJ9",
-					description: "sdasda",
-					value: "R$ 56,51",
-					status: "not_received",
-					contact: "Bi Acrilicos",
-					contact_id: "e5YTBkNzQyNGQzIn0=",
-					expected_receive_date: "2020-01-02T16:47:56.000000Z",
-					_rowVariant: "",
-					dates: "02/01/2020",
-					fancy_status: "Não recebida",
-					_status_variant: "red",
-				},
-				{
-					id: "ZGQ2MCJ9",
-					description: "sdasda",
-					value: "R$ 56,51",
+					description: "Topzeira",
+					value: "R$ 286,33",
 					status: "not_received",
 					contact: "Bi Acrilicos",
 					contact_id: "e5YTBkNzQyNGQzIn0=",
