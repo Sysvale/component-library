@@ -7,14 +7,15 @@
 				class="mb-3"
 			>
 				<b-input-group class="mt-3">
-					<b-input-group-prepend class="form-fix prep">
-						<i
-							class="icon-search"
+					<b-input-group-prepend class="form-fix prepend">
+						<search-icon
+							size="1.1x"
+							class="icons-color"
 						/>
 					</b-input-group-prepend>
 					<b-form-input
 						v-model="textFilter"
-						class="form-input"
+						class="form-input seatch-input-container"
 						:placeholder="filterPlaceholder"
 					/>
 					<b-input-group-append class="form-fix append">
@@ -86,6 +87,7 @@
 <script>
 import { SquareIcon } from 'vue-feather-icons';
 import { CheckSquareIcon } from 'vue-feather-icons';
+import { SearchIcon } from 'vue-feather-icons'
 
 export default {
 	props: {
@@ -112,6 +114,7 @@ export default {
 	components: {
 		SquareIcon,
 		CheckSquareIcon,
+		SearchIcon,
 	},
 
 	data() {
@@ -172,6 +175,10 @@ export default {
 		cursor: pointer;
 	}
 
+	.icons-color {
+		color: #707070;
+	}
+
 	.action-icons {
 		font-size: 18px;
 		color: #707070;
@@ -179,4 +186,40 @@ export default {
 		display: flex;
 		justify-content: flex-end;
 	}
+
+	.form-fix {
+		color: #ced4da;
+		padding: 10px;
+		border: 1px solid #ced4da;
+	}
+
+	.form-fix.prepend {
+		border-right: 0px;
+		border-top-left-radius: 0.25rem;
+		border-bottom-left-radius: 0.25rem;
+	}
+
+	.form-fix.append {
+		padding-top: 11px;
+		padding-bottom: 9px;
+		border-left: 0px;
+		border-top-right-radius: 0.25rem;
+		border-bottom-right-radius: 0.25rem;
+	}
+
+	.form-input {
+		border-left: 0;
+		border-right: 0;
+		outline: none;
+		box-shadow: none !important;
+	}
+
+	.form-input:focus {
+		border-color: #ced4da;
+	}
+
+	.seatch-input-container {
+		height: auto !important;
+	}
+
 </style>
