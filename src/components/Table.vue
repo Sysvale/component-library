@@ -19,9 +19,10 @@
 						:placeholder="filterPlaceholder"
 					/>
 					<b-input-group-append class="form-fix append">
-						<i
+						<x-icon
+							size="1.1x"
+							class="icons-color clickable"
 							v-if="textFilter.length !== 0"
-							class="icon-x clickable"
 							@click="cleanTextFilter"
 						/>
 					</b-input-group-append>
@@ -87,7 +88,8 @@
 <script>
 import { SquareIcon } from 'vue-feather-icons';
 import { CheckSquareIcon } from 'vue-feather-icons';
-import { SearchIcon } from 'vue-feather-icons'
+import { SearchIcon } from 'vue-feather-icons';
+import { XIcon } from 'vue-feather-icons';
 
 export default {
 	props: {
@@ -111,10 +113,12 @@ export default {
 			default: '',
 		},
 	},
+
 	components: {
 		SquareIcon,
 		CheckSquareIcon,
 		SearchIcon,
+		XIcon,
 	},
 
 	data() {
