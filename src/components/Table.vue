@@ -1,7 +1,40 @@
 <template>
 	<div>
-		<b-table hover :items="items" :fields="fields">
-			 <template v-slot:head(selectable)="selectable">
+		<b-row>
+			<b-col
+				v-if="items.length > 0"
+				cols="8"
+				class="mb-3"
+			>
+				<b-input-group class="mt-3">
+					<b-input-group-prepend class="form-fix prep">
+						<i
+							class="icon-search"
+						/>
+					</b-input-group-prepend>
+					<b-form-input
+						v-model="textFilter"
+						class="form-input"
+						:placeholder="filterPlaceholder"
+					/>
+					<b-input-group-append class="form-fix append">
+						<i
+							v-if="textFilter.length !== 0"
+							class="icon-x clickable"
+							@click="cleanTextFilter"
+						/>
+					</b-input-group-append>
+				</b-input-group>
+			</b-col>
+		</b-row>
+		<b-table
+			hover
+			:items="xItems"
+			:fields="fields"
+			:filter="textFilter"
+			@filtered="handleFiltered"
+		>
+			 <template v-slot:head(selectable)>
 				<div
 					v-if="allowSelection"
 					class="action-icons d-flex justify-content-start"
@@ -71,6 +104,10 @@ export default {
 			type: Boolean,
 			default: false,			
 		},
+		filterPlaceholder: {
+			type: String,
+			default: '',
+		},
 	},
 	components: {
 		SquareIcon,
@@ -79,32 +116,32 @@ export default {
 
 	data() {
 		return {
+			selectedItems: [],
 			isAllSelected: false,
+			xItems: [],
 			filteredItems: [],
+			textFilter: '',
 		};
 	},
 
-	computed: {
-
-	},
-
-	watch: {
-
-	},
-
 	created() {
-
-	},
-
-	beforeMount() {
-		console.log("mounted");
-		console.log('this.fields', this.fields);
-		console.log('this.items', this.items);
-		
+		this.xItems = this.items.map(item => ({
+			...item,
+			rowVariant: item.isActive === false ? '- text-muted font-italic' : item.rowVariant,
+		}));
 	},
 
 	methods: {
-		selectAll(status) {			
+		handleFiltered(items) {
+			this.filteredItems = items;
+			return this.$emit('filtered', items);
+		},
+
+		cleanTextFilter() {
+			this.textFilter = '';
+		},
+
+		selectAll(status) {
 			this.filteredItems.forEach((item) => {
 				if (item.isSelected && status) {
 					return;
@@ -112,12 +149,22 @@ export default {
 
 				item.isSelected = status;
 				this.isAllSelected = status;
-				console.log('status2: ', this.isAllSelected);
 				item._rowVariant = status === true ? 'primary' : '';
 				this.$emit('item-selected', item);
 			});
 		},
+
+		hadleRowSelection(value) {
+			this.changeSelection(value);
+			this.$emit('item-selected', value);
+		},
+
+		changeSelection(value) {
+			value.isSelected = !value.isSelected;
+			value._rowVariant = value.isSelected === true ? 'primary' : '';
+		},
 	},
+
 };
 </script>
 <style>
