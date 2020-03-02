@@ -69,6 +69,8 @@ export default {
 			selectedIndex: 0,
 			selectedValue: 1,
 			pages: [],
+			defaultIndex: 0,
+			defaultValue: 1,
 		};
 	},
 
