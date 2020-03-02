@@ -8,8 +8,15 @@ import Pagination from '../components/Pagination.vue';
 
 const template = `
 <s-pagination
-	:content="text"
-/>`;
+	:total-rows="totalRows"
+	:per-page="perPage"
+	:active-text-color="activeTextColor"
+	:active-bg-color="activeBgColor"
+	:hover-text-color="hoverTextColor"
+	:hover-bg-color="hoverBgColor"
+	:border-radius="borderRadius"
+/>
+`;
 
 const componentDescription = 'paginations are small status descriptors used, primarly, to highlight important metadata about features or content.';
 
