@@ -66,8 +66,43 @@ export default {
 
 export const pagination = () => ({
 	props: {
-		text: {
-			default: () => text('Label text:', 'Negative'),
+		perPage: {
+			default: () => number(
+				'Items per page:',
+				2,
+				{min: 1},
+			),
+		},
+		totalRows: {
+			default: () => number(
+				'Item total:',
+				6,
+				{min: 1},
+			),
+		},
+		activeBgColor: {
+			default: () => color('Active item background color:', '#545b62'),
+		},
+		activeTextColor: {
+			default: () => color('Active item text color:', '#FFFFFF'),
+		},
+		hoverBgColor: {
+			default: () => color('Hover item background color:', '#545b62'),
+		},
+		hoverTextColor: {
+			default: () => color('Hover item text color:', '#FFFFFF'),
+		},
+		borderRadius: {
+			default: () => number(
+				'Border radius (pixels):',
+				5,
+				{
+					range: false,
+					min: 0,
+					max: 15,
+					step: 1,
+				}
+			),
 		},
 	},
 	template: template,
