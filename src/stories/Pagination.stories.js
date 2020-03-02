@@ -18,7 +18,8 @@ const template = `
 />
 `;
 
-const componentDescription = 'paginations are small status descriptors used, primarly, to highlight important metadata about features or content.';
+const componentDescription = `Pagination is a button row used to organize and manage any amounts of data that can be divided in blocks.
+	This component should be bound via v-model. Pages are indexed starting at 1.`;
 
 const docsDecorator = () => {
 	return {
