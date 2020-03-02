@@ -16,10 +16,13 @@ test('Click event is recognized', () => {
 	const wrapper = mount(Pagination, {
 		localVue,
 		propsData: {
-			perPage: 5,
-			totalRows: 20,
-			defaultIndex: 0,
-			defaultValue: 1,
+			perPage: 2,
+			totalRows: 6,
+			activeBgColor: '#545b62',
+			activeTextColor: '#FFFFFF',
+			hoverBgColor: '#545b62',
+			hoverTextColor: '#FFFFFF',
+			borderRadius: 5,
 		},
 	});
 
@@ -34,8 +37,11 @@ test('Page number is correct', () => {
 		propsData: {
 			perPage: 10,
 			totalRows: 21,
-			defaultIndex: 0,
-			defaultValue: 1,
+			activeBgColor: '#545b62',
+			activeTextColor: '#FFFFFF',
+			hoverBgColor: '#545b62',
+			hoverTextColor: '#FFFFFF',
+			borderRadius: 5,
 		},
 	});
 
