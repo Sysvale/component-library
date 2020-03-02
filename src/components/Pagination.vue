@@ -6,6 +6,7 @@
 				:id="'tab'+page.index"
 				:key="page.index"
 				class="pagination-button"
+				:style="cssVars"
 				:pressed="selectedIndex == page.index"
 				@click="handleClick(page)"
 			>
@@ -78,6 +79,16 @@ export default {
 		pageCount() {
 			return Math.ceil(this.totalRows / this.perPage);
 		},
+
+		cssVars() {
+			return {
+				'--active-bg-color': this.activeBgColor,
+				'--active-text-color': this.activeTextColor,
+				'--hover-bg-color': this.hoverBgColor,
+				'--hover-text-color': this.hoverTextColor,
+				'--border-radius': `${this.borderRadius}px`,
+			}
+		}
 	},
 
 	watch: {
