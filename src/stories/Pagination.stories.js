@@ -1,7 +1,7 @@
 
 import { withA11y } from '@storybook/addon-a11y';
 import {
-	withKnobs, text, select, boolean,
+	withKnobs, text, color, number,
 } from '@storybook/addon-knobs';
 
 import Pagination from '../components/Pagination.vue';
