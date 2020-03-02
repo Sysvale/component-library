@@ -22,18 +22,44 @@ export default {
 		perPage: {
 			type: Number,
 			default: 5,
+			description: `The maximum number of elements
+				for each page of the element being paged.`
 		},
 		totalRows: {
 			type: Number,
-			default: 0,
-		},
-		defaultIndex: {
-			type: Number,
-			default: 0,
-		},
-		defaultValue: {
-			type: Number,
 			default: 1,
+			description: `The total amount of rows in the element
+				being paged.`,
+		},
+		activeBgColor: {
+			type: String,
+			default: '#545b62',
+			description: `The RGB color code for the background
+				of the active selection of the component.`,
+		},
+		activeTextColor: {
+			type: String,
+			default: '#fff',
+			description: `The RGB color code for the text
+				of the active selection of the component.`,
+		},
+		hoverBgColor: {
+			type: String,
+			default: '#545b62',
+			description: `The RGB color code for the background
+				of the hover selection of the component.`,
+		},
+		hoverTextColor: {
+			type: String,
+			default: '#fff',
+			description: `The RGB color code for the text
+				of the hover selection of the component.`,
+		},
+		borderRadius: {
+			type: Number,
+			default: 5,
+			description: `The value, in pixels, of the border
+				radius of the whole element.`,
 		},
 	},
 
