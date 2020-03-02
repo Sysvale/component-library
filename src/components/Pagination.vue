@@ -206,17 +206,18 @@ export default {
 	color: #707070;
 	border-color: #b8b8b8;
 	box-shadow: none !important;
+	border-radius: var(--border-radius);
 }
 
 .pagination-button:hover {
-	background-color: #08b2e3 !important;
-	border-color: #08b2e3 !important;
-	color: white;
+	background-color: var(--hover-bg-color) !important;
+	border-color: var(--hover-bg-color) !important;
+	color: var(--hover-text-color) !important;
 }
 
-.pagination-button:active {
-	background-color: #08b2e3 !important;
-	border-color: #08b2e3 !important;
-	color: white;
+.btn.active {
+	background-color: var(--active-bg-color) !important;
+	border-color: var(--active-bg-color) !important;
+	color: var(--active-text-color) !important;
 }
 </style>
