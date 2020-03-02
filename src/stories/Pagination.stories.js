@@ -34,19 +34,16 @@ const docsDecorator = () => {
 			`<div>
 				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Pagination">
 					<div slot="usage">
-						<h5>Use paginations when:</h5>
+						<h5>Use pagination when:</h5>
 						<ul>
-							<li>You want to show status associated with your logic business or users actions</li>
-							<li>You want to highlight important metadata about features or content</li>
-							<li>You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.)</li>
-							<li>The pagination is readonly</li>
+							<li>You need to show data that makes sense to be shown together</li>
+							<li>You need to show a large amount of data, organized in rows</li>
 						</ul>
 						<br>
-						<h5>Don't use paginations when:</h5>
+						<h5>Don't use pagination when:</h5>
 						<ul>
-							<li>The status that the pagination represents, can be setted or removed by the user</li>
-							<li>Clicking the component should trigger a functionality or execute an action.</li>
-							<li>You want to categorize something</li>
+							<li>The amount of data to be shown is too small.</li>
+							<li>There's too much information to be displayed in a row.</li>
 						</ul>
 					</div>
 					<story slot="component-preview"/>
