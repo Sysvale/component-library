@@ -35,26 +35,26 @@ export default {
 		activeBgColor: {
 			type: String,
 			default: '#545b62',
-			description: `The RGB color code for the background
+			description: `The Hex color code for the background
 				of the active selection of the component.`,
 		},
 		activeTextColor: {
 			type: String,
 			default: '#fff',
-			description: `The RGB color code for the text
+			description: `The Hex color code for the text
 				of the active selection of the component.`,
 		},
 		hoverBgColor: {
 			type: String,
 			default: '#545b62',
-			description: `The RGB color code for the background
-				of the hover selection of the component.`,
+			description: `The Hex color code for the background
+				of the hovered selection of the component.`,
 		},
 		hoverTextColor: {
 			type: String,
 			default: '#fff',
-			description: `The RGB color code for the text
-				of the hover selection of the component.`,
+			description: `The Hex color code for the text
+				of the hovered selection of the component.`,
 		},
 		borderRadius: {
 			type: Number,
