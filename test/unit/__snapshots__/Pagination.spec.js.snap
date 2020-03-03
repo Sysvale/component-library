@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component is mounted properly 1`] = `
+<div class="pagination-container">
+  <div role="group" class="btn-group"><button id="tab0" type="button" aria-pressed="true" autocomplete="off" class="btn pagination-button btn-secondary active">
+      1
+    </button></div>
+</div>
+`;
