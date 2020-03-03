@@ -7,7 +7,7 @@
 				:key="page.index"
 				class="pagination-button"
 				:style="cssVars"
-				:pressed="selectedIndex == page.index"
+				:pressed="selectedIndex === page.index"
 				@click="handleClick(page)"
 			>
 				{{ page.value }}
