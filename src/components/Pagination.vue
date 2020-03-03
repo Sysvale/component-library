@@ -216,6 +216,12 @@ export default {
 	color: var(--hover-text-color) !important;
 }
 
+.pagination-button:focus {
+	background: transparent;
+	color: #707070;
+	border-color: #b8b8b8;
+}
+
 .btn.active {
 	background-color: var(--active-bg-color) !important;
 	border-color: var(--active-bg-color) !important;
