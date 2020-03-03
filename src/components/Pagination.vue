@@ -24,7 +24,7 @@ export default {
 			type: Number,
 			default: 5,
 			description: `The maximum number of elements
-				for each page of the element being paged.`
+				for each page of the element being paged.`,
 		},
 		totalRows: {
 			type: Number,
