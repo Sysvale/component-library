@@ -77,7 +77,8 @@ export default {
 
 	computed: {
 		pageCount() {
-			return Math.ceil(this.totalRows / this.perPage);
+			const perPage = this.perPage > 0 ? this.perPage : 1;
+			return Math.ceil(this.totalRows / perPage);
 		},
 
 		cssVars() {
