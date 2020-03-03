@@ -5,6 +5,7 @@ import {
 } from '@storybook/addon-knobs';
 
 import Pagination from '../components/Pagination.vue';
+import { action } from '@storybook/addon-actions';
 
 const template = `
 <s-pagination
@@ -15,6 +16,7 @@ const template = `
 	:hover-text-color="hoverTextColor"
 	:hover-bg-color="hoverBgColor"
 	:border-radius="borderRadius"
+	@input="changePage"
 />
 `;
 
@@ -65,6 +67,9 @@ export default {
 };
 
 export const pagination = () => ({
+	methods: {
+		changePage: action(`Page clicked`),
+	},
 	props: {
 		perPage: {
 			default: () => number(
