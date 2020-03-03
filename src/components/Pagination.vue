@@ -127,10 +127,12 @@ export default {
 					index: i,
 					value: i + 1,
 				};
+
 				if (pages[i].value === this.selectedValue) {
 					this.selectedIndex = pages[i].index;
 				}
 			}
+
 			if (this.pageCount > 15) {
 				if (this.selectedValue > this.pageCount - 8) {
 					for (let i = 0; i < 15; i += 1) {
@@ -138,10 +140,12 @@ export default {
 							index: i,
 							value: this.pageCount - 14 + i,
 						};
+
 						if (pages[i].value === this.selectedValue) {
 							this.selectedIndex = pages[i].index;
 						}
 					}
+
 					pages[1] = {
 						index: 1,
 						value: '...',
@@ -158,12 +162,14 @@ export default {
 							value: this.selectedValue - 7 + i,
 						};
 					}
+
 					for (let i = 8; i < 14; i += 1) {
 						pages[i] = {
 							index: i,
 							value: this.selectedValue + i - 7,
 						};
 					}
+
 					this.selectedIndex = 7;
 					pages[7] = {
 						index: 7,
@@ -178,6 +184,7 @@ export default {
 						value: '...',
 					};
 				}
+
 				pages[0] = {
 					index: 0,
 					value: 1,
@@ -187,6 +194,7 @@ export default {
 					value: this.pageCount,
 				};
 			}
+
 			return pages;
 		},
 	},
