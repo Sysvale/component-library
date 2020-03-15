@@ -3,10 +3,12 @@
 		class="no-items"
 	>
 		<img :src="noItemImage">
-		<div class="no-items-text main-colored-text">
+		<div class="no-items-text"
+			:style="mainTextStyle">
 			{{ noItemText }}
 		</div>
-		<div class="no-items-subtext mt-2">
+		<div class="no-items-subtext mt-2"
+			:style="subTextStyle">
 			{{ noItemSubtext }}
 		</div>
 		<div
@@ -60,35 +62,65 @@ export default {
 			type: String,
 			default: 'primary',
 		},
+		mainTextColor: {
+			type: String,
+			default: '#563d7c',
+			description: ``
+		},
+		subTextColor: {
+			type: String,
+			default: '#707070',
+			description: ``
+		},
+		mainFontSize: {
+			type: Number,
+			default: 32,
+			description: ``,
+		},
+		subFontSize: {
+			type: Number,
+			default: 16,
+			description: ``,
+		},
 	},
+	computed: {
+		mainTextStyle() {
+			return {
+				'--main-text-color': this.mainTextColor,
+				'--main-text-size': `${this.mainFontSize}px`,
+			}
+		},
+		subTextStyle() {
+			return {
+				'--sub-text-color': this.subTextColor,
+				'--sub-text-size': `${this.subFontSize}px`,
+			}
+		}
+	}
 };
 </script>
 
 <style>
 
 .no-items {
-	color: #707070;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	position: relative;
-	font-size: 32px;
-	height: 500px;
-	margin-top: 60px;
+	margin: 60px;
 }
 
 .no-items-text {
 	margin-top: 20px;
+	color: var(--main-text-color);
+	font-size: var(--main-text-size);
 }
 
 .no-items-subtext {
-	font-size: 16px;
+	color: var(--sub-text-color);
+	font-size: var(--sub-text-size);
 	max-width: 50%;
 	text-align: center;
-}
-
-.main-colored-text {
-	color: #563d7c;
 }
 
 .add-button-container {

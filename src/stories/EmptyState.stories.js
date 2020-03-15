@@ -1,7 +1,7 @@
 
 import { withA11y } from '@storybook/addon-a11y';
 import {
-	withKnobs, text, boolean, files,
+	withKnobs, text, boolean, files, color, number,
 } from '@storybook/addon-knobs';
 
 import EmptyState from '../components/EmptyState.vue';
@@ -13,6 +13,10 @@ const template = `
 	:noItemSubtext="noItemSubtext"
 	:showAddButton="showAddButton"
 	:type="type"
+	:mainTextColor="mainTextColor"
+	:mainFontSize="mainFontSize"
+	:subTextColor="subTextColor"
+	:subFontSize="subFontSize"
 />`;
 
 const componentDescription = 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.';
@@ -86,6 +90,36 @@ export const emptyState = () => ({
 		},
 		type: {
 			default: () => text('Type:', 'primary')
+		},
+		mainTextColor: {
+			default: () => color('Main Text Color', '#563d7c')
+		},
+		subTextColor: {
+			default: () => color('Subtext Color', '#707070')
+		},
+		mainFontSize: {
+			default: () => number(
+				'Main text font size (pixels):',
+				32,
+				{
+					range: false,
+					min: 1,
+					max: 70,
+					step: 1
+				}
+			)
+		},
+		subFontSize: {
+			default: () => number(
+				'Subtext font size (pixels):',
+				16,
+				{
+					range: false,
+					min: 1,
+					max: 30,
+					step: 1
+				}
+			)
 		},
 	},
 	template: template
