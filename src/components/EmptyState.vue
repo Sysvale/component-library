@@ -16,17 +16,9 @@
 			class="add-button-container"
 		>
 			<b-button
-				v-if="type === 'primary'"
 				class="primary-button"
+				:style="buttonStyle"
 				@click="$emit('add-button-click')"
-			>
-				{{ buttonText }}
-			</b-button>
-			<b-button
-				v-else
-				class="mr-3 px-5"
-				variant="outline-secondary"
-				@click="$emit('filter-button-click')"
 			>
 				{{ buttonText }}
 			</b-button>
@@ -45,10 +37,12 @@ export default {
 		noItemText: {
 			type: String,
 			default: '',
+			description: ''
 		},
 		noItemSubtext: {
 			type: String,
 			default: '',
+			description: ''
 		},
 		showAddButton: {
 			type: Boolean,
@@ -56,11 +50,8 @@ export default {
 		},
 		buttonText: {
 			type: String,
-			default: 'Adicionar novo',
-		},
-		type: {
-			type: String,
-			default: 'primary',
+			default: 'Add new content',
+			description: ''
 		},
 		mainTextColor: {
 			type: String,
@@ -70,6 +61,11 @@ export default {
 		subTextColor: {
 			type: String,
 			default: '#707070',
+			description: ``
+		},
+		buttonColor: {
+			type: String,
+			default: '#007bff',
 			description: ``
 		},
 		mainFontSize: {
@@ -82,7 +78,13 @@ export default {
 			default: 16,
 			description: ``,
 		},
+		borderRadius: {
+			type: Number,
+			default: 5,
+			description: ``,
+		}
 	},
+
 	computed: {
 		mainTextStyle() {
 			return {
@@ -95,8 +97,15 @@ export default {
 				'--sub-text-color': this.subTextColor,
 				'--sub-text-size': `${this.subFontSize}px`,
 			}
+		},
+		buttonStyle() {
+			return {
+				'--button-color': this.buttonColor,
+				'--border-radius': `${this.borderRadius}px`,
+			}
 		}
 	}
+
 };
 </script>
 
@@ -127,31 +136,28 @@ export default {
 	margin-top: 20px;
 }
 
-.primary-button {
-    background-color: #08b2e3;
-    border-color: #08b2e3;
+.primary-button{
+	background-color: var(--button-color) !important;
+	border-color: var(--button-color) !important;
+	border-radius: var(--border-radius);
     box-shadow: none !important;
 }
 
 .primary-button:hover {
-    background-color: #068eB6;
-    border-color: #068eB6;
+    filter: brightness(80%);
 }
 
 .primary-button:active {
-    background-color: #0784a7 !important;
-    border-color: #0784a7 !important;
+    filter: brightness(90%);
 }
 
 .primary-button.disabled {
-    background-color: #5ecded;
-    border-color: #5ecded;
+    opacity: 0.5;
     cursor: default;
 }
 
-.primary-button.disabled:active {
-    background-color: #5ecded !important;
-    border-color: #5ecded !important;
+.primary-button.disabled:hover {
+    filter: brightness(100%);
 }
 
 </style>

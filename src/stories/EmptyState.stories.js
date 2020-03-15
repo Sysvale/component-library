@@ -12,11 +12,13 @@ const template = `
 	:noItemText="noItemText"
 	:noItemSubtext="noItemSubtext"
 	:showAddButton="showAddButton"
-	:type="type"
 	:mainTextColor="mainTextColor"
 	:mainFontSize="mainFontSize"
 	:subTextColor="subTextColor"
 	:subFontSize="subFontSize"
+	:buttonText="buttonText"
+	:buttonColor="buttonColor"
+	:borderRadius="borderRadius"
 />`;
 
 const componentDescription = 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.';
@@ -88,14 +90,14 @@ export const emptyState = () => ({
 		buttonText: {
 			default: () => text('Button Text:', 'Add new content')
 		},
-		type: {
-			default: () => text('Type:', 'primary')
-		},
 		mainTextColor: {
 			default: () => color('Main Text Color', '#563d7c')
 		},
 		subTextColor: {
 			default: () => color('Subtext Color', '#707070')
+		},
+		buttonColor: {
+			default: () => color('Button Collor', '#007bff')
 		},
 		mainFontSize: {
 			default: () => number(
@@ -121,6 +123,18 @@ export const emptyState = () => ({
 				}
 			)
 		},
+		borderRadius: {
+			default: () => number(
+				'Border radius (pixels):',
+				5,
+				{
+					range: false,
+					min: 0,
+					max: 15,
+					step: 1,
+				}
+			)
+		}
 	},
 	template: template
 });
