@@ -8,20 +8,22 @@ import EmptyState from '../components/EmptyState.vue';
 
 const template = `
 <s-empty-state
-	:noItemImage="noItemImage"
-	:noItemText="noItemText"
-	:noItemSubtext="noItemSubtext"
+	:emptyStateImage="emptyStateImage"
+	:imgDescription="imgDescription"
+	:headlineText="headlineText"
+	:bodyText="bodyText"
 	:showAddButton="showAddButton"
-	:mainTextColor="mainTextColor"
-	:mainFontSize="mainFontSize"
-	:subTextColor="subTextColor"
-	:subFontSize="subFontSize"
+	:headlineColor="headlineColor"
+	:headlineFontSize="headlineFontSize"
+	:bodyTextColor="bodyTextColor"
+	:bodyFontSize="bodyFontSize"
 	:buttonText="buttonText"
 	:buttonColor="buttonColor"
+	:buttonFontSize="buttonFontSize"
 	:borderRadius="borderRadius"
 />`;
 
-const componentDescription = 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.';
+const componentDescription = 'Empty states tell users that there’s no content to display and what they can do next.';
 
 const docsDecorator = () => {
 	return {
@@ -34,21 +36,19 @@ const docsDecorator = () => {
 		},
 		template:
 			`<div>
-				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Badge">
+				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Empty State">
 					<div slot="usage">
-						<h5>Use Badges when:</h5>
+						<h5>Use Empty State when:</h5>
 						<ul>
-							<li>You want to show status associated with your logic business or users actions</li>
-							<li>You want to highlight important metadata about features or content</li>
-							<li>You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.)</li>
-							<li>The badge is readonly</li>
+							<li>You want to guide the user through a process.</li>
+							<li>The user can add content to an empty area.</li>
+							<li>You want to tell users that an empty area has been intentionally left blank.</li>
 						</ul>
 						<br>
-						<h5>Don't use Badges when:</h5>
+						<h5>Don't use Empty State when:</h5>
 						<ul>
-							<li>The status that the badge represents, can be setted or removed by the user</li>
-							<li>Clicking the component should trigger a functionality or execute an action.</li>
-							<li>You want to categorize something</li>
+							<li>The recommended action can't be taken by all users seeing the component.</li>
+							<li>You need more than one call to action button.</li>
 						</ul>
 					</div>
 					<story slot="component-preview"/>
@@ -66,23 +66,22 @@ export default {
 		a11y: {
 			element: '.preview-container',
 		},
-		design: {
-			type: 'figma',
-			url: 'https://www.figma.com/file/aYgL5y9hDGt8zMi7gFA3TM/Badge?node-id=0%3A1',
-		},
 	},
 };
 
 export const emptyState = () => ({
 	props: {
-		noItemImage: {
+		emptyStateImage: {
 			default: () => files('Empty State Image:', '.jpg, .jpeg, .png, .gif, .svg', [])
 		},
-		noItemText: {
-			default: () => text('No Item Text:', 'No results found')
+		imgDescription: {
+			default: () => text('Image Description:', '')
 		},
-		noItemSubtext: {
-			default: () => text('No Item Subtext:', 'Start adding some content!')
+		headlineText: {
+			default: () => text('Headline Text:', 'No results found')
+		},
+		bodyText: {
+			default: () => text('Body Text:', 'Start adding some content!')
 		},
 		showAddButton: {
 			default: () => boolean('Show Add Button', true)
@@ -90,30 +89,42 @@ export const emptyState = () => ({
 		buttonText: {
 			default: () => text('Button Text:', 'Add new content')
 		},
-		mainTextColor: {
-			default: () => color('Main Text Color', '#563d7c')
+		headlineColor: {
+			default: () => color('Headline Color', '#563d7c')
 		},
-		subTextColor: {
-			default: () => color('Subtext Color', '#707070')
+		bodyTextColor: {
+			default: () => color('Body Text Color', '#707070')
 		},
 		buttonColor: {
-			default: () => color('Button Collor', '#007bff')
+			default: () => color('Button Collor', '#1C72CE')
 		},
-		mainFontSize: {
+		headlineFontSize: {
 			default: () => number(
-				'Main text font size (pixels):',
+				'Headline font size (pixels):',
 				32,
 				{
 					range: false,
 					min: 1,
-					max: 70,
+					max: 60,
 					step: 1
 				}
 			)
 		},
-		subFontSize: {
+		bodyFontSize: {
 			default: () => number(
-				'Subtext font size (pixels):',
+				'Body text font size (pixels):',
+				16,
+				{
+					range: false,
+					min: 1,
+					max: 30,
+					step: 1
+				}
+			)
+		},
+		buttonFontSize: {
+			default: () => number(
+				'Button font size (pixels):',
 				16,
 				{
 					range: false,
@@ -130,7 +141,7 @@ export const emptyState = () => ({
 				{
 					range: false,
 					min: 0,
-					max: 15,
+					max: 30,
 					step: 1,
 				}
 			)
