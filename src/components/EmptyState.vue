@@ -32,7 +32,7 @@ export default {
 	props: {
 		emptyStateImage: {
 			type: Array,
-			default: '',
+			default: () => [],
 			description: 'The image that will be displayed in the component.'
 		},
 		imgDescription: {
