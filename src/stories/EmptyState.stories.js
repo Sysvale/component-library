@@ -1,5 +1,6 @@
 
 import { withA11y } from '@storybook/addon-a11y';
+import { action } from '@storybook/addon-actions';
 import {
 	withKnobs, text, boolean, files, color, number,
 } from '@storybook/addon-knobs';
@@ -21,6 +22,7 @@ const template = `
 	:buttonColor="buttonColor"
 	:buttonFontSize="buttonFontSize"
 	:borderRadius="borderRadius"
+	@add-button-click="handleClick"
 />`;
 
 const componentDescription = 'Empty states tell users that there’s no content to display and what they can do next.';
@@ -70,6 +72,9 @@ export default {
 };
 
 export const emptyState = () => ({
+	methods: {
+		handleClick: action('button clicked'),
+	},
 	props: {
 		emptyStateImage: {
 			default: () => files('Empty State Image:', '.jpg, .jpeg, .png, .gif, .svg', [])

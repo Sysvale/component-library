@@ -2,7 +2,7 @@
 	<div
 		class="no-items"
 	>
-		<img :src="emptyStateImage">
+		<img :src="emptyStateImage" :alt="imgDescription">
 		<div class="no-items-text"
 			:style="headlineStyle">
 			{{ headlineText }}
