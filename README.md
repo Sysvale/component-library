@@ -24,7 +24,7 @@
 - Clone the repository:
 
 ```
-git clone git@github.com:Sysvale/component-library.git
+git clone https://github.com/Sysvale/component-library.git
 ```
 - Install the dependencies:
 
