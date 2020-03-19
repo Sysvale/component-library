@@ -174,10 +174,10 @@ export default {
 }
 
 .image-container {
-    max-width:500px;
-    max-height:500px;
-    width: auto;
-    height: auto;
+	max-width:500px;
+	max-height:500px;
+	width: auto;
+	height: auto;
 }
 
 .no-items-text {
