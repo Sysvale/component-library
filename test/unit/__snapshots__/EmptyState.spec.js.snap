@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component is mounted properly 1`] = `
+<div class="no-items"><img src="" alt="" class="image-container">
+  <div class="no-items-text">
+    No results found
+  </div>
+  <div class="no-items-bodytext mt-2">
+    Start adding some content!
+  </div>
+  <div class="action-button-container"><button type="button" class="btn primary-button btn-secondary">
+      Add new content
+    </button></div>
+</div>
+`;

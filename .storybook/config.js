@@ -13,7 +13,8 @@ import {
 	Badge,
 	Pagination,
 	StepperCounter,
-	ActionBar
+	ActionBar,
+	EmptyState,
 } from '../src/components';
 
 import CustomWrapper from '../src/Wrapper.vue';
@@ -24,6 +25,7 @@ Vue.component('s-pagination', Pagination);
 Vue.component('wrapper', CustomWrapper);
 Vue.component('s-action-bar', ActionBar);
 Vue.component('check-circle-icon', CheckCircleIcon);
+Vue.component('s-empty-state', EmptyState);
 
 Vue.use(BootstrapVue);
 
@@ -31,7 +33,7 @@ addParameters({
 	options: {
 		showAddonPanel: true,
 		addonPanelInRight: true,
-		sidebarAnimations: true, 
+		sidebarAnimations: true,
 		isToolshown: false,
 		theme: customTheme,
 	},
