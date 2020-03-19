@@ -1,4 +1,3 @@
-
 import { withA11y } from '@storybook/addon-a11y';
 import { action } from '@storybook/addon-actions';
 import {
@@ -13,23 +12,24 @@ const template = `
 	:imgDescription="imgDescription"
 	:headlineText="headlineText"
 	:bodyText="bodyText"
-	:showAddButton="showAddButton"
+	:showActionButton="showActionButton"
 	:headlineColor="headlineColor"
 	:headlineFontSize="headlineFontSize"
 	:bodyTextColor="bodyTextColor"
 	:bodyFontSize="bodyFontSize"
 	:buttonText="buttonText"
 	:buttonColor="buttonColor"
+	:buttonTextColor="buttonTextColor"
 	:buttonFontSize="buttonFontSize"
 	:borderRadius="borderRadius"
-	@add-button-click="handleClick"
+	@actionButtonClick="handleClick"
 />`;
 
 const componentDescription = 'Empty states tell users that there’s no content to display and what they can do next.';
 
 const docsDecorator = () => {
 	return {
-		data() {
+		data () {
 			return {
 				component: EmptyState,
 				template,
@@ -59,7 +59,6 @@ const docsDecorator = () => {
 	};
 };
 
-
 export default {
 	component: EmptyState,
 	title: 'EmptyState',
@@ -88,8 +87,8 @@ export const emptyState = () => ({
 		bodyText: {
 			default: () => text('Body Text:', 'Start adding some content!')
 		},
-		showAddButton: {
-			default: () => boolean('Show Add Button', true)
+		showActionButton: {
+			default: () => boolean('Show Action Button', true)
 		},
 		buttonText: {
 			default: () => text('Button Text:', 'Add new content')
@@ -101,7 +100,10 @@ export const emptyState = () => ({
 			default: () => color('Body Text Color', '#707070')
 		},
 		buttonColor: {
-			default: () => color('Button Collor', '#1C72CE')
+			default: () => color('Button Color', '#1C72CE')
+		},
+		buttonTextColor: {
+			default: () => color('Button Text Color', '#FFFFFF')
 		},
 		headlineFontSize: {
 			default: () => number(
