@@ -2,23 +2,31 @@
 	<div
 		class="no-items"
 	>
-		<img :src="emptyStateImage" :alt="imgDescription">
-		<div class="no-items-text"
-			:style="headlineStyle">
+		<img
+			class="image-container"
+			:src="emptyStateImage"
+			:alt="imgDescription"
+		/>
+		<div
+			class="no-items-text"
+			:style="headlineStyle"
+		>
 			{{ headlineText }}
 		</div>
-		<div class="no-items-bodytext mt-2"
-			:style="bodyTextStyle">
+		<div
+			class="no-items-bodytext mt-2"
+			:style="bodyTextStyle"
+		>
 			{{ bodyText }}
 		</div>
 		<div
-			v-if="showAddButton"
-			class="add-button-container"
+			v-if="showActionButton"
+			class="action-button-container"
 		>
 			<b-button
 				class="primary-button"
 				:style="buttonStyle"
-				@click="$emit('add-button-click')"
+				@click="$emit('actionButtonClick', true)"
 			>
 				{{ buttonText }}
 			</b-button>
@@ -27,7 +35,6 @@
 </template>
 
 <script>
-
 export default {
 	props: {
 		emptyStateImage: {
@@ -50,10 +57,10 @@ export default {
 			default: 'Start adding some content!',
 			description: 'The body text of the component.'
 		},
-		showAddButton: {
+		showActionButton: {
 			type: Boolean,
 			default: true,
-			description: 'When setted to true, this prop displays an Add Button.'
+			description: 'When setted to true, this prop displays an Action Button.'
 		},
 		buttonText: {
 			type: String,
@@ -63,23 +70,27 @@ export default {
 		headlineColor: {
 			type: String,
 			default: '#563d7c',
-			description: `The Hex color code for the headline.`
+			description: 'The Hex color code for the headline.'
 		},
 		bodyTextColor: {
 			type: String,
 			default: '#707070',
-			description: `The Hex color code for the body text.`
+			description: 'The Hex color code for the body text.'
 		},
 		buttonColor: {
 			type: String,
 			default: '#1C72CE',
-			description: `The Hex color code for the button.`
+			description: 'The Hex color code for the button.'
+		},
+		buttonTextColor: {
+			type: String,
+			default: '#FFFFFF',
+			description: 'The Hex color code for the button text.'
 		},
 		headlineFontSize: {
 			type: Number,
 			default: 32,
-			description: `The value, in pixels, of the
-				font size of the headline.`,
+			description: 'The value, in pixels, of the font size of the headline. The maximum value accepted is 60px.',
 			validator: value => {
 				return value <= 60
 			}
@@ -87,8 +98,7 @@ export default {
 		bodyFontSize: {
 			type: Number,
 			default: 16,
-			description: `The value, in pixels, of the
-				font size of the body text.`,
+			description: 'The value, in pixels, of the font size of the body text. The maximum value accepted is 30px.',
 			validator: value => {
 				return value <= 30
 			}
@@ -96,8 +106,7 @@ export default {
 		buttonFontSize: {
 			type: Number,
 			default: 16,
-			description: `The value, in pixels, of the
-				font size of the button.`,
+			description: 'The value, in pixels, of the font size of the button. The maximum value accepted is 30px.',
 			validator: value => {
 				return value <= 30
 			}
@@ -105,8 +114,7 @@ export default {
 		borderRadius: {
 			type: Number,
 			default: 5,
-			description: `The value, in pixels, of the border
-				radius of the button.`,
+			description: 'The value, in pixels, button border radius. The maximum value accepted is 30px.',
 			validator: value => {
 				return value <= 30
 			}
@@ -147,23 +155,29 @@ export default {
 		buttonStyle() {
 			return {
 				'--button-color': this.buttonColor,
+				'--button-text-color': this.buttonTextColor,
 				'--button-font-size': `${this.buttonFontSize}px`,
 				'--border-radius': `${this.borderRadius}px`,
 			}
 		}
 	}
-
 };
 </script>
 
 <style>
-
 .no-items {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	position: relative;
 	margin: 60px;
+}
+
+.image-container {
+    max-width:500px;
+    max-height:500px;
+    width: auto;
+    height: auto;
 }
 
 .no-items-text {
@@ -179,33 +193,34 @@ export default {
 	text-align: center;
 }
 
-.add-button-container {
+.action-button-container {
 	margin-top: 20px;
 }
 
 .primary-button{
 	background-color: var(--button-color) !important;
 	border-color: var(--button-color) !important;
+	color: var(--button-text-color);
 	font-size: var(--button-font-size);
 	border-radius: var(--border-radius);
-    box-shadow: none !important;
+	box-shadow: none !important;
 }
 
 .primary-button:hover {
-    filter: brightness(80%);
+	filter: brightness(80%);
 }
 
 .primary-button:active {
-    filter: brightness(90%);
+	filter: brightness(90%);
 }
 
 .primary-button.disabled {
-    opacity: 0.5;
-    cursor: default;
+	opacity: 0.5;
+	cursor: default;
 }
 
 .primary-button.disabled:hover {
-    filter: brightness(100%);
+	filter: brightness(100%);
 }
 
 </style>
