@@ -14,7 +14,7 @@ import {
 	Pagination,
 	StepperCounter,
 	ActionBar,
-	EmptyState
+	EmptyState,
 } from '../src/components';
 
 import CustomWrapper from '../src/Wrapper.vue';
