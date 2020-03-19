@@ -8,11 +8,32 @@ localVue.use(BootstrapVue);
 test('Component is mounted properly', () => {
 	const wrapper = mount(EmptyState, {
 		localVue,
+	});
+	expect(wrapper).toMatchSnapshot();
+});
+
+test('if the event is emited correctly when the button is clicked', () => {
+	const wrapper = mount(EmptyState, {
+		localVue,
 		propsData: {
-			showAddButton: true,
+			showActionButton: true,
 		},
 	});
-	expect(wrapper.findAll('.add-button-container').length).toBe(1);
+
+	wrapper.find('.primary-button').trigger('click');
+
+	expect(wrapper.emitted().actionButtonClick).toBeTruthy();
+	expect(wrapper.emitted().actionButtonClick).toEqual([[true]]);
+});
+
+test('if the button is shown', () => {
+	const wrapper = mount(EmptyState, {
+		localVue,
+		propsData: {
+			showActionButton: true,
+		},
+	});
+	expect(wrapper.findAll('.action-button-container').length).toBe(1);
 });
 
 describe("Headline, Body Text and Button props tests", () => {
@@ -45,11 +66,12 @@ describe("Headline, Body Text and Button props tests", () => {
 			localVue,
 			propsData: {
 				buttonColor: 'green',
+				buttonTextColor: 'black',
 				buttonFontSize: 20,
 				borderRadius: 15,
 			},
 		});
 
-		expect(wrapper.vm.buttonStyle).toStrictEqual({ "--button-color": "green", "--button-font-size": "20px", "--border-radius": "15px" });
+		expect(wrapper.vm.buttonStyle).toStrictEqual({ "--button-color": "green", "--button-text-color": "black", "--button-font-size": "20px", "--border-radius": "15px" });
 	});
 });
