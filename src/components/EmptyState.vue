@@ -38,8 +38,8 @@
 export default {
 	props: {
 		emptyStateImage: {
-			type: Array,
-			default: () => [],
+			type: String,
+			default: '',
 			description: 'The image that will be displayed in the component.'
 		},
 		imgDescription: {
