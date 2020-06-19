@@ -15,6 +15,7 @@ import {
 	StepperCounter,
 	ActionBar,
 	EmptyState,
+	Nav,
 } from '../src/components';
 
 import CustomWrapper from '../src/Wrapper.vue';
@@ -26,6 +27,7 @@ Vue.component('wrapper', CustomWrapper);
 Vue.component('s-action-bar', ActionBar);
 Vue.component('check-circle-icon', CheckCircleIcon);
 Vue.component('s-empty-state', EmptyState);
+Vue.component('s-nav', Nav);
 
 Vue.use(BootstrapVue);
 
@@ -36,6 +38,7 @@ addParameters({
 		sidebarAnimations: true,
 		isToolshown: false,
 		theme: customTheme,
+		showRoots: true,
 	},
 });
 
