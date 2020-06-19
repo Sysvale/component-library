@@ -81,7 +81,7 @@ const docsDecorator = () => {
 
 export default {
 	component: ActionBar,
-	title: 'ActionBar',
+	title: 'bios/ActionBar',
 	decorators: [docsDecorator, withKnobs, withA11y],
 	parameters: {
 		a11y: {

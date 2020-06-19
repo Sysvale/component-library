@@ -53,7 +53,7 @@ const docsDecorator = () => {
 
 export default {
 	component: StepperCounter,
-	title: 'StepperCounter',
+	title: 'bios/StepperCounter',
 	decorators: [docsDecorator, withKnobs, withA11y],
 	parameters: {
 		a11y: {
@@ -75,7 +75,7 @@ export const stepper_counter = () => ({
 				{ label: 'Bandeira 3', concluded: false, active: false },
 				{ label: 'Bandeira 4', concluded: false, active: false },
 				{ label: 'Bandeira 5', concluded: false, active: false },
-			]),
+			]),StepperCounter
 		},
 	},
 	template: template,
