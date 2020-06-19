@@ -8,7 +8,6 @@ import {
 import Nav from '../components/Nav.vue';
 
 const template = `
-// Where 'steps' is a object containing the properties 'labels', 'active', and 'concluded'
 <s-nav
 	:items="items"
 />`;
@@ -61,7 +60,7 @@ export default {
 		},
 		design: {
 			type: 'figma',
-			url: 'https://www.figma.com/file/g4mxhKJxnHj0LmqBheytlw/NavBar?node-id=0%3A1&viewport=1008%2C436%2C1.0721993446350098',
+			url: 'https://www.figma.com/file/g4mxhKJxnHj0LmqBheytlw/NavBar',
 		},
 	},
 };
@@ -71,14 +70,17 @@ export const nav = () => ({
 		items: {
 			default: () => object('Items:', [
 				{
-					label: 'Op 1',
+					label: 'Mapa de grupo de risco',
+					path: '/',
 					active: true,
 				},
 				{
-					label: 'Op 2',
+					label: 'Liga Saudável',
+					path: '/1',
 				},
 				{
-					label: 'Op 3',
+					label: 'Mapa de calor dos bairros',
+					path: '/2',
 				},
 			]),
 		},
