@@ -22,13 +22,13 @@ export default {
 		items: {
 			type: Array,
 			default: () => [],
-			desciption: 'Lorem ipsum',
+			description: 'Uma lista de items que serão exibidos',
 			required: true,
 		},
 		oldSchool: {
 			type: Boolean,
 			default: false,
-			description: 'Lorem ipsum',
+			description: 'Define o modo de exibição/sistema de cores do menu',
 		},
 	},
 
