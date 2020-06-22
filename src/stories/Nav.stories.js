@@ -6,10 +6,13 @@ import {
 } from '@storybook/addon-knobs';
 
 import Nav from '../components/Nav.vue';
+import { action } from '@storybook/addon-actions';
+
 
 const template = `
 <s-nav
 	:items="items"
+	@click="handleClick"
 />`;
 
 const componentDescription = 'Stepper counters are components that control and display the steps of a stepper.';
@@ -66,6 +69,9 @@ export default {
 };
 
 export const nav = () => ({
+	methods: {
+		handleClick: action('Item clicked'),
+	},
 	props: {
 		items: {
 			default: () => object('Items:', [
