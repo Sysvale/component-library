@@ -59,8 +59,6 @@ describe("Change active item event tests", () => {
 			},
 		});
 
-		console.log(mockedData);
-
 		const elementIndex = 1;
 
 		wrapper
