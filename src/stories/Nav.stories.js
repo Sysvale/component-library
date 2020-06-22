@@ -2,7 +2,7 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import {
-	withKnobs, color, object
+	withKnobs, boolean, object
 } from '@storybook/addon-knobs';
 
 import Nav from '../components/Nav.vue';
@@ -12,6 +12,7 @@ import { action } from '@storybook/addon-actions';
 const template = `
 <s-nav
 	:items="items"
+	:old-school="oldSchool"
 	@click="handleClick"
 />`;
 
@@ -78,7 +79,6 @@ export const nav = () => ({
 				{
 					label: 'Mapa de grupo de risco',
 					path: '/',
-					active: true,
 				},
 				{
 					label: 'Liga Saudável',
@@ -89,6 +89,9 @@ export const nav = () => ({
 					path: '/2',
 				},
 			]),
+		},
+		oldSchool: {
+			default: () => boolean('Oldschool mode', false)
 		},
 	},
 	template,
