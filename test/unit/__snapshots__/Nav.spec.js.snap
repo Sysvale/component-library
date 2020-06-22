@@ -5,11 +5,11 @@ exports[`Component is mounted properly 1`] = `
   <li id="Dummylabel10" class="nav-item mr-4 mt-2"><a href="#" target="_self" class="nav-link active">
       Dummy label 1
     </a></li>
-  <li id="Dummylabel31" class="nav-item mr-4 mt-2"><a href="#" target="_self" class="nav-link">
-      Dummy label 3
-    </a></li>
-  <li id="Dummylabel22" class="nav-item mr-4 mt-2"><a href="#" target="_self" class="nav-link">
+  <li id="Dummylabel21" class="nav-item mr-4 mt-2"><a href="#" target="_self" class="nav-link">
       Dummy label 2
+    </a></li>
+  <li id="Dummylabel32" class="nav-item mr-4 mt-2"><a href="#" target="_self" class="nav-link">
+      Dummy label 3
     </a></li>
 </ul>
 `;
