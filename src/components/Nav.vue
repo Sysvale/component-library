@@ -3,8 +3,9 @@
 	 	class="px-2"
 	 >
 		<b-nav-item
-			v-for="item in computedItems"
-			:key="item.label"
+			v-for="(item, index) in items"
+			:id="getElementKey(item, index)"
+			:key="getElementKey(item, index)"
 			:active="activeItem.path === item.path"
 			class="mr-4 mt-2"
 			@click="handleClick(item)"
@@ -15,12 +16,7 @@
 </template>
 
 <script>
-import { XIcon } from 'vue-feather-icons'
 export default {
-	components: {
-		XIcon,
-	},
-
 	props: {
 		items: {
 			type: Array,
@@ -36,25 +32,13 @@ export default {
 		};
 	},
 
-	computed: {
-		computedItems() {
-			let count = 0;
-			return this.items.map((item, index) => {
-				if(item.active) {
-					count = count + 1;
-				}
-				if(count > 0 && index > 0) {
-					delete item.active;
-				}
-				return item;
-			});
-		}
-	},
-
 	methods: {
 		handleClick(item) {
 			this.activeItem = item;
 			this.$emit('click', this.activeItem);
+		},
+		getElementKey(item, index) {
+			return `${item.label.replace(/\s/g, '')}${index}`;
 		}
 	}
 };
