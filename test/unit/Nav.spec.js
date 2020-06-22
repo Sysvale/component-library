@@ -32,6 +32,21 @@ describe("Items styles test", () => {
 		});
 		expect(wrapper.findAll('.active').length).toBe(1);
 	});
+
+	test('if oldscholl mode is setted properly', () => {
+
+		const wrapper = mount(Nav, {
+			localVue,
+			propsData: {
+				items: mockedData,
+				oldSchool: true,
+			},
+		});
+	
+		const activeColor = 'rgb(58, 223, 124)';
+
+		expect(wrapper.vm.styleVariables['--active-color']).toBe(activeColor);
+	});
 });
 
 describe("Change active item event tests", () => {
@@ -49,7 +64,7 @@ describe("Change active item event tests", () => {
 		const elementIndex = 1;
 
 		wrapper
-			.find(`#${wrapper.vm.getElementKey(mockedData[elementIndex], elementIndex)}`)
+			.find(`#${wrapper.vm.getElementKey(mockedData[elementIndex], elementIndex)} a`)
 			.trigger('click');
 
 		expect(wrapper.emitted().click).toBeTruthy();
