@@ -77,6 +77,9 @@ export default {
 };
 </script>
 <style>
+	a {
+		outline: none;
+	}
 	.nav {
 		background: var(--background-color);
 	}
