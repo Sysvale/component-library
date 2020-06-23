@@ -68,7 +68,6 @@ describe("Change active item event tests", () => {
 		expect(wrapper.emitted().click).toBeTruthy();
 		expect(wrapper.emitted().click).toEqual([
 			[
-				1,
 				mockedData[elementIndex],
 			]
 		]);
