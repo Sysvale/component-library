@@ -16,18 +16,20 @@ test('Component is mounted properly', () => {
 		localVue,
 		propsData: {
 			items: mockedData,
+			activeItem: mockedData[0],
 		},
 	});
 	expect(wrapper).toMatchSnapshot();
 });
 
 describe("Items styles test", () => {
-	test('if only one item is set as active', () => {
+	test('if has one item is set as active', () => {
 
 		const wrapper = mount(Nav, {
 			localVue,
 			propsData: {
 				items: mockedData,
+				activeItem: mockedData[0],
 			},
 		});
 		expect(wrapper.findAll('.active').length).toBe(1);
@@ -40,6 +42,7 @@ describe("Items styles test", () => {
 			propsData: {
 				items: mockedData,
 				oldSchool: true,
+				activeItem: mockedData[0],
 			},
 		});
 	
@@ -56,6 +59,7 @@ describe("Change active item event tests", () => {
 			localVue,
 			propsData: {
 				items: mockedData,
+				activeItem: mockedData[0],
 			},
 		});
 
