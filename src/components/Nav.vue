@@ -30,12 +30,18 @@ export default {
 			default: false,
 			description: 'Define o modo de exibição/sistema de cores do menu',
 		},
+		activeItem:  {
+			type: Object,
+			default: () => {},
+			description: 'Item ativo no menu',
+			required: true,
+		},
 	},
 
 	data() {
 		return {
-			activeItem: this.items[0],
-		};
+			internalActiveItem: this.activeItem,
+		}
 	},
 
 	computed: {
@@ -57,17 +63,17 @@ export default {
 				'--text-color': 'rgb(106, 117, 128)',
 				'--background-color': 'linear-gradient(0.93deg, #FFFFFF 16.45%, #F1F5FB 105.67%)',
 			};
-		}
+		},
 	},
 
 	methods: {
 		handleClick(item) {
-			this.activeItem = item;
-			this.$emit('click', this.activeItem);
+			this.internalActiveItem = item;
+			this.$emit('click', this.internalActiveItem);
 		},
 
 		isActive(item) {
-			return this.activeItem.path === item.path;
+			return Object.keys(this.internalActiveItem).length > 0 ? this.internalActiveItem.path === item.path : false;
 		},
 
 		getElementKey(item, index) {
