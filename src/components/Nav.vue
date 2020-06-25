@@ -1,9 +1,10 @@
 <template>
 	 <b-nav
 	 	class="px-2"
-		:style="styleVariables"
+		:class="oldSchool ? 'bg-cs' : 'bg-liga'"
 	 >
 		<b-nav-item
+			:class="oldSchool ? 'cs-mode' : 'liga-mode'"
 			v-for="(item, index) in items"
 			:id="getElementKey(item, index)"
 			:key="getElementKey(item, index)"
@@ -22,18 +23,18 @@ export default {
 		items: {
 			type: Array,
 			default: () => [],
-			description: 'Uma lista de items que serão exibidos',
+			description: 'A list of the menu itens to be displayed',
 			required: true,
 		},
 		oldSchool: {
 			type: Boolean,
-			default: false,
-			description: 'Define o modo de exibição/sistema de cores do menu',
+			default: true,
+			description: 'Defines the style of the menu. The new one is light themed and the old one follows the style used by the "Cidade Saudável"',
 		},
 		activeItem:  {
 			type: Object,
 			default: () => {},
-			description: 'Item ativo no menu',
+			description: 'The currently active menu iten',
 			required: true,
 		},
 	},
@@ -42,28 +43,6 @@ export default {
 		return {
 			internalActiveItem: this.activeItem,
 		}
-	},
-
-	computed: {
-		styleVariables() {
-			if(this.oldSchool) {
-				return {
-					'--active-color': 'rgb(58, 223, 124)',
-					'--active-color-opacity': 'rgb(90, 90, 90)',
-					'--active-text-color': 'rgb(255, 255, 255)',
-					'--text-color': 'rgb(208, 210, 213)',
-					'--background-color': 'rgb(68, 68, 68)',
-				};
-			}
-
-			return {
-				'--active-color': 'rgb(40, 90, 185)',
-				'--active-color-opacity': 'rgba(40, 90, 185, 0.05)',
-				'--active-text-color': 'rgb(20, 32, 50)',
-				'--text-color': 'rgb(106, 117, 128)',
-				'--background-color': 'linear-gradient(0.93deg, #FFFFFF 16.45%, #F1F5FB 105.67%)',
-			};
-		},
 	},
 
 	methods: {
@@ -86,27 +65,48 @@ export default {
 	a {
 		outline: none;
 	}
-	.nav {
-		background: var(--background-color);
+
+	.cs-mode .nav-link:hover {
+		color: rgb(255, 255, 255);
 	}
 
-	.nav-link {
-		color: var(--text-color);
-		padding: 8px;
-	}
-
-	.nav-link:hover {
-		color: var(--active-text-color);
-	}
-
-	.active {
-		border-bottom: 4px solid var(--active-color);
-		background: var(--active-color-opacity);
+	.cs-mode .active {
+		border-bottom: 4px solid rgb(58, 223, 124);
+		background: rgb(90, 90, 90);
 		border-radius: 4px  4px 0px 0px;
-		color: var(--active-text-color);
 	}
 
-	.active:hover {
-		color:var(--active-text-color);
+	.bg-liga {
+		background: linear-gradient(0.93deg, #FFFFFF 16.45%, #F1F5FB 105.67%);
+	}
+
+	.bg-cs {
+		background: rgb(68, 68, 68);
+	}
+
+	.cs-mode .nav-link.active{
+		color: rgb(255, 255, 255);		
+	}
+
+	.cs-mode .nav-link {
+		color: rgb(208, 210, 213);
+	}
+
+	.liga-mode .active {
+		border-bottom: 4px solid rgb(40, 90, 185);
+		background: rgba(40, 90, 185, 0.05);
+		border-radius: 4px  4px 0px 0px;
+	}
+
+	.liga-mode .nav-link.active{
+		color: rgb(20, 32, 50);
+	}
+
+	.liga-mode .nav-link {
+		color: rgb(106, 117, 128);
+	}
+
+	.liga-mode .nav-link:hover {
+		color: rgb(20, 32, 50);
 	}
 </style>
