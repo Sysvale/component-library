@@ -45,10 +45,9 @@ describe("Items styles test", () => {
 				activeItem: mockedData[0],
 			},
 		});
-	
-		const activeColor = 'rgb(58, 223, 124)';
 
-		expect(wrapper.vm.styleVariables['--active-color']).toBe(activeColor);
+		expect(wrapper.findAll('.bg-cs').length).toBe(1);
+		expect(wrapper.findAll('.cs-mode').length).toBe(mockedData.length);
 	});
 });
 
