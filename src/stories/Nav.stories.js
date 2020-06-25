@@ -8,7 +8,6 @@ import {
 import Nav from '../components/Nav.vue';
 import { action } from '@storybook/addon-actions';
 
-
 const template = `
 <s-nav
 	:items="items"
@@ -17,7 +16,7 @@ const template = `
 	@click="handleClick"
 />`;
 
-const componentDescription = 'Nav counters are components that control and display the steps of a Nav.';
+const componentDescription = 'Nav...';
 
 const docsDecorator = () => {
 	return {
@@ -32,28 +31,23 @@ const docsDecorator = () => {
 			`<div>
 				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Nav">
 					<div slot="usage">
-						<h5>Use Nav Controllers when:</h5>
+						<h5>Use Navs when:</h5>
 						<ul>
-							<li>You want to show, in a visual way, the current state and the current step of a Nav</li>
-							<li>You have a multistep modal</li>
-							<li>You have a series of inputs or actions that you want to show the progress of the filling and the hour and date of the states or the actions aren't necessary</li>
+							<li></li>
 						</ul>
 						<br>
-						<h5>Don't use Nav Controllers when:</h5>
+						<h5>Don't use Navs when:</h5>
 						<ul>
-							<li>You are looking for a timeline component</li>
-							<li>The order of the steps, events, or actions are relevant</li>
+							<li></li>
 						</ul>
 
-						<p class="mt-5	">Obs.: When clicked, the Nav emits an event called 'step_changed' that sends to to you the index of the step clicked,
-						and the data of this step.</p>
+						<p class="mt-5">Obs.: When clicked, ...</p>
 					</div>
 					<story slot="component-preview"/>
 				</wrapper>
 			</div>`,
 	};
 };
-
 
 export default {
 	component: Nav,
