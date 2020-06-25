@@ -61,7 +61,7 @@ const docsDecorator = () => {
 
 export default {
 	component: EmptyState,
-	title: 'EmptyState',
+	title: 'bios/EmptyState',
 	decorators: [docsDecorator, withKnobs, withA11y],
 	parameters: {
 		a11y: {

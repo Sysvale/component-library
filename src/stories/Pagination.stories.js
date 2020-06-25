@@ -57,7 +57,7 @@ const docsDecorator = () => {
 
 export default {
 	component: Pagination,
-	title: 'Pagination',
+	title: 'bios/Pagination',
 	decorators: [docsDecorator, withKnobs, withA11y],
 	parameters: {
 		a11y: {

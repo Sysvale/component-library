@@ -55,7 +55,7 @@ const docsDecorator = () => {
 
 export default {
 	component: Badge,
-	title: 'Badge',
+	title: 'bios/Badge',
 	decorators: [docsDecorator, withKnobs, withA11y],
 	parameters: {
 		a11y: {

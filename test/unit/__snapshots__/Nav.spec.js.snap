@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component is mounted properly 1`] = `
+<ul class="nav px-2 bg-cs">
+  <li id="Dummylabel10" class="nav-item mr-4 mt-2 cs-mode"><a href="#" target="_self" class="nav-link active">
+      Dummy label 1
+    </a></li>
+  <li id="Dummylabel21" class="nav-item mr-4 mt-2 cs-mode"><a href="#" target="_self" class="nav-link">
+      Dummy label 2
+    </a></li>
+  <li id="Dummylabel32" class="nav-item mr-4 mt-2 cs-mode"><a href="#" target="_self" class="nav-link">
+      Dummy label 3
+    </a></li>
+</ul>
+`;
