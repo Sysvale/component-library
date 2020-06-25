@@ -16,7 +16,7 @@ const template = `
 	@click="handleClick"
 />`;
 
-const componentDescription = 'Nav...';
+const componentDescription = 'Nav are components used to create navigation solutions and menus.';
 
 const docsDecorator = () => {
 	return {
@@ -33,15 +33,21 @@ const docsDecorator = () => {
 					<div slot="usage">
 						<h5>Use Navs when:</h5>
 						<ul>
-							<li></li>
+							<li>
+								You need to separate content by pages.
+							</li>
+							<li>
+								It’s not appropriate to divide content using tabs, sidebars or using cards and links in one page to navigate to another.
+							</li>
 						</ul>
 						<br>
 						<h5>Don't use Navs when:</h5>
 						<ul>
-							<li></li>
+							<li>You have too many items to be displayed in the menu.</li>
+							<li>You want to show the links vertically.</li>
 						</ul>
 
-						<p class="mt-5">Obs.: When clicked, ...</p>
+						<p class="mt-5">Obs.: When you click in an item an event called 'click' will be emitted and the item itself is passed as argument</p>
 					</div>
 					<story slot="component-preview"/>
 				</wrapper>
