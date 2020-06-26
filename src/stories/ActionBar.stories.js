@@ -52,7 +52,7 @@ const docsDecorator = () => {
 		},
 		template:
 			`<div>
-				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="ActionBar">
+				<docs-wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="ActionBar">
 					<div slot="usage">
 						<h5>Use ActionBars when:</h5>
 						<ul>
@@ -73,7 +73,7 @@ const docsDecorator = () => {
 						</ul>
 					</div>
 					<story slot="component-preview"/>
-				</wrapper>
+				</docs-wrapper>
 			</div>`,
 	};
 };

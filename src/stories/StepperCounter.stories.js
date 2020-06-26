@@ -26,7 +26,7 @@ const docsDecorator = () => {
 		},
 		template:
 			`<div>
-				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="StepperCounter">
+				<docs-wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="StepperCounter">
 					<div slot="usage">
 						<h5>Use Stepper Controllers when:</h5>
 						<ul>
@@ -45,7 +45,7 @@ const docsDecorator = () => {
 						and the data of this step.</p>
 					</div>
 					<story slot="component-preview"/>
-				</wrapper>
+				</docs-wrapper>
 			</div>`,
 	};
 };

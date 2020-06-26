@@ -38,7 +38,7 @@ const docsDecorator = () => {
 		},
 		template:
 			`<div>
-				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Empty State">
+				<docs-wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Empty State">
 					<div slot="usage">
 						<h5>Use Empty State when:</h5>
 						<ul>
@@ -54,7 +54,7 @@ const docsDecorator = () => {
 						</ul>
 					</div>
 					<story slot="component-preview"/>
-				</wrapper>
+				</docs-wrapper>
 			</div>`,
 	};
 };

@@ -29,7 +29,7 @@ const docsDecorator = () => {
 		},
 		template:
 			`<div>
-				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Nav">
+				<docs-wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Nav">
 					<div slot="usage">
 						<h5>Use Navs when:</h5>
 						<ul>
@@ -50,7 +50,7 @@ const docsDecorator = () => {
 						<p class="mt-5">Obs.: When you click in an item an event called 'click' will be emitted and the item itself is passed as argument</p>
 					</div>
 					<story slot="component-preview"/>
-				</wrapper>
+				</docs-wrapper>
 			</div>`,
 	};
 };

@@ -34,7 +34,7 @@ const docsDecorator = () => {
 		},
 		template:
 			`<div>
-				<wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Pagination">
+				<docs-wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Pagination">
 					<div slot="usage">
 						<h5>Use pagination when:</h5>
 						<ul>
@@ -49,7 +49,7 @@ const docsDecorator = () => {
 						</ul>
 					</div>
 					<story slot="component-preview"/>
-				</wrapper>
+				</docs-wrapper>
 			</div>`,
 	};
 };
