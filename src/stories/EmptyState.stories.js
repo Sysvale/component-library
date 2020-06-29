@@ -6,30 +6,45 @@ import {
 
 import EmptyState from '../components/EmptyState.vue';
 
+// ------ COMPONENT INFO ------
 const template = `
-<s-empty-state
-	:emptyStateImage="emptyStateImage"
-	:imgDescription="imgDescription"
-	:headlineText="headlineText"
-	:bodyText="bodyText"
-	:showActionButton="showActionButton"
-	:headlineColor="headlineColor"
-	:headlineFontSize="headlineFontSize"
-	:bodyTextColor="bodyTextColor"
-	:bodyFontSize="bodyFontSize"
-	:buttonText="buttonText"
-	:buttonColor="buttonColor"
-	:buttonTextColor="buttonTextColor"
-	:buttonFontSize="buttonFontSize"
-	:borderRadius="borderRadius"
-	@actionButtonClick="handleClick"
-/>`;
+    <s-empty-state
+        :emptyStateImage="emptyStateImage"
+        :imgDescription="imgDescription"
+        :headlineText="headlineText"
+        :bodyText="bodyText"
+        :showActionButton="showActionButton"
+        :headlineColor="headlineColor"
+        :headlineFontSize="headlineFontSize"
+        :bodyTextColor="bodyTextColor"
+        :bodyFontSize="bodyFontSize"
+        :buttonText="buttonText"
+        :buttonColor="buttonColor"
+        :buttonTextColor="buttonTextColor"
+        :buttonFontSize="buttonFontSize"
+        :borderRadius="borderRadius"
+        @actionButtonClick="handleClick"
+    />`;
 
-const componentDescription = 'Empty states tell users that there’s no content to display and what they can do next.';
+const componentDescription = {
+    name: 'EmptyState',
+    summary: `Empty states tell users that there’s no content to display and what they can do next.`,
+    usage: {
+        whenToUSe: [
+            'You want to guide the user through a process.', 
+            `The user can add content to an empty area.`,
+            `You want to tell users that an empty area has been intentionally left blank.`,
+        ],
+        whenNotUse:[
+            `The recommended action can't be taken by all users seeing the component.`,
+            `You need more than one call to action button.`,
+        ]
+    },
+};
 
 const docsDecorator = () => {
 	return {
-		data () {
+		data() {
 			return {
 				component: EmptyState,
 				template,
@@ -37,28 +52,17 @@ const docsDecorator = () => {
 			};
 		},
 		template:
-			`<div>
-				<docs-wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Empty State">
-					<div slot="usage">
-						<h5>Use Empty State when:</h5>
-						<ul>
-							<li>You want to guide the user through a process.</li>
-							<li>The user can add content to an empty area.</li>
-							<li>You want to tell users that an empty area has been intentionally left blank.</li>
-						</ul>
-						<br>
-						<h5>Don't use Empty State when:</h5>
-						<ul>
-							<li>The recommended action can't be taken by all users seeing the component.</li>
-							<li>You need more than one call to action button.</li>
-						</ul>
-					</div>
-					<story slot="component-preview"/>
-				</docs-wrapper>
-			</div>`,
+			`<docs-wrapper
+				:componentData="component"
+				:exampleSourceCode="template"
+				:componentDescription="componentDescription"
+			>
+				<story slot="component-preview"/>
+			</docs-wrapper>`,
 	};
 };
 
+// ------ STORYBOOK SETTINGS ------
 export default {
 	component: EmptyState,
 	title: 'bios/EmptyState',
@@ -70,6 +74,7 @@ export default {
 	},
 };
 
+// ------ KNOBS SETTINGS ------
 export const emptyState = () => ({
 	methods: {
 		handleClick: action('button clicked'),
@@ -154,5 +159,5 @@ export const emptyState = () => ({
 			)
 		}
 	},
-	template: template
+	template: template,
 });
