@@ -16,7 +16,7 @@ const componentDescription = {
     name: 'Stepper',
     summary: `Steppers are components that control and display tasks broken in steps.`,
     usage: {
-        whenToUSe: [
+        whenToUse: [
             'You want to show, in a visual way, the current state and the current step of a stepper.', 
             `You have a multistep modal.`,
             `You have a series of inputs or actions that you want to show the progress of the filling and the hour and date of the states or the actions aren't necessary.`,

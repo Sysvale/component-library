@@ -21,7 +21,7 @@ const componentDescription = {
     name: 'Nav',
     summary: 'Nav are components used to create navigation solutions and menus.',
     usage: {
-        whenToUSe: [
+        whenToUse: [
             'You need to separate content by pages.', 
             `It’s not appropriate to divide content using tabs, sidebars or using 
             cards and links in one page to navigate to another.`

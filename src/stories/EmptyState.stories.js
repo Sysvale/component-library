@@ -30,7 +30,7 @@ const componentDescription = {
     name: 'EmptyState',
     summary: `Empty states tell users that there’s no content to display and what they can do next.`,
     usage: {
-        whenToUSe: [
+        whenToUse: [
             'You want to guide the user through a process.', 
             `The user can add content to an empty area.`,
             `You want to tell users that an empty area has been intentionally left blank.`,

@@ -20,7 +20,7 @@ const componentDescription = {
     name: 'Badge',
     summary: 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.',
     usage: {
-        whenToUSe: [
+        whenToUse: [
             'You want to show status associated with your logic business or users actions.', 
             `You want to highlight important metadata about features or content.`,
             `You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.).`,

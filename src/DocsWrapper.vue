@@ -26,7 +26,7 @@
 					<h5>Use {{ componentDescription.name }} when:</h5>
 					<ul>
 						<li
-							v-for="content in componentDescription.usage.whenToUSe"
+							v-for="content in componentDescription.usage.whenToUse"
 							:key="content"
 						>
 							{{ content }}

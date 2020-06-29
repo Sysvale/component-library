@@ -25,7 +25,7 @@ const componentDescription = {
     summary: `Pagination is a button row used to organize and manage any amounts of data that can be divided in blocks.
 	This component should be bound via v-model. Pages are indexed starting at 1.`,
     usage: {
-        whenToUSe: [
+        whenToUse: [
             'You need to show data that makes sense to be shown together.', 
             `You need to show a large amount of data, organized in rows.`,
         ],
