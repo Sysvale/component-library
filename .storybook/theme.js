@@ -7,25 +7,25 @@ export default create({
   colorSecondary: '#074fa6d2',
 
   // UI
-  appBg: '#fafafa',
-  appContentBg: '#fafafa',
+  appBg: '#FAFBFE',
+  appContentBg: '#FAFBFE',
   appBorderColor: 'silver',
   appBorderRadius: 4,
 
   // Typography
-  fontBase: '"Open Sans", sans-serif',
+  fontBase: '"Muli", sans-serif',
   fontCode: 'monospace',
 
   // Text colors
   textColor: '#212529',
-  textInverseColor: 'rgba(255,255,255,0.9)',
+  textInverseColor: '#ffffffe6',
 
   // Toolbar default and active colors
-  barSelectedColor: 'black',
+  barSelectedColor: '#074fa6',
 
   // Form colors
-  inputBg: 'white',
-  inputTextColor: 'black',
+  inputBg: '#FFFFFF',
+  inputTextColor: '#142032',
   inputBorderRadius: 4,
 
   brandTitle: 'Sysvale Components',
