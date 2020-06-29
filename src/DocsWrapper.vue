@@ -1,84 +1,186 @@
 <template>
-	<div class="savi-wrapper">
-		<b-container class="mx-auto my-5">
-			<div class="header">
-				<small
-					class="text-muted"
-				>
-					COMPONENT
-				</small>
-				<h1 class="title bold display-3">
-					{{ componentName }}
-				</h1>
-			</div>
-
-			<p class="my-3 h5 light">
-				{{ componentDescription }}
-			</p>
-			<hr>
-
-			<h2 class="mt-5 mb-4">
-				Usage
-			</h2>
-			<slot name="usage" />
-
-			<h2 class="mt-5 mb-4">
-				Example
-			</h2>
-
-			<div class="preview-container d-flex flex-column">
-				<div class="preview">
-					<slot name="component-preview" />
-				</div>
-				<div class="w-100 d-flex justify-content-end">
-					<button
-						v-b-toggle.collapse-2
-						class="small m-0 copy-button"
-						@click="showCode"
+	<div
+		class="storybook-canvas d-flex"
+	>
+		<div
+			class="docs-container"
+		>
+			<b-container class="mx-auto my-5">
+				<div class="header" id="component-header">
+					<small
+						class="text-muted"
 					>
-						{{ showCodeButtonText }}
-					</button>
+						COMPONENT
+					</small>
+					<h1 class="title bold display-3">
+						{{ componentDescription.name }}
+					</h1>
 				</div>
-			</div>
 
-			<div class="info-body">
-				<div
-					class="summary"
-					:v-html="exampleSourceCode"
-				/>
-				<b-collapse id="collapse-2">
-					<div class="usage code">
-						<pre
-							ref="usage"
-							class="codeblock"
+				<span class="my-3 h5 light summary">
+					{{ componentDescription.summary }}
+				</span>
+				<hr style="margin-top: 8px;">
+				
+				<div id="usage">
+					<h5>Use {{ componentDescription.name }} when:</h5>
+					<ul>
+						<li
+							v-for="content in componentDescription.usage.whenToUSe"
+							:key="content"
 						>
-							<code class="qs">
-								{{ exampleSourceCode }}
-							</code>
-						</pre>
-						<div class="d-flex justify-content-end align-self-end">
-							<button
-								class="small m-0 copy-code"
-								@click="copyCode"
+							{{ content }}
+						</li>
+					</ul>
+
+					<br />
+
+					<h5>Don't use {{ componentDescription.name }} when:</h5>
+					<ul>
+						<li
+							v-for="content in componentDescription.usage.whenNotUse"
+							:key="content"
+						>
+							{{ content }}
+						</li>
+					</ul>
+
+					<div
+						v-if="typeof componentDescription.usage.observation !== 'undefined'"
+					>
+						<h5>Obs.:</h5>
+						<ul>
+							<li
+								v-for="content in componentDescription.usage.observation"
+								:key="content"
 							>
-								{{ copyCodeButtonText }}
-							</button>
-						</div>
+								{{ content }}
+							</li>
+						</ul>
 					</div>
-				</b-collapse>
-				<h2 class="heading mt-5">
-					Props table
+				</div>
+
+				<h2 class="heading mt-5 mb-2" id="preview">
+					Preview
 				</h2>
 
-				<b-table
-					class="mt-4 props-table"
-					hover
-					:fixed="true"
-					:no-border-collapse="false"
-					:items="formattedProps"
-				/>
-			</div>
-		</b-container>
+				<div class="preview-container d-flex flex-column">
+					<div class="preview">
+						<slot name="component-preview" />
+					</div>
+					<div
+						class="w-100 d-flex justify-content-end"
+						@click="showCode"
+					>
+						<button
+							v-b-toggle.exampleOfUse
+							class="small m-0 copy-button"
+						>
+							{{ showCodeButtonText }}
+						</button>
+					</div>
+				</div>
+
+				<div class="info-body">
+					<div
+						class="summary"
+						:v-html="exampleSourceCode"
+					/>
+					<b-collapse id="exampleOfUse">
+						<div class="usage code">
+							<pre
+								ref="usage"
+								class="codeblock"
+							>
+								<code class="qs">
+									{{ exampleSourceCode }}
+								</code>
+							</pre>
+							<div class="d-flex justify-content-end align-self-end">
+								<button
+									class="small m-0 copy-code"
+									@click="copyCode"
+								>
+									{{ copyCodeButtonText }}
+								</button>
+							</div>
+						</div>
+					</b-collapse>
+
+					<h2 class="heading mt-5" id="props">
+						Props
+					</h2>
+
+					<b-table
+						class="mt-2 table-style"
+						hover
+						outlined
+						:no-border-collapse="true"
+						:caption-top="false"
+						:fixed="true"
+						:items="formattedProps"
+					/>
+
+					<div
+						v-if="formattedEvents.length > 0"
+					>
+						<h2 class="heading mt-5" id="events">
+							Events
+						</h2>
+
+						<b-table
+							class="mt-2 table-style"
+							hover
+							outlined
+							:no-border-collapse="true"
+							:caption-top="false"
+							:fixed="true"
+							:items="formattedEvents"
+						/>
+					</div>
+
+					<div
+						v-if="formattedSlots.length > 0"
+					>
+						<h2 class="heading mt-5" id="slots">
+							Slots
+						</h2>
+
+						<b-table
+							class="mt-2 table-style"
+							hover
+							outlined
+							:no-border-collapse="true"
+							:caption-top="false"
+							:fixed="true"
+							:items="formattedSlots"
+						/>
+					</div>
+				</div>
+			</b-container>
+		</div>
+		<div
+			class="d-flex flex-column mt-5 justify-content-between side-navigation"
+		>
+			<span
+				v-for="(item, index) in navigationItems"
+				:key="item"
+				class="mt-2"
+				:class="activeSection === `${loweredCaseWord(item)}` ? 'active-side-navigation-item' : ''"
+				@click="scrollTo(loweredCaseWord(item))"
+			>
+				<span
+					v-if="index > 0"
+				>
+					{{ item }}
+				</span>
+				<span
+					v-else
+				>
+					{{ componentDescription.name }}
+				</span>
+			</span>
+		</div>
 	</div>
 </template>
 
@@ -98,15 +200,10 @@ export default {
 			required: true,
 			default: '',
 		},
-		componentName: {
-			type: String,
-			required: true,
-			default: '',
-		},
 		componentDescription: {
-			type: String,
+			type: Object,
 			required: true,
-			default: '',
+			default: () => {},
 		},
 	},
 
@@ -115,6 +212,15 @@ export default {
 			showCodeButtonText: 'Show code',
 			copyCodeButtonText: 'Copy code',
 			formattedProps: [],
+			formattedEvents: [],
+			formattedSlots: [],
+			activeSection: 'component-header',
+			navigationItems: [
+				'Component-header',
+				'Usage',
+				'Preview',
+				'Props',
+			],
 		};
 	},
 
@@ -152,6 +258,33 @@ export default {
 			this.formattedProps.push(formattedProp);
 		});
 
+		_.values(this.componentDescription.events).forEach((item, index) => {
+			const formattedEvent = {};
+
+			formattedEvent.event = _.keys(this.componentDescription.events)[index];
+			formattedEvent.description = item.description || '--';
+			formattedEvent.trigger = item.trigger || '--';
+
+			this.formattedEvents.push(formattedEvent);
+
+			if (this.formattedEvents.length === 1) {
+				this.navigationItems.push('Events');
+			}
+		});
+
+		_.values(this.componentDescription.slots).forEach((item, index) => {
+			const formattedSlot = {};
+
+			formattedSlot.name = _.keys(this.componentDescription.slots)[index];
+			formattedSlot.description = item.description || '--';
+
+			this.formattedSlots.push(formattedSlot);
+
+			if (this.formattedSlots.length === 1) {
+				this.navigationItems.push('Slots');
+			}
+		});
+
 		this.highlight();
 		const link = document.createElement('link');
 
@@ -170,6 +303,18 @@ export default {
 	},
 
 	methods: {
+		scrollTo(id) {
+			document.getElementById(id).scrollIntoView({
+				behavior: 'smooth'
+			});
+
+			this.activeSection = id;
+		},
+
+		loweredCaseWord(word) {
+			return word.charAt(0).toLowerCase() + word.slice(1);
+		},
+
 		highlight() {
 			if (!this.$refs.usage) {
 				return;
@@ -216,7 +361,7 @@ export default {
 </script>
 
 <style>
-.savi-wrapper {
+.storybook-canvas {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -224,9 +369,11 @@ export default {
 	left: 0;
 
 	overflow: auto;
-	color: rgb(31, 31, 31);
+	color: #142032;
 	background-color: #fdfdfd;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Muli', sans-serif;
+	margin-right: 4px;
+	margin-top: 4px;
 }
 
 .title {
@@ -235,12 +382,10 @@ export default {
 	color: #074fa6;
 }
 
-.props-table {
+.table-style {
 	background-color: #fff;
-	min-height: 64px;
-	border: 1px solid #f0f0f0;
-	border-radius: 4px;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 1px, rgba(0, 0, 0, 0.067) 0px 0px 0px 1px;
+	border-radius: 12px;
+	color: #142032;
 }
 
 .code {
@@ -262,9 +407,8 @@ th {
 
 .preview-container {
 	min-height: 64px;
-	border: 1px solid #f0f0f0;
-	border-radius: 4px;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 1px, rgba(0, 0, 0, 0.067) 0px 0px 0px 1px;
+	border: 1px solid #dee2e6;
+	border-radius: 12px;
 	background-color: #fff;
 }
 
@@ -272,7 +416,7 @@ th {
 	all: initial;
 	display: block;
 	position: relative;
-	padding: 32px 32px 0px 32px;
+	padding: 32px 32px 12px 32px;
 	font-family: 'Noto Sans SC', sans-serif;
 	font-weight: 300;
 	line-height: 1.6;
@@ -284,6 +428,10 @@ th {
 	line-height: 1.208;
 
 	font-weight: 500;
+}
+
+.summary {
+	color: #6A7580;
 }
 
 .codeblock {
@@ -303,5 +451,39 @@ th {
 	font-size: 12.8px;
 	padding: 3px 10px;
 	margin: 10px;
+}
+
+.css-kpzrq4 {
+	width: 0 !important;
+	height: 0 !important;
+}
+
+::-webkit-scrollbar {
+	width: 0.4rem;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background: rgba(111, 118, 131, 0.3);
+}
+
+.side-navigation {
+	position: fixed;
+	right: 0;
+	border-left: 1px solid #CED4DA;
+	width: 18%;
+	padding: 0px 20px 4px 20px;
+	color: #6A7580;
+	font-size: 14px;
+}
+
+.active-side-navigation-item {
+	color: #074fa6;
+	font-weight: bold;
+}
+
+.docs-container {
+	width: 80%;
+	margin-left: 20px;
 }
 </style>
