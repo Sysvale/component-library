@@ -34,11 +34,12 @@ Vue.use(BootstrapVue);
 addParameters({
 	options: {
 		showAddonPanel: true,
-		addonPanelInRight: true,
+		addonPanelInRight: false,
 		sidebarAnimations: true,
 		isToolshown: false,
 		theme: customTheme,
 		showRoots: true,
+		showNav: true,
 	},
 });
 
