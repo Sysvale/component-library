@@ -43,7 +43,7 @@ const componentDescription = {
     name: 'ActionBar',
     summary: `ActionBars are toolbars that can display actions and information to the user.`,
     usage: {
-        whenToUSe: [
+        whenToUse: [
             'You need to group actions that the user can make.', 
             `You have no space in the menus and in other places to display actions and information.`,
         ],
