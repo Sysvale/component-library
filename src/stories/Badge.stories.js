@@ -1,4 +1,3 @@
-
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import {
@@ -7,16 +6,33 @@ import {
 
 import Badge from '../components/Badge.vue';
 
+// ------ COMPONENT INFO ------
 const template = `
-<s-badge
-	:color="color"
-	:bgColor="bgColor"
-	:content="text"
-	:variant="variant"
-	:colorCodeMode="colorCodeMode"
-/>`;
+    <s-badge
+        :color="color"
+        :bgColor="bgColor"
+        :content="text"
+        :variant="variant"
+        :colorCodeMode="colorCodeMode"
+    />`;
 
-const componentDescription = 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.';
+const componentDescription = {
+    name: 'Badge',
+    summary: 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.',
+    usage: {
+        whenToUSe: [
+            'You want to show status associated with your logic business or users actions.', 
+            `You want to highlight important metadata about features or content.`,
+            `You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.).`,
+            `The badge is readonly.`,
+        ],
+        whenNotUse:[
+            'The status that the badge represents, can be setted or removed by the user.',
+            'Clicking the component should trigger a functionality or execute an action.',
+            'You want to categorize something.',
+        ]
+    },
+};
 
 const docsDecorator = () => {
 	return {
@@ -28,35 +44,21 @@ const docsDecorator = () => {
 			};
 		},
 		template:
-			`<div>
-				<docs-wrapper :componentData="component" :exampleSourceCode="template" :componentDescription="componentDescription" componentName="Badge">
-					<div slot="usage">
-						<h5>Use Badges when:</h5>
-						<ul>
-							<li>You want to show status associated with your logic business or users actions</li>
-							<li>You want to highlight important metadata about features or content</li>
-							<li>You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.)</li>
-							<li>The badge is readonly</li>
-						</ul>
-						<br>
-						<h5>Don't use Badges when:</h5>
-						<ul>
-							<li>The status that the badge represents, can be setted or removed by the user</li>
-							<li>Clicking the component should trigger a functionality or execute an action.</li>
-							<li>You want to categorize something</li>
-						</ul>
-					</div>
-					<story slot="component-preview"/>
-				</docs-wrapper>
-			</div>`,
+			`<docs-wrapper
+				:componentData="component"
+				:exampleSourceCode="template"
+				:componentDescription="componentDescription"
+			>
+				<story slot="component-preview"/>
+			</docs-wrapper>`,
 	};
 };
 
-
+// ------ STORYBOOK SETTINGS ------
 export default {
 	component: Badge,
 	title: 'bios/Badge',
-	decorators: [docsDecorator, withKnobs, withA11y],
+	decorators: [docsDecorator, withKnobs, withA11y, withDesign],
 	parameters: {
 		a11y: {
 			element: '.preview-container',
@@ -68,6 +70,7 @@ export default {
 	},
 };
 
+// ------ KNOBS SETTINGS ------
 export const badge = () => ({
 	props: {
 		text: {
