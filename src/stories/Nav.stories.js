@@ -8,8 +8,6 @@ import {
 import Nav from '../components/Nav.vue';
 import { action } from '@storybook/addon-actions';
 
-console.log('Nav: ', Nav);
-
 // ------ COMPONENT INFO ------
 const template = `
     <s-nav

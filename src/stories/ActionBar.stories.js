@@ -6,8 +6,6 @@ import {
 
 import ActionBar from '../components/ActionBar.vue';
 
-console.log('Action: ', ActionBar);
-
 // ------ COMPONENT INFO ------
 const template = `
     <s-action-bar
