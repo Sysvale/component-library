@@ -3,17 +3,39 @@
 	 	class="px-2"
 		:class="oldSchool ? 'bg-cs' : 'bg-liga'"
 	 >
-		<b-nav-item
-			:class="oldSchool ? 'cs-mode' : 'liga-mode'"
-			v-for="(item, index) in items"
-			:id="getElementKey(item, index)"
-			:key="getElementKey(item, index)"
+		<component
+			v-for="(item, i) in computedItems"
+			:is="dropdownOrSingleItem(item)"
+			:class="getClass(item)"
+			:id="getElementKey(item, i)"
+			:key="getElementKey(item, i)"
+			:text="item.label"
 			:active="isActive(item)"
 			class="mr-4 mt-2"
+			menu-class="py-1"
 			@click="handleClick(item)"
 		>
-			{{ item.label }}
-		</b-nav-item>
+			<template
+				v-if="isDropdown(item)"
+			>
+				<b-dropdown-item
+					v-for="(subitem, j) in item.items"
+					:id="getElementKey(subitem, j, true)"
+					:key="getElementKey(subitem, j, true)"
+					:active="isActive(subitem)"
+					link-class="py-2"
+					class="py-1"
+					@click.stop="handleClick(subitem, item)"
+				>
+					{{ subitem.label }}
+				</b-dropdown-item>
+			</template>
+			<template
+				v-else
+			>
+				{{ item.label }}
+			</template>
+		</component>
 	</b-nav>
 </template>
 
