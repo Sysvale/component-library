@@ -119,6 +119,18 @@ export default {
 			return `${item.label.replace(/\s/g, '')}${index}${ subitem ? '-subitem' : '' }`;
 		},
 
+		isSubitem(item) {
+			return !!item.parent;
+		},
+
+		isDropdown(item) {
+			return !!item.items;
+		},
+
+		dropdownOrSingleItem(item) {
+			if (this.isDropdown(item)) return 'b-nav-item-dropdown';
+			return 'b-nav-item';
+		},
 		}
 	}
 };
