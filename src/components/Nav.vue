@@ -131,6 +131,17 @@ export default {
 			if (this.isDropdown(item)) return 'b-nav-item-dropdown';
 			return 'b-nav-item';
 		},
+
+		getClass(item) {
+			let accClass = this.oldSchool ? 'cs-mode' : 'liga-mode';
+			if (
+				this.isDropdown(item)
+				&& this.internalActiveParent
+				&& this.internalActiveParent.path === item.path
+			) {
+				accClass = `${accClass} active-parent`;
+			}
+			return accClass;
 		}
 	}
 };
