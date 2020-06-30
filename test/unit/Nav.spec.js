@@ -52,7 +52,18 @@ describe("Items styles test", () => {
 		expect(wrapper.findAll('.active').length).toBe(1);
 	});
 
-	test('if oldscholl mode is setted properly', () => {
+	test('if has one subitem set as active', () => {
+		window._ = lodash;
+		const wrapper = mount(Nav, {
+			localVue,
+			propsData: {
+				items: mockedData,
+				activeItem: mockedData[3].items[0],
+			},
+		});
+		expect(wrapper.findAll('.active').length).toBe(1);
+	});
+
 
 	test('if oldschool mode is setted properly', () => {
 		const wrapper = mount(Nav, {
