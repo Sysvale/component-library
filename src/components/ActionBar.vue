@@ -33,7 +33,8 @@ import { XIcon } from 'vue-feather-icons'
 export default {
 	components: {
 		XIcon,
-  	},
+	},
+
 	props: {
 		floatingMode: {
 			type: Boolean,

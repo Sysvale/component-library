@@ -18,12 +18,12 @@ import {
 	Nav,
 } from '../src/components';
 
-import CustomWrapper from '../src/Wrapper.vue';
+import DocsWrapper from '../src/DocsWrapper.vue';
 
 Vue.component('s-badge', Badge);
 Vue.component('s-stepper-counter', StepperCounter);
 Vue.component('s-pagination', Pagination);
-Vue.component('wrapper', CustomWrapper);
+Vue.component('docs-wrapper', DocsWrapper);
 Vue.component('s-action-bar', ActionBar);
 Vue.component('check-circle-icon', CheckCircleIcon);
 Vue.component('s-empty-state', EmptyState);
@@ -34,11 +34,12 @@ Vue.use(BootstrapVue);
 addParameters({
 	options: {
 		showAddonPanel: true,
-		addonPanelInRight: true,
+		addonPanelInRight: false,
 		sidebarAnimations: true,
 		isToolshown: false,
 		theme: customTheme,
 		showRoots: true,
+		showNav: true,
 	},
 });
 
