@@ -115,8 +115,10 @@ export default {
 			return Object.keys(this.internalActiveItem).length > 0 ? this.internalActiveItem.path === item.path : false;
 		},
 
-		getElementKey(item, index) {
-			return `${item.label.replace(/\s/g, '')}${index}`;
+		getElementKey(item, index, subitem = false) {
+			return `${item.label.replace(/\s/g, '')}${index}${ subitem ? '-subitem' : '' }`;
+		},
+
 		}
 	}
 };
