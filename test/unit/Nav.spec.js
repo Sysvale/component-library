@@ -115,4 +115,26 @@ describe("Change active item event tests", () => {
 			]
 		]);
 	});
+
+	test('if a event is emited when the subitem is clicked', () => {
+		window._ = lodash;
+		const wrapper = mount(Nav, {
+			localVue,
+			propsData: {
+				items: mockedData,
+				activeItem: mockedData[0],
+			},
+		});
+
+		wrapper
+			.find(`#${wrapper.vm.getElementKey(mockedData[3].items[0], 0, true)}`)
+			.trigger('click');
+
+		expect(wrapper.emitted().click).toBeTruthy();
+		expect(wrapper.emitted().click).toEqual([
+			[
+				mockedData[3].items[0],
+			]
+		]);
+	});
 });
