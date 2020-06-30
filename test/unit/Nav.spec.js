@@ -9,6 +9,23 @@ const mockedData = [
 	{ label: 'Dummy label 1', path: 'dummy/path/1' },
 	{ label: 'Dummy label 2', path: 'dummy/path/2' },
 	{ label: 'Dummy label 3', path: 'dummy/path/3' },
+	{
+		label: 'Dummy option with subitems',
+		items: [
+			{
+				label: 'Dummy item 1',
+				path: '/dummy/sub/item/1',
+			},
+			{
+				label: 'Dummy item 2',
+				path: '/dummy/sub/item/2',
+			},
+			{
+				label: 'Dummy item 3',
+				path: '/dummy/sub/item/3',
+			},
+		]
+	}
 ];
 
 test('Component is mounted properly', () => {
