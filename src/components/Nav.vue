@@ -56,7 +56,7 @@ export default {
 		activeItem:  {
 			type: Object,
 			default: () => {},
-			description: 'The currently active menu iten',
+			description: 'The currently active menu item',
 			required: true,
 		},
 	},
