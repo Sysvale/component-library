@@ -151,47 +151,96 @@ export default {
 		outline: none;
 	}
 
-	.cs-mode .nav-link:hover {
+	.cs-mode .nav-link:hover, .cs-mode .dropdown-item:hover {
 		color: rgb(255, 255, 255);
 	}
 
-	.cs-mode .active {
+	.cs-mode .dropdown-item:hover {
+		background: transparent;
+	}
+
+	.cs-mode .active, .cs-mode.active-parent {
 		border-bottom: 4px solid rgb(58, 223, 124);
 		background: rgb(90, 90, 90);
 		border-radius: 4px  4px 0px 0px;
+	}
+
+	.cs-mode.active-parent.show {
+		border-bottom: 4px solid transparent;
+	}
+
+	.cs-mode .dropdown-item.active {
+		border-left: 4px solid rgb(58, 223, 124);
+		border-bottom: 0px;
+		background: rgb(90, 90, 90);
+		border-radius: 0px;
 	}
 
 	.bg-liga {
 		background: linear-gradient(0.93deg, #FFFFFF 16.45%, #F1F5FB 105.67%);
 	}
 
-	.bg-cs {
+	.bg-liga .dropdown-menu {
+		background: #fff;
+	}
+
+	.bg-cs, .bg-cs .dropdown-menu {
 		background: rgb(68, 68, 68);
 	}
 
-	.cs-mode .nav-link.active{
-		color: rgb(255, 255, 255);		
+	.cs-mode .nav-link.active, .cs-mode .dropdown-item.active, .cs-mode.active-parent .dropdown-toggle {
+		color: rgb(255, 255, 255);
 	}
 
-	.cs-mode .nav-link {
+	.cs-mode .nav-link, .cs-mode .dropdown-item {
 		color: rgb(208, 210, 213);
 	}
 
-	.liga-mode .active {
+	.liga-mode .active, .liga-mode.active-parent {
 		border-bottom: 4px solid rgb(40, 90, 185);
 		background: rgba(40, 90, 185, 0.05);
 		border-radius: 4px  4px 0px 0px;
 	}
 
-	.liga-mode .nav-link.active{
+	.liga-mode.active-parent.show {
+		border-bottom: 4px solid transparent;
+	}
+
+	.liga-mode .nav-link.active, .liga-mode .dropdown-item.active, .liga-mode.active-parent .dropdown-toggle {
 		color: rgb(20, 32, 50);
 	}
 
-	.liga-mode .nav-link {
+	.liga-mode .nav-link, .liga-mode .dropdown-item {
 		color: rgb(106, 117, 128);
 	}
 
-	.liga-mode .nav-link:hover {
+	.liga-mode .nav-link:hover, .liga-mode .dropdown-item:hover {
 		color: rgb(20, 32, 50);
+		background: transparent;
+	}
+
+	.liga-mode .dropdown-item.active {
+		border-left: 4px solid rgb(40, 90, 185);
+		border-bottom: 0px;
+		background: rgba(40, 90, 185, 0.05);
+		border-radius: 0px;
+	}
+
+	.dropdown-item:active {
+		background: inherit;
+	}
+
+	.dropdown-menu {
+		margin-top: 4px;
+		border: 0;
+		border-radius: 0;
+	}
+
+	.dropdown-toggle[aria-expanded="true"]:after {
+		transform: rotate(180deg);
+	}
+
+	.dropdown-toggle:after {
+		transition: all 0.4s ease;
 	}
 </style>
