@@ -82,6 +82,26 @@ export default {
 		},
 	},
 
+	watch: {
+		computedItems:{
+			handler(newValue) {
+				const filtered = newValue.filter(item => item === this.activeItem);
+				if(filtered.length) {
+					[this.internalActiveItem] = filtered;
+					this.internalActiveParent = this.internalActiveItem;
+				} else {
+					const subitems = _.flatten(
+						newValue
+							.filter((item) => !!item.items)
+							.map(({ items }) => items)
+					);
+					[this.internalActiveItem] = subitems.filter(item => item.path === this.activeItem.path);
+					this.internalActiveParent = this.internalActiveItem.parent;
+				}
+			},
+			immediate: true,
+		},
+	},
 	methods: {
 		handleClick(item) {
 			this.internalActiveItem = item;
