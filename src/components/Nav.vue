@@ -103,9 +103,11 @@ export default {
 			immediate: true,
 		},
 	},
+
 	methods: {
-		handleClick(item) {
+		handleClick(item, parent) {
 			this.internalActiveItem = item;
+			this.internalActiveParent = parent;
 			this.$emit('click', this.internalActiveItem);
 		},
 
