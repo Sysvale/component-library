@@ -1,6 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import BootstrapVue from 'bootstrap-vue';
 import Nav from '../../src/components/Nav.vue';
+import lodash from 'lodash';
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
