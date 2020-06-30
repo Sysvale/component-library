@@ -30,6 +30,7 @@ const mockedData = [
 ];
 
 test('Component is mounted properly', () => {
+	window._ = lodash;
 	const wrapper = mount(Nav, {
 		localVue,
 		propsData: {
@@ -42,6 +43,7 @@ test('Component is mounted properly', () => {
 
 describe("Items styles test", () => {
 	test('if has one item set as active', () => {
+		window._ = lodash;
 		const wrapper = mount(Nav, {
 			localVue,
 			propsData: {
@@ -77,6 +79,7 @@ describe("Items styles test", () => {
 	});
 
 	test('if oldschool mode is setted properly', () => {
+		window._ = lodash;
 		const wrapper = mount(Nav, {
 			localVue,
 			propsData: {
@@ -93,7 +96,7 @@ describe("Items styles test", () => {
 
 describe("Change active item event tests", () => {
 	test('if a event is emited when the item is clicked', () => {
-
+		window._ = lodash;
 		const wrapper = mount(Nav, {
 			localVue,
 			propsData: {
