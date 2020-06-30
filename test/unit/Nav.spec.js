@@ -41,8 +41,7 @@ test('Component is mounted properly', () => {
 });
 
 describe("Items styles test", () => {
-	test('if has one item is set as active', () => {
-
+	test('if has one item set as active', () => {
 		const wrapper = mount(Nav, {
 			localVue,
 			propsData: {
@@ -55,6 +54,7 @@ describe("Items styles test", () => {
 
 	test('if oldscholl mode is setted properly', () => {
 
+	test('if oldschool mode is setted properly', () => {
 		const wrapper = mount(Nav, {
 			localVue,
 			propsData: {
