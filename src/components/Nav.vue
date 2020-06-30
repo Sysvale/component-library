@@ -67,6 +67,21 @@ export default {
 		}
 	},
 
+	computed: {
+		computedItems() {
+			return this.items.map((item) => {
+				let customItem = item;
+				if(this.isDropdown(item)) {
+					customItem.items = item.items.map((subitem) => ({
+						parent: _.clone(item),
+						...subitem,
+					}));
+				}
+				return customItem;
+			});
+		},
+	},
+
 	methods: {
 		handleClick(item) {
 			this.internalActiveItem = item;
