@@ -64,6 +64,7 @@ export default {
 	data() {
 		return {
 			internalActiveItem: this.activeItem,
+			internalActiveParent: this.activeItem,
 		}
 	},
 
