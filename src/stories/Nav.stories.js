@@ -89,6 +89,23 @@ const items = [
 		label: 'Mapa de calor dos bairros',
 		path: '/2',
 	},
+	{
+		label: 'Sublinks',
+		items: [
+			{
+				label: 'Sublink 1',
+				path: '/sublink-1',
+			},
+			{
+				label: 'Sublink 2',
+				path: '/sublink-2',
+			},
+			{
+				label: 'Sublink 3',
+				path: '/sublink-3',
+			},
+		]
+	}
 ];
 
 export const nav = () => ({
