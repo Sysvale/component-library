@@ -182,6 +182,8 @@ export default {
 
 	.bg-liga .dropdown-menu {
 		background: #fff;
+		box-shadow: 2px 2px 4px rgba(58, 67, 81, 0.16);
+		border-radius: 2px;
 	}
 
 	.bg-cs, .bg-cs .dropdown-menu {
