@@ -223,6 +223,12 @@ export default {
 		background: transparent;
 	}
 
+	.bg-liga .dropdown-menu {
+		background: #fff;
+		box-shadow: 2px 2px 4px rgba(58, 67, 81, 0.16);
+		border-radius: 2px;
+	}
+
 	.liga-mode .dropdown-item.active {
 		border-left: 4px solid rgb(40, 90, 185);
 		border-bottom: 0px;
