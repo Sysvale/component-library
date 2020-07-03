@@ -11,6 +11,7 @@
 			:key="getElementKey(item, i)"
 			:text="item.label"
 			:active="isActive(item)"
+			:to="{name: item.path}"
 			class="mr-4 mt-2"
 			menu-class="py-1"
 			@click="handleClick(item)"
@@ -23,6 +24,7 @@
 					:id="getElementKey(subitem, j, true)"
 					:key="getElementKey(subitem, j, true)"
 					:active="isActive(subitem)"
+					:to="{name: item.path}"
 					link-class="py-2"
 					class="py-1"
 					@click.stop="handleClick(subitem, item)"
@@ -96,8 +98,10 @@ export default {
 							.filter((item) => !!item.items)
 							.map(({ items }) => items)
 					);
-					[this.internalActiveItem] = subitems.filter(item => item.path === this.activeItem.path);
-					this.internalActiveParent = this.internalActiveItem.parent;
+					if (subitems.length) {
+						[this.internalActiveItem] = subitems.filter(item => item.path === this.activeItem.path);
+						this.internalActiveParent = this.internalActiveItem.parent;
+					}
 				}
 			},
 			immediate: true,
@@ -217,6 +221,12 @@ export default {
 	.liga-mode .nav-link:hover, .liga-mode .dropdown-item:hover {
 		color: rgb(20, 32, 50);
 		background: transparent;
+	}
+
+	.bg-liga .dropdown-menu {
+		background: #fff;
+		box-shadow: 2px 2px 4px rgba(58, 67, 81, 0.16);
+		border-radius: 2px;
 	}
 
 	.liga-mode .dropdown-item.active {
