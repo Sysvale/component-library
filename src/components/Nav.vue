@@ -98,8 +98,10 @@ export default {
 							.filter((item) => !!item.items)
 							.map(({ items }) => items)
 					);
-					[this.internalActiveItem] = subitems.filter(item => item.path === this.activeItem.path);
-					this.internalActiveParent = this.internalActiveItem.parent;
+					if (subitems.length) {
+						[this.internalActiveItem] = subitems.filter(item => item.path === this.activeItem.path);
+						this.internalActiveParent = this.internalActiveItem.parent;
+					}
 				}
 			},
 			immediate: true,
