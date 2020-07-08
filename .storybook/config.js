@@ -17,6 +17,7 @@ import {
 	ActionBar,
 	EmptyState,
 	Nav,
+	Dropdown,
 } from '../src/components';
 
 import DocsWrapper from '../src/DocsWrapper.vue';
@@ -30,6 +31,7 @@ Vue.component('check-circle-icon', CheckCircleIcon);
 Vue.component('s-empty-state', EmptyState);
 Vue.component('s-nav', Nav);
 Vue.component('multiselect', Multiselect)
+Vue.component('s-dropdown', Dropdown);
 
 Vue.use(BootstrapVue);
 
