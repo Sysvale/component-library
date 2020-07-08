@@ -23,26 +23,26 @@
 			slot="option"
 			slot-scope="props"
 		>
-		<div
-		  	class="option__desc"
-		>
-			<span class="option__title">
-				<span class="d-flex align-self-center align-items-center align-content-center">
-					<b-form-checkbox
-						id="checkbox-1"
-						v-model="props.option.is_selected"
-						name="checkbox-1"
-						:value="true"
-						:unchecked-value="false"
-					/>
+			<div
+				class="option__desc"
+			>
+				<span class="option__title">
+					<span class="d-flex align-self-center align-items-center align-content-center">
+						<b-form-checkbox
+							id="checkbox-1"
+							v-model="props.option.is_selected"
+							name="checkbox-1"
+							:value="true"
+							:unchecked-value="false"
+						/>
 
-					{{ props.option.title }}
+						{{ props.option.title }}
 
+					</span>
 				</span>
-			</span>
-		</div>
+			</div>
 		</template>
-  </multiselect>
+	</multiselect>
 </template>
 
 <script>
