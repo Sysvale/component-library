@@ -1,12 +1,9 @@
 <template>
-<div>
 	<multiselect
-		v-model="value"
 		v-bind="$attrs"
 		placeholder="Selecione quantas opções quiser"
 		label="title"
 		track-by="title"
-		:options="options"
 		:option-height="104"
 		:close-on-select="false"
 		:multiple="true"
@@ -37,14 +34,15 @@
 						name="checkbox-1"
 						:value="true"
 						:unchecked-value="false"
-					></b-form-checkbox>
+					/>
+
 					{{ props.option.title }}
+
 				</span>
 			</span>
 		</div>
 		</template>
   </multiselect>
-</div>
 </template>
 
 <script>
@@ -61,13 +59,6 @@ export default {
 		return {
 			internalActiveItem: this.activeItem,
 			internalActiveParent: this.activeItem,
-			value: [],
-			options: [
-				{ title: 'Space Pirate', is_selected: false, img: 'static/posters/fleet.png' },
-				{ title: 'Merchant', is_selected: false, img: 'static/posters/trading_post.png' },
-				{ title: 'Explorer', is_selected: false, img: 'static/posters/creatures.png' },
-				{ title: 'Miner', is_selected: false, img: 'static/posters/resource_lab.png' }
-			],
 			status: false,
 		}
 	},

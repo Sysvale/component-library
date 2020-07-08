@@ -11,10 +11,8 @@ import { action } from '@storybook/addon-actions';
 // ------ COMPONENT INFO ------
 const template = `
     <s-dropdown
-        :items="items"
-        :old-school="oldSchool"
-        :active-item="activeItem"
-        @click="handleClick"
+		:options="options"
+		:value="value"
     />`;
 
 const componentDescription = {
@@ -76,51 +74,22 @@ export default {
 };
 
 // ------ KNOBS SETTINGS ------
-const items = [
-	{
-		label: 'Mapa de grupo de risco',
-		path: '/',
-	},
-	{
-		label: 'Liga Saudável',
-		path: '/1',
-	},
-	{
-		label: 'Mapa de calor dos bairros',
-		path: '/2',
-	},
-	{
-		label: 'Sublinks',
-		items: [
-			{
-				label: 'Sublink 1',
-				path: '/sublink-1',
-			},
-			{
-				label: 'Sublink 2',
-				path: '/sublink-2',
-			},
-			{
-				label: 'Sublink 3',
-				path: '/sublink-3',
-			},
-		]
-	}
+const options = [
+	{ title: 'Space Pirate', is_selected: false, img: 'static/posters/fleet.png' },
+	{ title: 'Merchant', is_selected: false, img: 'static/posters/trading_post.png' },
+	{ title: 'Explorer', is_selected: false, img: 'static/posters/creatures.png' },
+	{ title: 'Miner', is_selected: false, img: 'static/posters/resource_lab.png' }
 ];
 
+const value = [];
+
 export const dropdown = () => ({
-	methods: {
-		handleClick: action('Item clicked'),
-	},
 	props: {
-		items: {
-			default: () => object('Items:', items),
+		options: {
+			default: () => object('Options:', options),
 		},
-		oldSchool: {
-			default: () => boolean('Oldschool mode', false)
-		},
-		activeItem: {
-			default: () => object('Active item', items[1])
+		value: {
+			default: () => object('Value:', value),
 		},
 	},
 	template,
