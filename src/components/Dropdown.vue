@@ -46,22 +46,8 @@
 </template>
 
 <script>
-import { XIcon } from 'vue-feather-icons'
 export default {
-	components: {
-		XIcon,
-	},
 	inheritAttrs: false,
-	props: {
-	},
-
-	data() {
-		return {
-			internalActiveItem: this.activeItem,
-			internalActiveParent: this.activeItem,
-			status: false,
-		}
-	},
 
 	methods: {
 		selectItem (tag) {
