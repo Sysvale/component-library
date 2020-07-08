@@ -64,9 +64,8 @@ export default {
 	},
 
 	methods: {
-		selectItem (newTag) {
-			console.log('newTag: ', newTag);
-			newTag.is_selected = !newTag.is_selected;
+		selectItem (tag) {
+			tag.is_selected = !tag.is_selected;
 		}
   }
 };
