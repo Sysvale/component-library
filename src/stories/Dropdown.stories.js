@@ -13,6 +13,8 @@ const template = `
     <s-dropdown
 		:options="options"
 		:value="value"
+		:label="label"
+		:track-by="trackBy"
     />`;
 
 const componentDescription = {
@@ -75,10 +77,10 @@ export default {
 
 // ------ KNOBS SETTINGS ------
 const options = [
-	{ title: 'Space Pirate', is_selected: false, img: 'static/posters/fleet.png' },
-	{ title: 'Merchant', is_selected: false, img: 'static/posters/trading_post.png' },
-	{ title: 'Explorer', is_selected: false, img: 'static/posters/creatures.png' },
-	{ title: 'Miner', is_selected: false, img: 'static/posters/resource_lab.png' }
+	{ title: 'Avengers', is_selected: false, },
+	{ title: 'Naruto', is_selected: false, },
+	{ title: 'X-men', is_selected: false, },
+	{ title: 'The Powerpuff Girls', is_selected: false, }
 ];
 
 const value = [];
@@ -90,6 +92,12 @@ export const dropdown = () => ({
 		},
 		value: {
 			default: () => object('Value:', value),
+		},
+		label: {
+			default: () => text('Label:', 'title')
+		},
+		trackBy: {
+			default: () => text('trackBy:', 'title')
 		},
 	},
 	template,
