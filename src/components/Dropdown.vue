@@ -1,23 +1,18 @@
 <template>
 	<multiselect
 		v-bind="$attrs"
-		placeholder="Selecione quantas opções quiser"
-		label="title"
-		track-by="title"
-		:option-height="104"
+		v-model="selectedValue"
+		:options="options"
 		:close-on-select="false"
 		:multiple="true"
-		tag-placeholder="Add this as new tag"
 		:taggable="true"
+		select-label=''
+		:clear-on-select="false"
+		deselect-label=''
+		selected-label=''
+		:searchable="false"
 		@select="selectItem"
 		@remove="selectItem"
-		selectLabel=''
-		:clearOnSelect="false"
-		:clear-on-select="false"
-		:closeOnSelect="false"
-		deselectLabel=''
-		selectedLabel=''
-		:searchable="false"
 	>
 		<template
 			slot="option"
@@ -47,12 +42,26 @@
 
 <script>
 export default {
-	inheritAttrs: false,
+	props: {
+		options: {
+			type: Array,
+			default: () => [],
+		},
+		value: {
+			type: [String, Number, Boolean, Array, Object],
+		},
+	},
+
+	data() {
+		return {
+			selectedValue: this.value,
+		}
+	},
 
 	methods: {
 		selectItem (tag) {
 			tag.is_selected = !tag.is_selected;
-		}
+		},
   }
 };
 </script>
