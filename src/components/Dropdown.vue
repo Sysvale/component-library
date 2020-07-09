@@ -22,13 +22,16 @@
 			>
 				<span class="option__title">
 					<span class="d-flex align-items-center">
-						<b-form-checkbox
-							:id="`checkbox-${props.option.title}`"
-							v-model="props.option.is_selected"
-							:name="`checkbox-${props.option.title}`"
-							:value="true"
-							:unchecked-value="false"
-						/>
+						<span class="checkbox-container">
+							<input
+								v-model="props.option.is_selected"
+								type="checkbox"
+								:id="`checkbox-${props.option.title}`"
+								:name="`checkbox-${props.option.title}`"
+								:value="true"
+								class="mr-2 custom-checkbox"
+							>
+						</span>
 
 						{{ props.option.title }}
 
@@ -62,10 +65,9 @@ export default {
 	color: #142032;
 }
 
-.custom-control-input:checked ~ .custom-control-label::before {
-	color: #fff;
-	border-color: #285AB5;
-	background-color: #285AB5;
+.custom-checkbox {
+	width: 1.2em;
+    height: 1.2em;
 }
 
 .multiselect__tag {
