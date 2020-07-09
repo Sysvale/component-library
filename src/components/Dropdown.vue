@@ -106,6 +106,7 @@ export default {
 	color: #142032;
 	font-weight: 600;
 }
+
 .multiselect--disabled {
   background: transparent;
 }
