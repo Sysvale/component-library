@@ -66,7 +66,7 @@ export default {
 }
 
 .custom-checkbox {
-	width: 1.2em;
+    width: 1.2em;
     height: 1.2em;
 }
 
