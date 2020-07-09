@@ -23,9 +23,9 @@
 				<span class="option__title">
 					<span class="d-flex align-items-center">
 						<b-form-checkbox
-							id="checkbox-1"
+							:id="`checkbox-${props.option.title}`"
 							v-model="props.option.is_selected"
-							name="checkbox-1"
+							:name="`checkbox-${props.option.title}`"
 							:value="true"
 							:unchecked-value="false"
 						/>
