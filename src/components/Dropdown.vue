@@ -76,7 +76,6 @@ export default {
 	border: 1px solid #ced4da;
 }
 
-	
 .multiselect__tag-icon:after{
 	color: #4F606F;
 }
