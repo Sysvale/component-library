@@ -2,14 +2,13 @@
 	<multiselect
 		v-bind="$attrs"
 		v-model="selectedValue"
-		:options="options"
+		select-label=''
+		deselect-label=''
+		selected-label=''
 		:close-on-select="false"
 		:multiple="true"
 		:taggable="true"
-		select-label=''
 		:clear-on-select="false"
-		deselect-label=''
-		selected-label=''
 		:searchable="false"
 		@select="selectItem"
 		@remove="selectItem"
@@ -42,19 +41,9 @@
 
 <script>
 export default {
-	props: {
-		options: {
-			type: Array,
-			default: () => [],
-		},
-		value: {
-			type: [String, Number, Boolean, Array, Object],
-		},
-	},
-
 	data() {
 		return {
-			selectedValue: this.value,
+			selectedValue: this.$attrs.value,
 		}
 	},
 
