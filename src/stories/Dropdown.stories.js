@@ -6,7 +6,6 @@ import {
 } from '@storybook/addon-knobs';
 
 import Dropdown from '../components/Dropdown.vue';
-import { action } from '@storybook/addon-actions';
 
 // ------ COMPONENT INFO ------
 const template = `
