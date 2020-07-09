@@ -107,4 +107,11 @@ export default {
 	color: #142032;
 	font-weight: 600;
 }
+.multiselect--disabled {
+  background: transparent;
+}
+
+.multiselect--disabled .multiselect__tags {
+	background: #e9eef1 !important;
+}
 </style>
