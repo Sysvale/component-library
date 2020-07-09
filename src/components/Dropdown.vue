@@ -96,7 +96,6 @@ export default {
 }
 .multiselect__option--selected.multiselect__option--highlight:after {
 	background: #fff;
-	content: attr(data-deselect);
 	color: #142032;
 }
 
