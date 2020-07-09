@@ -49,14 +49,7 @@
 						v-if="typeof componentDescription.usage.observation !== 'undefined'"
 					>
 						<h5>Obs.:</h5>
-						<ul>
-							<li
-								v-for="content in componentDescription.usage.observation"
-								:key="content"
-							>
-								{{ content }}
-							</li>
-						</ul>
+						{{ componentDescription.usage.observation }}
 					</div>
 				</div>
 
@@ -107,19 +100,23 @@
 						</div>
 					</b-collapse>
 
-					<h2 class="heading mt-5" id="props">
-						Props
-					</h2>
+					<div
+						v-if="formattedProps.length > 0"
+					>
+						<h2 class="heading mt-5" id="props">
+							Props
+						</h2>
 
-					<b-table
-						class="mt-2 table-style"
-						hover
-						outlined
-						:no-border-collapse="true"
-						:caption-top="false"
-						:fixed="true"
-						:items="formattedProps"
-					/>
+						<b-table
+							class="mt-2 table-style"
+							hover
+							outlined
+							:no-border-collapse="true"
+							:caption-top="false"
+							:fixed="true"
+							:items="formattedProps"
+						/>
+					</div>
 
 					<div
 						v-if="formattedEvents.length > 0"
@@ -219,7 +216,6 @@ export default {
 				'Component-header',
 				'Usage',
 				'Preview',
-				'Props',
 			],
 		};
 	},
@@ -256,6 +252,10 @@ export default {
 			formattedProp.description = item.description || '--';
 
 			this.formattedProps.push(formattedProp);
+
+			if (this.formattedProps.length === 1) {
+				this.navigationItems.push('Props');
+			}
 		});
 
 		_.values(this.componentDescription.events).forEach((item, index) => {

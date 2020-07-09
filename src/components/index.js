@@ -5,3 +5,4 @@ export { default as ActionBar } from './ActionBar.vue';
 export { default as Pagination } from './Pagination.vue';
 export { default as EmptyState } from './EmptyState.vue';
 export { default as Nav } from './Nav.vue';
+export { default as Dropdown } from './Dropdown.vue';
