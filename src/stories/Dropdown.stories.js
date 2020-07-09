@@ -19,23 +19,20 @@ const template = `
 
 const componentDescription = {
     name: 'Dropdown',
-    summary: 'Dropdown are components used to create Multiselectigation solutions and menus.',
+    summary: 'Dropdown are components used when you need to create selecting solutions that allow multiple selection.',
     usage: {
         whenToUse: [
-            'You need to separate content by pages.', 
-            `It’s not appropriate to divide content using tabs, sidebars or using 
-            cards and links in one page to Multiselectigate to another.`
+            'You want the user to select one or more itens.', 
+            `You need to display a lot of data in one form, and they are associated with one label.`
         ],
         whenNotUse:[
-            'You have too many items to be displayed in the menu.',
-            'You want to show the links vertically.'
-        ]
-	},
-	events: {
-		click: {
-			trigger: 'click',
-			description: 'Event emitted when one of the menu items is clicked.'
-		}
+            'You want the user to select only one item.',
+            'You have less than 3 itens to be displayed.'
+		],
+		observation: `This component a wrapper of the vue-multiselect (vue-multiselect.js.org) component,
+			aiming to be used only when you have a lot of data that can be selected simultaneously. The component API
+			is the same of the vue-multiselect. For more info about how to use the component, access the vue-multiselect
+			documentation.`,
 	},
 };
 
