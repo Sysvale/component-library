@@ -21,7 +21,7 @@
 				class="option__desc"
 			>
 				<span class="option__title">
-					<span class="d-flex align-self-center align-items-center align-content-center">
+					<span class="d-flex align-items-center">
 						<b-form-checkbox
 							id="checkbox-1"
 							v-model="props.option.is_selected"
