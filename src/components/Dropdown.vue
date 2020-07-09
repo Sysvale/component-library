@@ -91,16 +91,16 @@ export default {
 }
 
 .multiselect__option--selected.multiselect__option--highlight {
-	background: #fff;
+	background: #ffffff;
 	color: #142032;
 }
 .multiselect__option--selected.multiselect__option--highlight:after {
-	background: #fff;
+	background: #ffffff;
 	color: #142032;
 }
 
 .multiselect__option--selected {
-	background: #FFF;
+	background: #ffffff;
 	color: #142032;
 	font-weight: 600;
 }
