@@ -28,7 +28,7 @@ const componentDescription = {
             'You want the user to select only one item.',
             'You have less than 3 itens to be displayed.'
 		],
-		observation: `This component a wrapper of the vue-multiselect (vue-multiselect.js.org) component,
+		observation: `This component is a wrapper of the vue-multiselect (vue-multiselect.js.org) component,
 			aiming to be used only when you have a lot of data that can be selected simultaneously. The component API
 			is the same of the vue-multiselect. For more info about how to use the component, access the vue-multiselect
 			documentation.`,
