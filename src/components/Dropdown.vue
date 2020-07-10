@@ -1,5 +1,5 @@
 <template>
-	<div id="dropdown">
+	<span id="dropdown">
 		<multiselect
 			v-bind="$attrs"
 			v-model="selectedValue"
@@ -24,14 +24,21 @@
 					<span class="option__title">
 						<span class="d-flex align-items-center">
 							<span class="checkbox-container">
-								<input
-									v-model="props.option.is_selected"
-									type="checkbox"
-									:id="`checkbox-${props.option.title}`"
-									:name="`checkbox-${props.option.title}`"
-									:value="true"
-									class="mr-2 custom-checkbox"
-								>
+								<div class="customCheckbox mr-4">
+									<input
+										v-model="props.option.is_selected"
+										type="checkbox"
+										:id="`checkbox-${props.option.title}`"
+										:name="`checkbox-${props.option.title}`"
+										:value="true"
+									/>
+									<label
+										:for="`checkbox-${props.option.title}`"
+										@click="addItemViaCustomCheckbox(props.option)"
+										:class="{ checkedCheckboxColor: props.option.is_selected }"
+									>
+									</label>
+								</div>
 							</span>
 
 							{{ props.option.title }}
@@ -41,7 +48,7 @@
 				</div>
 			</template>
 		</multiselect>
-	</div>
+	</span>
 </template>
 
 <script>
@@ -56,6 +63,11 @@ export default {
 		selectItem (tag) {
 			tag.is_selected = !tag.is_selected;
 		},
+
+		addItemViaCustomCheckbox(option) {
+			option.is_selected = !option.is_selected;
+			this.selectedValue.push(option);
+		},
   }
 };
 </script>
@@ -67,9 +79,50 @@ export default {
 	color: #142032;
 }
 
-#dropdown .custom-checkbox {
-    width: 16px;
-    height: 16px;
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+.customCheckbox {
+	width: 15px;
+	position: relative;
+	margin-left: -12px;
+}
+
+.checkedCheckboxColor {
+	background-color: #2959b8 !important;
+	border: none !important;
+}
+
+.customCheckbox label {
+	cursor: pointer;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	top: 0;
+	border-radius: 4px;
+	border: 0.5px solid #ced4da;
+}
+
+.customCheckbox label:after {
+	border: 1.5px solid #fff;
+	border-top: none;
+	border-right: none;
+	content: "";
+	height: 5px;
+	left: 3.1px;
+	opacity: 0;
+	position: absolute;
+	top: 4.4px;
+	transform: rotate(-45deg);
+	width: 8px;
+	border-radius: 0.4px;
+}
+
+.customCheckbox input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
 }
 
 #dropdown .multiselect__tag {
