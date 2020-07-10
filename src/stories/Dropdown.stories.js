@@ -9,7 +9,8 @@ import Dropdown from '../components/Dropdown.vue';
 
 // ------ COMPONENT INFO ------
 const template = `
-    <s-dropdown
+	<s-dropdown
+		v-model="value"
 		:options="options"
 		:label="label"
 		:track-by="trackBy"
