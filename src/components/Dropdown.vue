@@ -28,12 +28,13 @@
 									<input
 										v-model="props.option.is_selected"
 										type="checkbox"
-										:id="`checkbox-${props.option.title}`"
-										:name="`checkbox-${props.option.title}`"
+										:id="`input-${props.option.title}`"
+										:name="`input-${props.option.title}`"
 										:value="true"
 									/>
 									<label
-										:for="`checkbox-${props.option.title}`"
+										:id="`checkbox-${props.option.title}`"
+										:for="`input-${props.option.title}`"
 										@click="addItemViaCustomCheckbox(props.option)"
 										:class="{ checkedCheckboxColor: props.option.is_selected }"
 									>
@@ -59,8 +60,14 @@ export default {
 		}
 	},
 
+	watch: {
+		selectedValue(values) {
+			this.$emit('input', values);
+		},
+	},
+
 	methods: {
-		selectItem (tag) {
+		selectItem(tag) {
 			tag.is_selected = !tag.is_selected;
 		},
 
