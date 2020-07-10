@@ -68,8 +68,8 @@ export default {
 }
 
 #dropdown .custom-checkbox {
-    width: 1em;
-    height: 1em;
+    width: 16px;
+    height: 16px;
 }
 
 #dropdown .multiselect__tag {
