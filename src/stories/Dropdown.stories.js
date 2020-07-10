@@ -11,7 +11,6 @@ import Dropdown from '../components/Dropdown.vue';
 const template = `
     <s-dropdown
 		:options="options"
-		:value="value"
 		:label="label"
 		:track-by="trackBy"
     />`;
@@ -85,9 +84,6 @@ export const dropdown = () => ({
 	props: {
 		options: {
 			default: () => object('Options:', options),
-		},
-		value: {
-			default: () => object('Value:', value),
 		},
 		label: {
 			default: () => text('Label:', 'title')
