@@ -14,7 +14,7 @@ const template = `
 		:options="options"
 		:label="label"
 		:track-by="trackBy"
-    />`;
+/>`;
 
 const componentDescription = {
     name: 'Dropdown',
@@ -73,18 +73,24 @@ export default {
 
 // ------ KNOBS SETTINGS ------
 const options = [
-	{ title: 'Avengers', is_selected: false, },
-	{ title: 'Naruto', is_selected: false, },
-	{ title: 'X-men', is_selected: false, },
-	{ title: 'The Powerpuff Girls', is_selected: false, }
+	{ title: 'Avengers',},
+	{ title: 'Naruto',},
+	{ title: 'X-men',},
+	{ title: 'The Powerpuff Girls',}
 ];
 
-const value = [];
+const value = [
+	{ title: 'Avengers',},
+	{ title: 'The Powerpuff Girls',}
+];
 
 export const dropdown = () => ({
 	props: {
 		options: {
 			default: () => object('Options:', options),
+		},
+		value: {
+			default: () => object('Value:', value),
 		},
 		label: {
 			default: () => text('Label:', 'title')

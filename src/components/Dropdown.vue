@@ -6,6 +6,7 @@
 			select-label=''
 			deselect-label=''
 			selected-label=''
+			:options="internalOptions"
 			:close-on-select="false"
 			:multiple="true"
 			:taggable="true"
@@ -16,7 +17,7 @@
 		>
 			<template
 				slot="option"
-				slot-scope="props"
+				slot-scope="internalOptions"
 			>
 				<div
 					class="option__desc"
@@ -26,23 +27,22 @@
 							<span class="checkbox-container">
 								<div class="customCheckbox mr-4">
 									<input
-										v-model="props.option.is_selected"
+										v-model="internalOptions.option.is_selected"
 										type="checkbox"
-										:id="`input-${props.option.title}`"
-										:name="`input-${props.option.title}`"
+										:id="`input-${internalOptions.option.title}`"
+										:name="`input-${internalOptions.option.title}`"
 										:value="true"
 									/>
 									<label
-										:id="`checkbox-${props.option.title}`"
-										:for="`input-${props.option.title}`"
-										@click="addItemViaCustomCheckbox(props.option)"
-										:class="{ checkedCheckboxColor: props.option.is_selected }"
-									>
-									</label>
+										:id="`checkbox-${internalOptions.option.title}`"
+										:for="`input-${internalOptions.option.title}`"
+										@click="addItemViaCustomCheckbox(internalOptions.option)"
+										:class="{ checkedCheckboxColor: internalOptions.option.is_selected }"
+									/>
 								</div>
 							</span>
 
-							{{ props.option.title }}
+							{{ internalOptions.option.title }}
 
 						</span>
 					</span>
@@ -57,12 +57,35 @@ export default {
 	data() {
 		return {
 			selectedValue: this.$attrs.value,
+			internalOptions: _.cloneDeep(this.$attrs.options),
 		}
+	},
+
+	mounted() {
+		this.selectedValue.forEach(item => {
+			item.is_selected = true;
+		});
+
+		this.internalOptions.forEach(item => {
+			let containsItem = this.selectedValue.some(
+				value => value[this.$attrs.label] === item[this.$attrs.label]
+			)
+
+			if (containsItem) {
+				item.is_selected = true;
+			} else {
+				item.is_selected = false;
+			}
+			
+		});
 	},
 
 	watch: {
 		selectedValue(values) {
-			this.$emit('input', values);
+			let cleanedValues = _.cloneDeep(values);
+			cleanedValues.forEach(val => delete val.is_selected)
+			
+			this.$emit('input', cleanedValues);
 		},
 	},
 
