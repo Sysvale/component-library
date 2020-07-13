@@ -9,12 +9,12 @@ import Dropdown from '../components/Dropdown.vue';
 
 // ------ COMPONENT INFO ------
 const template = `
-    <s-dropdown
+	<s-dropdown
+		v-model="value"
 		:options="options"
-		:value="value"
 		:label="label"
 		:track-by="trackBy"
-    />`;
+/>`;
 
 const componentDescription = {
     name: 'Dropdown',
@@ -28,7 +28,7 @@ const componentDescription = {
             'You want the user to select only one item.',
             'You have less than 3 itens to be displayed.'
 		],
-		observation: `This component a wrapper of the vue-multiselect (vue-multiselect.js.org) component,
+		observation: `This component is a wrapper of the vue-multiselect (vue-multiselect.js.org) component,
 			aiming to be used only when you have a lot of data that can be selected simultaneously. The component API
 			is the same of the vue-multiselect. For more info about how to use the component, access the vue-multiselect
 			documentation.`,
@@ -73,13 +73,16 @@ export default {
 
 // ------ KNOBS SETTINGS ------
 const options = [
-	{ title: 'Avengers', is_selected: false, },
-	{ title: 'Naruto', is_selected: false, },
-	{ title: 'X-men', is_selected: false, },
-	{ title: 'The Powerpuff Girls', is_selected: false, }
+	{ title: 'Avengers',},
+	{ title: 'Naruto',},
+	{ title: 'X-men',},
+	{ title: 'The Powerpuff Girls',}
 ];
 
-const value = [];
+const value = [
+	{ title: 'Avengers',},
+	{ title: 'The Powerpuff Girls',}
+];
 
 export const dropdown = () => ({
 	props: {
