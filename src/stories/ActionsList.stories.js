@@ -77,10 +77,7 @@ export default {
 
 const actions = [
 	{title: 'Icon1', img: 'img1'},
-	{title: 'Icon2', img: 'img2'},
-	{title: 'Icon3', img: 'img3'},
-	{title: 'Icon4', img: 'img4'},
-	{title: 'Icon5', img: 'img5'},
+	{title: 'Icon2', img: 'img2'}	
 ];
 
 export const actionsList = () => ({
