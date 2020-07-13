@@ -90,8 +90,12 @@ export default {
 	},
 
 	methods: {
-		selectItem(tag) {
-			tag.is_selected = !tag.is_selected;
+		selectItem(option) {
+			this.internalOptions.forEach(item => {
+				if(item.title === option.title) {
+					item.is_selected = !item.is_selected;
+				}
+			});
 		},
 
 		addItemViaCustomCheckbox(option) {
