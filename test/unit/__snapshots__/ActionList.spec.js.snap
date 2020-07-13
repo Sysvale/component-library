@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component is mounted properly 1`] = `
+<div class="d-flex justify-content-end">
+  <!---->
+  <div>
+    <transition-stub name="slide-fade">
+      <div class="actionStyle listItem p-4"></div>
+    </transition-stub>
+  </div>
+  <div>
+    <transition-stub name="slide-fade">
+      <div class="actionStyle listItem p-4 actionItem"></div>
+    </transition-stub>
+  </div>
+  <div>
+    <transition-stub name="slide-fade">
+      <!---->
+    </transition-stub>
+  </div>
+  <div>
+    <transition-stub name="slide-fade">
+      <!---->
+    </transition-stub>
+  </div>
+  <div>
+    <div class="actionStyle actionItem listItem p-4">
+      More actions
+    </div>
+    <!---->
+  </div>
+</div>
+`;
