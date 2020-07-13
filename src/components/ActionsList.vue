@@ -1,7 +1,28 @@
 <template>
 	<div
-		class="d-flex justify-content-end"
+		class="d-flex"
+		:class="position === 'left' ? 'justify-content-end' : 'justify-content-start'"
 	>
+		<div
+			v-if="position === 'right'"
+		>
+			<div
+				key="less"
+				v-if="!isBeenShown && actions.length > expandedQuantity"
+				class="actionStyle actionItemRight listItem p-4"
+				@click="expandList"
+			>
+				{{ collapsedActionName }}
+			</div>
+			<div
+				key="moreOrLess"
+				v-if="actions.length > expandedQuantity && isBeenShown"
+				class="actionStyle actionItemRight listItem p-4"
+				@click="collapseList"
+			>
+				{{ expandedActionName }}
+			</div>
+		</div>
 		<div
 			v-for="(action, i) in actions"
 			:key="action.title"
@@ -11,26 +32,31 @@
 					v-if="i <= internalExpandedQuantity - 1"
 					class="actionStyle listItem p-4"
 					:class="{ actionItem: i > 0 }"
+					@click="$emit('actionClicked', action)"
 				>
-					<slot class="actionStyle" name="act" :list="action" />
+					<slot class="actionStyle" name="action" :list="action" />
 				</div>
 			</transition>
 		</div>
 		<div
-			key="Less"
-			v-if="!isBeenShown && actions.length > expandedQuantity"
-			class="actionStyle actionItem listItem p-4"
-			@click="expandList"
+			v-if="position === 'left'"
 		>
-			{{ collapsedActionName }}
-		</div>
-		<div
-			key="moreOrLess"
-			v-if="actions.length > expandedQuantity && isBeenShown"
-			class="actionStyle actionItem listItem p-4"
-			@click="collapseList"
-		>
-			{{ expandedActionName }}
+			<div
+				key="less"
+				v-if="!isBeenShown && actions.length > expandedQuantity"
+				class="actionStyle actionItem listItem p-4"
+				@click="expandList"
+			>
+				{{ collapsedActionName }}
+			</div>
+			<div
+				key="moreOrLess"
+				v-if="actions.length > expandedQuantity && isBeenShown"
+				class="actionStyle actionItem listItem p-4"
+				@click="collapseList"
+			>
+				{{ expandedActionName }}
+			</div>
 		</div>
 	</div>
 </template>
@@ -61,6 +87,12 @@ export default {
 			default: 'Less actions',
 			description: `The name that will be displayed in the last item of the actions list when it's expanded.`,
 			required: false,
+		},
+		position: {
+			type: String,
+			default: 'left',
+			description: `Speficies if the component will be rendered right side or left side.`,
+			required: false,
 		}
 	},
 	data() {
@@ -88,6 +120,10 @@ export default {
 	border-left: 1px solid #CED4DA;
 }
 
+.actionItemRight {
+	border-right: 1px solid #CED4DA;
+}
+
 .listItem {
 	padding: 4px;
 	cursor: pointer;
@@ -111,8 +147,7 @@ export default {
   transition: all .1s ease;
 }
 
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
+.slide-fade-enter, .slide-fade-leave-to {
   transform: translateX(10px);
   opacity: 0;
 }

@@ -1,7 +1,8 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
+import { action } from '@storybook/addon-actions';
 import {
-	withKnobs, text, select, boolean, object,
+	withKnobs, text, number, boolean, object,
 } from '@storybook/addon-knobs';
 
 import ActionsList from '../components/ActionsList.vue';
@@ -10,9 +11,14 @@ import ActionsList from '../components/ActionsList.vue';
 const template = `
 	<s-actions-list 
 		:actions="actions"
+		:expandedQuantity="expandedQuantity"
+		:collapsedActionName="collapsedActionName"
+		:expandedActionName="expandedActionName"
+		:position="position"
+		@actionClicked="handleClick"
 	>
 		<template
-			slot="act"
+			slot="action"
 			slot-scope="{list: item}"
 		>
 			{{ item.title }}
@@ -21,20 +27,32 @@ const template = `
 
 const componentDescription = {
     name: 'ActionsList',
-    summary: 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.',
+    summary: 'Action lists are components used to display a list of actions in a row.',
     usage: {
         whenToUse: [
-            'You want to show status associated with your logic business or users actions.', 
-            `You want to highlight important metadata about features or content.`,
-            `You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.).`,
-            `The actions-list is readonly.`,
+            'You have actions associated with and list or table row.', 
+            `When there are a lot of actions but some of them can be collapsed.`,
         ],
         whenNotUse:[
-            'The status that the actions-list represents, can be setted or removed by the user.',
-            'Clicking the component should trigger a functionality or execute an action.',
-            'You want to categorize something.',
+            'When you need buttons.',
+            'When you are building a navigation component (Menu, navbar, etc).',
+            'The actions listed affect the whole view or content.',
         ]
-    },
+	},
+	events: {
+		actionClicked: {
+			trigger: 'click',
+			description: `Event emitted when one of the actions is clicked. The 
+				data associated with the action will be sent to the parent component.`
+		}
+	},
+	slots: {
+		action: {		
+			description: `Scoped slot for custom data rendering of field 'actions'.
+				The list property, that can be accessed through the slot, represents
+				the array of actions to be displayed.`
+		},
+	},
 };
 
 const docsDecorator = () => {
@@ -77,14 +95,33 @@ export default {
 
 const actions = [
 	{title: 'Icon1', img: 'img1'},
-	{title: 'Icon2', img: 'img2'}	
+	{title: 'Icon2', img: 'img2'},
+	{title: 'Icon3', img: 'img3'},
+	{title: 'Icon4', img: 'img4'},
 ];
 
 export const actionsList = () => ({
+	methods: {
+		handleClick: action('Action clicked'),
+	},
 	props: {
 		actions: {
 			default: () => object('Actions:', actions),
 		},
+		expandedQuantity: {
+			default: () => number('Expected quantity:', 2),
+		},
+		collapsedActionName: {
+			default: () => text('Collapsed action name:', 'More actions'),
+		},
+		expandedActionName: {
+			default: () => text('Expanded action name:', 'Less actions'),
+		},
+		position: {
+			default: () => text('position:', 'left'),
+		},
 	},
 	template: template,
 });
+
+
