@@ -202,4 +202,8 @@ input[type=checkbox] {
 #dropdown .multiselect--disabled .multiselect__tags {
 	background: #e9eef1 !important;
 }
+
+#dropdown .multiselect__placeholder {
+	color: #6A7580;
+}
 </style>
