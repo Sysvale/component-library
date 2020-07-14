@@ -1,67 +1,68 @@
 <template>
-	<div
-		class="d-flex actionStyle"
-		:class="position === 'left' ? 'justify-content-end' : 'justify-content-start'"
+	<span
+		id="actionList"
 	>
 		<div
-			v-if="position === 'right'"
+			class="d-flex actionStyle"
+			:class="position === 'left' ? 'justify-content-end' : 'justify-content-start'"
 		>
 			<div
-				key="less"
-				v-if="!isBeenShown && actions.length > expandedQuantity"
-				class="actionRightBorder action p-4"
-				@click="expandList"
+				v-if="position === 'right'"
 			>
-				{{ collapsedActionName }}
-			</div>
-			<div
-				key="moreOrLess"
-				v-if="actions.length > expandedQuantity && isBeenShown"
-				class="actionRightBorder action p-4"
-				@click="collapseList"
-			>
-				{{ expandedActionName }}
-			</div>
-		</div>
-		<div
-			v-for="(action, i) in actions"
-			:key="action.title"
-		>
-			<transition name="slide-fade">
 				<div
-					v-if="i <= internalExpandedQuantity - 1"
-					class="action p-4"
-					:class="{ actionLeftBorder: i > 0 }"
-					@click="$emit('actionClicked', action)"
+					v-if="!itsBeignShown && actions.length > expandedQuantity"
+					class="actionRightBorder action p-4"
+					@click="expandList"
 				>
-					<slot name="action" :list="action" />
+					{{ collapsedActionName }}
 				</div>
-			</transition>
-		</div>
-		<div
-			v-if="position === 'left'"
-		>
-			<div
-				key="less"
-				v-if="!isBeenShown && actions.length > expandedQuantity"
-				class="actionLeftBorder action p-4"
-				@click="expandList"
-			>
-				{{ collapsedActionName }}
+				<div
+					v-if="actions.length > expandedQuantity && itsBeignShown"
+					class="actionRightBorder action p-4"
+					@click="collapseList"
+				>
+					{{ expandedActionName }}
+				</div>
 			</div>
 			<div
-				key="moreOrLess"
-				v-if="actions.length > expandedQuantity && isBeenShown"
-				class="actionLeftBorder action p-4"
-				@click="collapseList"
+				v-for="(action, i) in actions"
+				:key="action.title"
 			>
-				{{ expandedActionName }}
+				<transition name="slide-fade">
+					<div
+						v-if="i <= internalExpandedQuantity - 1"
+						class="action p-4"
+						:class="{ actionLeftBorder: i > 0 }"
+						@click="$emit('actionClicked', action)"
+					>
+						<slot name="action" :list="action" />
+					</div>
+				</transition>
+			</div>
+			<div
+				v-if="position === 'left'"
+			>
+				<div
+					v-if="!itsBeignShown && actions.length > expandedQuantity"
+					class="actionLeftBorder action p-4"
+					@click="expandList"
+				>
+					{{ collapsedActionName }}
+				</div>
+				<div
+					v-if="actions.length > expandedQuantity && itsBeignShown"
+					class="actionLeftBorder action p-4"
+					@click="collapseList"
+				>
+					{{ expandedActionName }}
+				</div>
 			</div>
 		</div>
-	</div>
+	</span>
 </template>
 
 <script>
+import * as icons from 'vue-feather-icons'
 export default {
 	props: {
 		actions: {
@@ -99,55 +100,56 @@ export default {
 		return {
 			action: _.cloneDeep(this.actions),
 			internalExpandedQuantity: this.expandedQuantity,
-			isBeenShown: false,
+			itsBeignShown: false,
 		}
 	},
 
 	methods: {
 		expandList() {
 			this.internalExpandedQuantity = this.action.length;
-			this.isBeenShown = !this.isBeenShown;
+			this.itsBeignShown = !this.itsBeignShown;
 		},
+
 		collapseList() {
 			this.internalExpandedQuantity = this.expandedQuantity;
-			this.isBeenShown = !this.isBeenShown;
+			this.itsBeignShown = !this.itsBeignShown;
 		},
 	},
 }
 </script>
 <style>
-.actionLeftBorder {
+#actionList .actionLeftBorder {
 	border-left: 1px solid #CED4DA;
 }
 
-.actionRightBorder {
+#actionList .actionRightBorder {
 	border-right: 1px solid #CED4DA;
 }
 
-.action {
+#actionList .action {
 	padding: 4px;
 	cursor: pointer;
 	border-radius: 1px;
 }
 
-.actionStyle {
+#actionList .actionStyle {
 	color: #6A7580;
 	font-weight: 600;
 }
 
-.action:hover {
+#actionList .action:hover {
 	background-color: #F8FAFD;
 }
 
-.slide-fade-enter-active {
+#actionList .slide-fade-enter-active {
 	transition: all .3s ease;
 }
 
-.slide-fade-leave-active {
+#actionList .slide-fade-leave-active {
 	transition: all .1s ease;
 }
 
-.slide-fade-enter, .slide-fade-leave-to {
+#actionList .slide-fade-enter, .slide-fade-leave-to {
 	transform: translateX(10px);
 	opacity: 0;
 }
