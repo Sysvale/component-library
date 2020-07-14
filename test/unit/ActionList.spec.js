@@ -15,7 +15,7 @@ let actions = [
 
 test('Component is mounted properly', () => {
 	window._ = lodash;
-	const wrapper = shallowMount(ActionsList, {
+	const wrapper = mount(ActionsList, {
 		localVue,
 		propsData: {
 			actions: actions,
@@ -25,81 +25,74 @@ test('Component is mounted properly', () => {
 	expect(wrapper).toMatchSnapshot();
 });
 
-// describe("Divider styles test", () => {
-// 	test('if all the stepper dividers are rendered as common dividers', () => {
-// 		let mocked_data = [
-// 			{ label: 'Dummy label 1', concluded: false, active: true },
-// 			{ label: 'Dummy label 2', concluded: false, active: false },
-// 			{ label: 'Dummy label 3', concluded: false, active: false },
-// 		];
+describe("Action list functioning", () => {
+	test('If when the expected quantity to be shown is 1 and there is an array of length 4, are rendered 1 action and 1 button to show more', () => {
+		window._ = lodash;
+		const wrapper = mount(ActionsList, {
+			localVue,
+			propsData: {
+				actions: actions,
+				expandedQuantity: 1,
+				position: 'right',
+			},
+		});
+	
+		expect(wrapper.findAll('.action').length).toBe(2);
+		expect(wrapper.findAll('.actionRightBorder').length).toBe(1);
+	});
+	
+	test('If when the expected quantity to be shown is 4 and there is an array of length 4, are rendered 4 actions', () => {
+		window._ = lodash;
+		const wrapper = mount(ActionsList, {
+			localVue,
+			propsData: {
+				actions: actions,
+				expandedQuantity: 4
+			},
+		});
+	
+		expect(wrapper.findAll('.action').length).toBe(4);
+	});
+	
+	test('If the list is expanded when the "more actions" button is clicked', async () => {
+		window._ = lodash;
+		const wrapper = mount(ActionsList, {
+			localVue,
+			propsData: {
+				actions: actions,
+				expandedQuantity: 1,
+				position: 'right',
+			},
+		});
+	
+	
+		expect(wrapper.findAll('.action').length).toBe(2);
 
-// 		const wrapper = mount(StepperCounter, {
-// 			localVue,
-// 			propsData: {
-// 				steps: mocked_data,
-// 			},
-// 		});
-// 		expect(wrapper.findAll('.common-stepper-divider').length).toBe(2);
-// 	});
+		wrapper
+			.find('.actionRightBorder')
+			.trigger('click');
+	
+		await localVue.nextTick();
+	
+		expect(wrapper.findAll('.action').length).toBe(5);
+	});
 
-// 	test('if one of the stepper divider is rendered as an in_progress divider and others are rendered as common dividers', () => {
-// 		let mocked_data = [
-// 			{ label: 'Dummy label 1', concluded: true, active: false },
-// 			{ label: 'Dummy label 2', concluded: false, active: true },
-// 			{ label: 'Dummy label 3', concluded: false, active: false },
-// 		];
+	test('If a event is emited when the action is clicked', () => {
+		window._ = lodash;
+		const wrapper = mount(ActionsList, {
+			localVue,
+			propsData: {
+				actions: actions,
+				expandedQuantity: 4
+			},
+		});	
+		wrapper.find('.action').trigger('click');
 
-// 		const wrapper = mount(StepperCounter, {
-// 			localVue,
-// 			propsData: {
-// 				steps: mocked_data,
-// 			},
-// 		});
-// 		expect(wrapper.findAll('.in-progress-stepper-divider').length).toBe(1);
-// 		expect(wrapper.findAll('.common-stepper-divider').length).toBe(1);
-// 	});
-
-// 	test('if one of the stepper divider is rendered as a concluded divider and the other is rendered as an in_progress divider', () => {
-// 		let mocked_data = [
-// 			{ label: 'Dummy label 1', concluded: true, active: false },
-// 			{ label: 'Dummy label 2', concluded: true, active: false },
-// 			{ label: 'Dummy label 3', concluded: false, active: true },
-// 		];
-
-// 		const wrapper = mount(StepperCounter, {
-// 			localVue,
-// 			propsData: {
-// 				steps: mocked_data,
-// 			},
-// 		});
-// 		expect(wrapper.findAll('.concluded-stepper-divider').length).toBe(1);
-// 		expect(wrapper.findAll('.in-progress-stepper-divider').length).toBe(1);
-// 	});
-// });
-
-// describe("Change step event tests", () => {
-// 	test('if a event is emited when the stepper is clicked', () => {
-// 		let mocked_data = [
-// 			{ label: 'Dummy label 1', concluded: false, active: true },
-// 			{ label: 'Dummy label 2', concluded: false, active: false },
-// 			{ label: 'Dummy label 3', concluded: false, active: false },
-// 		];
-
-// 		const wrapper = mount(StepperCounter, {
-// 			localVue,
-// 			propsData: {
-// 				steps: mocked_data,
-// 			},
-// 		});
-
-// 		wrapper.find('#step-2').trigger('click');
-
-// 		expect(wrapper.emitted().step_changed).toBeTruthy();
-// 		expect(wrapper.emitted().step_changed).toEqual([
-// 			[
-// 				1,
-// 				{"active": true, "concluded": false, "label": "Dummy label 2"},
-// 			]
-// 		]);
-// 	});
-// });
+		expect(wrapper.emitted().actionClicked).toBeTruthy();
+		expect(wrapper.emitted().actionClicked).toEqual([
+			[
+				{'img': 'img1', "title": 'Icon1'},
+			]
+		]);
+	});
+});
