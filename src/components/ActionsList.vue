@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="d-flex"
+		class="d-flex actionStyle"
 		:class="position === 'left' ? 'justify-content-end' : 'justify-content-start'"
 	>
 		<div
@@ -9,7 +9,7 @@
 			<div
 				key="less"
 				v-if="!isBeenShown && actions.length > expandedQuantity"
-				class="actionStyle actionItemRight listItem p-4"
+				class="actionRightBorder action p-4"
 				@click="expandList"
 			>
 				{{ collapsedActionName }}
@@ -17,7 +17,7 @@
 			<div
 				key="moreOrLess"
 				v-if="actions.length > expandedQuantity && isBeenShown"
-				class="actionStyle actionItemRight listItem p-4"
+				class="actionRightBorder action p-4"
 				@click="collapseList"
 			>
 				{{ expandedActionName }}
@@ -30,11 +30,11 @@
 			<transition name="slide-fade">
 				<div
 					v-if="i <= internalExpandedQuantity - 1"
-					class="actionStyle listItem p-4"
-					:class="{ actionItem: i > 0 }"
+					class="action p-4"
+					:class="{ actionLeftBorder: i > 0 }"
 					@click="$emit('actionClicked', action)"
 				>
-					<slot class="actionStyle" name="action" :list="action" />
+					<slot name="action" :list="action" />
 				</div>
 			</transition>
 		</div>
@@ -44,7 +44,7 @@
 			<div
 				key="less"
 				v-if="!isBeenShown && actions.length > expandedQuantity"
-				class="actionStyle actionItem listItem p-4"
+				class="actionLeftBorder action p-4"
 				@click="expandList"
 			>
 				{{ collapsedActionName }}
@@ -52,7 +52,7 @@
 			<div
 				key="moreOrLess"
 				v-if="actions.length > expandedQuantity && isBeenShown"
-				class="actionStyle actionItem listItem p-4"
+				class="actionLeftBorder action p-4"
 				@click="collapseList"
 			>
 				{{ expandedActionName }}
@@ -116,15 +116,15 @@ export default {
 }
 </script>
 <style>
-.actionItem {
+.actionLeftBorder {
 	border-left: 1px solid #CED4DA;
 }
 
-.actionItemRight {
+.actionRightBorder {
 	border-right: 1px solid #CED4DA;
 }
 
-.listItem {
+.action {
 	padding: 4px;
 	cursor: pointer;
 	border-radius: 1px;
@@ -135,7 +135,7 @@ export default {
 	font-weight: 600;
 }
 
-.listItem:hover {
+.action:hover {
 	background-color: #F8FAFD;
 }
 
