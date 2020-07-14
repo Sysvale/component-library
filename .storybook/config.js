@@ -18,6 +18,7 @@ import {
 	EmptyState,
 	Nav,
 	Dropdown,
+	SideSheet,
 } from '../src/components';
 
 import DocsWrapper from '../src/DocsWrapper.vue';
@@ -32,6 +33,7 @@ Vue.component('s-empty-state', EmptyState);
 Vue.component('s-nav', Nav);
 Vue.component('multiselect', Multiselect);
 Vue.component('s-dropdown', Dropdown);
+Vue.component('s-side-sheet', SideSheet);
 
 Vue.use(BootstrapVue);
 
