@@ -140,15 +140,15 @@ export default {
 }
 
 .slide-fade-enter-active {
-  transition: all .3s ease;
+	transition: all .3s ease;
 }
 
 .slide-fade-leave-active {
-  transition: all .1s ease;
+	transition: all .1s ease;
 }
 
 .slide-fade-enter, .slide-fade-leave-to {
-  transform: translateX(10px);
-  opacity: 0;
+	transform: translateX(10px);
+	opacity: 0;
 }
 </style>
