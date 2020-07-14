@@ -1,11 +1,12 @@
 <template>
-	<div id="dropdown">
+	<span id="dropdown">
 		<multiselect
 			v-bind="$attrs"
 			v-model="selectedValue"
 			select-label=''
 			deselect-label=''
 			selected-label=''
+			:options="internalOptions"
 			:close-on-select="false"
 			:multiple="true"
 			:taggable="true"
@@ -16,7 +17,7 @@
 		>
 			<template
 				slot="option"
-				slot-scope="props"
+				slot-scope="internalOptions"
 			>
 				<div
 					class="option__desc"
@@ -24,24 +25,31 @@
 					<span class="option__title">
 						<span class="d-flex align-items-center">
 							<span class="checkbox-container">
-								<input
-									v-model="props.option.is_selected"
-									type="checkbox"
-									:id="`checkbox-${props.option.title}`"
-									:name="`checkbox-${props.option.title}`"
-									:value="true"
-									class="mr-2 custom-checkbox"
-								>
+								<div class="customCheckbox mr-4">
+									<input
+										v-model="internalOptions.option.is_selected"
+										type="checkbox"
+										:id="`input-${internalOptions.option.title}`"
+										:name="`input-${internalOptions.option.title}`"
+										:value="true"
+									/>
+									<label
+										:id="`checkbox-${internalOptions.option.title}`"
+										:for="`input-${internalOptions.option.title}`"
+										@click="addItemViaCustomCheckbox(internalOptions.option)"
+										:class="{ checkedCheckboxColor: internalOptions.option.is_selected }"
+									/>
+								</div>
 							</span>
 
-							{{ props.option.title }}
+							{{ internalOptions.option.title }}
 
 						</span>
 					</span>
 				</div>
 			</template>
 		</multiselect>
-	</div>
+	</span>
 </template>
 
 <script>
@@ -49,12 +57,50 @@ export default {
 	data() {
 		return {
 			selectedValue: this.$attrs.value,
+			internalOptions: _.cloneDeep(this.$attrs.options),
 		}
 	},
 
+	mounted() {
+		this.selectedValue.forEach(item => {
+			item.is_selected = true;
+		});
+
+		this.internalOptions.forEach(item => {
+			let containsItem = this.selectedValue.some(
+				value => value[this.$attrs.label] === item[this.$attrs.label]
+			)
+
+			if (containsItem) {
+				item.is_selected = true;
+			} else {
+				item.is_selected = false;
+			}
+			
+		});
+	},
+
+	watch: {
+		selectedValue(values) {
+			let cleanedValues = _.cloneDeep(values);
+			cleanedValues.forEach(val => delete val.is_selected)
+			
+			this.$emit('input', cleanedValues);
+		},
+	},
+
 	methods: {
-		selectItem (tag) {
-			tag.is_selected = !tag.is_selected;
+		selectItem(option) {
+			this.internalOptions.forEach(item => {
+				if(item.title === option.title) {
+					item.is_selected = !item.is_selected;
+				}
+			});
+		},
+
+		addItemViaCustomCheckbox(option) {
+			option.is_selected = !option.is_selected;
+			this.selectedValue.push(option);
 		},
   }
 };
@@ -67,9 +113,50 @@ export default {
 	color: #142032;
 }
 
-#dropdown .custom-checkbox {
-    width: 16px;
-    height: 16px;
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+.customCheckbox {
+	width: 15px;
+	position: relative;
+	margin-left: -12px;
+}
+
+.checkedCheckboxColor {
+	background-color: #2959b8 !important;
+	border: none !important;
+}
+
+.customCheckbox label {
+	cursor: pointer;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	top: 0;
+	border-radius: 4px;
+	border: 0.5px solid #ced4da;
+}
+
+.customCheckbox label:after {
+	border: 1.5px solid #fff;
+	border-top: none;
+	border-right: none;
+	content: "";
+	height: 5px;
+	left: 3.1px;
+	opacity: 0;
+	position: absolute;
+	top: 4.4px;
+	transform: rotate(-45deg);
+	width: 8px;
+	border-radius: 0.4px;
+}
+
+.customCheckbox input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
 }
 
 #dropdown .multiselect__tag {
@@ -114,5 +201,9 @@ export default {
 
 #dropdown .multiselect--disabled .multiselect__tags {
 	background: #e9eef1 !important;
+}
+
+#dropdown .multiselect__placeholder {
+	color: #6A7580;
 }
 </style>

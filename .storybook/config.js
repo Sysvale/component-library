@@ -1,7 +1,7 @@
 import { configure, addParameters } from '@storybook/vue';
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
-import Multiselect from 'vue-multiselect'
+import Multiselect from 'vue-multiselect';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import { CheckCircleIcon } from 'vue-feather-icons';
@@ -31,7 +31,7 @@ Vue.component('s-action-bar', ActionBar);
 Vue.component('check-circle-icon', CheckCircleIcon);
 Vue.component('s-empty-state', EmptyState);
 Vue.component('s-nav', Nav);
-Vue.component('multiselect', Multiselect)
+Vue.component('multiselect', Multiselect);
 Vue.component('s-dropdown', Dropdown);
 Vue.component('s-actions-list', ActionsList);
 
