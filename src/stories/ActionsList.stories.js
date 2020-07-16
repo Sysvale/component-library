@@ -1,8 +1,7 @@
 import { withA11y } from '@storybook/addon-a11y';
-import { withDesign } from 'storybook-addon-designs';
 import { action } from '@storybook/addon-actions';
 import {
-	withKnobs, text, number, boolean, object,
+	withKnobs, text, number, select, object,
 } from '@storybook/addon-knobs';
 
 import ActionsList from '../components/ActionsList.vue';
@@ -79,14 +78,10 @@ const docsDecorator = () => {
 export default {
 	component: ActionsList,
 	title: 'cs/ActionsList',
-	decorators: [docsDecorator, withKnobs, withA11y, withDesign],
+	decorators: [docsDecorator, withKnobs, withA11y,],
 	parameters: {
 		a11y: {
 			element: '.preview-container',
-		},
-		design: {
-			type: 'figma',
-			url: 'https://www.figma.com/file/aYgL5y9hDGt8zMi7gFA3TM/ActionsList?node-id=0%3A1',
 		},
 	},
 };
@@ -118,7 +113,10 @@ export const actionsList = () => ({
 			default: () => text('Expanded action name:', 'Less actions'),
 		},
 		position: {
-			default: () => text('position:', 'left'),
+			default: () => select('Position', {
+				right: 'right',
+				left: 'left',
+			}, 'right'),
 		},
 	},
 	template: template,
