@@ -38,7 +38,7 @@ describe("Action list functioning", () => {
 		});
 	
 		expect(wrapper.findAll('.action').length).toBe(2);
-		expect(wrapper.findAll('.actionRightBorder').length).toBe(1);
+		expect(wrapper.findAll('.actionLeftBorder').length).toBe(1);
 	});
 	
 	test('If when the expected quantity to be shown is 4 and there is an array of length 4, are rendered 4 actions', () => {
@@ -69,7 +69,7 @@ describe("Action list functioning", () => {
 		expect(wrapper.findAll('.action').length).toBe(2);
 
 		wrapper
-			.find('.actionRightBorder')
+			.find('.actionLeftBorder')
 			.trigger('click');
 	
 		await localVue.nextTick();
