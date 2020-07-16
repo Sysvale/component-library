@@ -76,10 +76,6 @@ export default {
 		a11y: {
 			element: '.preview-container',
 		},
-		design: {
-			type: 'figma',
-			url: 'https://www.figma.com/file/g4mxhKJxnHj0LmqBheytlw/NavBar',
-		},
 	},
 };
 
