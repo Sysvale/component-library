@@ -4,21 +4,21 @@
 	>
 		<div
 			class="d-flex actionStyle"
-			:class="position === 'left' ? 'justify-content-end' : 'justify-content-start'"
+			:class="position === 'right' ? 'justify-content-end' : 'justify-content-start'"
 		>
 			<div
-				v-if="position === 'right'"
+				v-if="position === 'left'"
 			>
 				<div
 					v-if="!itsBeignShown && actions.length > expandedQuantity"
-					class="actionRightBorder action p-4"
+					class="actionLeftBorder action p-4"
 					@click="expandList"
 				>
 					{{ collapsedActionName }}
 				</div>
 				<div
 					v-if="actions.length > expandedQuantity && itsBeignShown"
-					class="actionRightBorder action p-4"
+					class="actionLeftBorder action p-4"
 					@click="collapseList"
 				>
 					{{ expandedActionName }}
@@ -40,18 +40,18 @@
 				</transition>
 			</div>
 			<div
-				v-if="position === 'left'"
+				v-if="position === 'right'"
 			>
 				<div
 					v-if="!itsBeignShown && actions.length > expandedQuantity"
-					class="actionLeftBorder action p-4"
+					class="actionRightBorder action p-4"
 					@click="expandList"
 				>
 					{{ collapsedActionName }}
 				</div>
 				<div
 					v-if="actions.length > expandedQuantity && itsBeignShown"
-					class="actionLeftBorder action p-4"
+					class="actionRightBorder action p-4"
 					@click="collapseList"
 				>
 					{{ expandedActionName }}
