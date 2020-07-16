@@ -32,14 +32,23 @@ export default {
 		value: {
 			type: Boolean,
 			default: false,
+			description: `
+				Prop to control if the SideSheet should be shown or not (usually by v-model)
+			`,
 		},
 		right: {
 			type: Boolean,
 			default: false,
+			description: `
+				Prop to define that the element will be shown at right screen side.
+			`,
 		},
 		left: {
 			type: Boolean,
 			default: false,
+			description: `
+				Prop to define that the element will be shown at left screen side (right ifs default).
+			`,
 		},
 	},
 
