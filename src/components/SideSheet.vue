@@ -8,6 +8,7 @@
 		<div
 			id="container"
 			:class="floatClass"
+			@click.stop
 		>
 			<slot name="close-icon">
 				<div
@@ -120,10 +121,10 @@ export default {
 
 	#container {
 		background: #fff;
-		width: 30%;
+		width: 328px;
 		height: 100%;
 		padding: 20px;
-		border-radius: 5px 0px 0px 5px;
+		border-radius: 0px 0px 0px 0px;
 	}
 
 	#close-icon {
@@ -131,7 +132,7 @@ export default {
 	}
 
 	#close-icon:hover {
-		color: rgb(106, 117, 128, );
+		color: rgb(106, 117, 128, 1);
 	}
 
 	.right {
