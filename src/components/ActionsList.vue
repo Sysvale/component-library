@@ -91,7 +91,7 @@ export default {
 		},
 		position: {
 			type: String,
-			default: 'left',
+			default: 'right',
 			description: `Speficies if the component will be rendered right side or left side.`,
 			required: false,
 		}
