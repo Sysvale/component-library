@@ -37,14 +37,20 @@ const componentDescription = {
 		usage: {
 				whenToUse: [
 						'You want to place filters that will be shown when you click in some component.', 
-            'You want to place filters that will be shown when you click in some component.', 
-						'You want to place filters that will be shown when you click in some component.', 
 				],
 				whenNotUse:[
 						'You need a modal.',
 						'You need a navigation solution.',
 						'You are need a form to register something.'
 				]
+	},
+	slots: {
+		default: {		
+			description: 'Slot used to display the content inside the component.'
+		},
+		'close-icon': {
+			description: 'Slot used to customize the close button shown above the content'
+		}
 	},
 };
 
