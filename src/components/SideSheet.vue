@@ -74,9 +74,7 @@ export default {
 			if (this.left) {
 				return 'left';
 			}
-			if (this.right) {
-				return 'right';
-			}
+
 			return 'right';
 		}
 	},
