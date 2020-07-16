@@ -1,6 +1,5 @@
 <template>
 	 <div
-	 	id="overlay"
 		v-if="value"
 	 	id="overlay"
 		tabindex="0"
@@ -16,7 +15,7 @@
 				>
 					<x-icon
 						id="close-icon"
-						@click="$emit('input', !value)"
+						@click.stop="$emit('input', !value)"
 					/>
 				</div>
 			</slot>
@@ -123,9 +122,8 @@ export default {
 		background: #fff;
 		width: 30%;
 		height: 100%;
-		margin-top: 80px;
 		padding: 20px;
-		border-radius: 5px;
+		border-radius: 5px 0px 0px 5px;
 	}
 
 	#close-icon {
@@ -133,7 +131,7 @@ export default {
 	}
 
 	#close-icon:hover {
-		color: rgb(106, 117, 128, 1);
+		color: rgb(106, 117, 128, );
 	}
 
 	.right {
