@@ -1,28 +1,31 @@
 <template>
-	 <div
-		v-if="value"
-	 	id="overlay"
-		tabindex="0"
-		@click="shouldCloseOnBackdrop"
-	>
+	<span id="side-sheet">
+		
 		<div
-			id="container"
-			:class="floatClass"
-			@click.stop
+			v-if="value"
+			class="overlay"
+			tabindex="0"
+			@click="shouldCloseOnBackdrop"
 		>
-			<slot name="close-icon">
-				<div
-					class="text-right pb-2"
-				>
-					<x-icon
-						id="close-icon"
-						@click.stop="$emit('input', !value)"
-					/>
-				</div>
-			</slot>
-			<slot/>
+			<div
+				class="container"
+				:class="floatClass"
+				@click.stop
+			>
+				<slot name="close-icon">
+					<div
+						class="text-right pb-2"
+					>
+						<x-icon
+							id="close-icon"
+							@click.stop="$emit('input', !value)"
+						/>
+					</div>
+				</slot>
+				<slot/>
+			</div>
 		</div>
-	</div>
+	</span>
 </template>
 
 <script>
@@ -129,7 +132,7 @@ export default {
 };
 </script>
 <style>
-#overlay {
+#side-sheet .overlay {
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -142,7 +145,7 @@ export default {
 	cursor: pointer;
 }
 
-#container {
+#side-sheet .container {
 	background: #fff;
 	width: 328px;
 	height: 100%;
