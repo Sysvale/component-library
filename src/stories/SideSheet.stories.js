@@ -14,12 +14,14 @@ const template = `
 			<b-button
 				@click="show = true"
 			>
-				Mostrar sidesheet
+				Toggle SideSheet
 			</b-button>
 			<s-side-sheet
 					v-model="show"
 					:right="right"
 					:left="left"
+					:no-close-on-backdrop="noCloseOnBackdrop"
+					:no-close-on-esc="noCloseOnEsc"
 			>
 				<p>
 					Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Atirei o pau no gatis, per gatis num morreus. Pra lá , depois divoltis porris, paradis. Leite de capivaris, leite de mula manquis sem cabeça.
@@ -42,12 +44,6 @@ const componentDescription = {
             'You have too many items to be displayed in the menu.',
             'You want to show the links vertically.'
         ]
-	},
-	events: {
-		click: {
-			trigger: 'click',
-			description: 'Event emitted when one of the menu items is clicked.'
-		}
 	},
 };
 
@@ -99,6 +95,12 @@ export const sideSheet = () => ({
 		},
 		left: {
 			default: () => boolean('Left aligned:', false),
+		},
+		noCloseOnBackdrop: {
+			default: () => boolean('No close on brackdrop click:', false),
+		},
+		noCloseOnEsc: {
+			default: () => boolean('No close when ask pressed:', false),
 		},
 	},
 	template,
