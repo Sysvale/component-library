@@ -19,6 +19,7 @@ import {
 	Nav,
 	Dropdown,
 	SideSheet,
+	ActionsList,
 } from '../src/components';
 
 import DocsWrapper from '../src/DocsWrapper.vue';
@@ -34,6 +35,7 @@ Vue.component('s-nav', Nav);
 Vue.component('multiselect', Multiselect);
 Vue.component('s-dropdown', Dropdown);
 Vue.component('s-side-sheet', SideSheet);
+Vue.component('s-actions-list', ActionsList);
 
 Vue.use(BootstrapVue);
 

@@ -7,3 +7,4 @@ export { default as EmptyState } from './EmptyState.vue';
 export { default as Nav } from './Nav.vue';
 export { default as Dropdown } from './Dropdown.vue';
 export { default as SideSheet } from './SideSheet.vue';
+export { default as ActionsList } from './ActionsList.vue';
