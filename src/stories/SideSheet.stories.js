@@ -95,7 +95,7 @@ export const sideSheet = () => ({
 			default: () => boolean('No close on brackdrop click:', false),
 		},
 		noCloseOnEsc: {
-			default: () => boolean('No close when ask pressed:', false),
+			default: () => boolean('No close when esc pressed:', false),
 		},
 	},
 	template,
