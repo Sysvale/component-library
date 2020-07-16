@@ -27,6 +27,8 @@
 
 <script>
 import { XIcon } from 'vue-feather-icons';
+import { KeyCodes } from '../utils';
+
 export default {
 	components: {
 		XIcon,
@@ -82,11 +84,9 @@ export default {
 	},
 
 	mounted() {
-		let self = this; 
-
-		window.addEventListener('keyup', function(ev) {
-				if (ev.keyCode === 27) { // esc
-					self.shouldCloseOnEsc();
+		window.addEventListener('keyup', (ev) => {
+				if (ev.keyCode === KeyCodes.ESC) { // esc
+					this.shouldCloseOnEsc();
 				}
 		});
 	},
