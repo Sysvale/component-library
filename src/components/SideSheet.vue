@@ -50,7 +50,7 @@ export default {
 			type: Boolean,
 			default: false,
 			description: `
-				Prop to define that the element will be shown at left screen side (right ifs default).
+				Prop to define that the element will be shown at left screen side (right is the default).
 			`,
 		},
 		noCloseOnBackdrop: {
