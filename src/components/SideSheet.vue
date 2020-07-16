@@ -2,6 +2,9 @@
 	 <div
 	 	id="overlay"
 		v-if="value"
+	 	id="overlay"
+		tabindex="0"
+		@click="shouldCloseOnBackdrop"
 	>
 		<div
 			id="container"
@@ -50,6 +53,20 @@ export default {
 				Prop to define that the element will be shown at left screen side (right ifs default).
 			`,
 		},
+		noCloseOnBackdrop: {
+			type: Boolean,
+			default: false,
+			description: `
+				Prop to define if the element won't be dismissed when backdrop is click.
+			`,
+		},
+		noCloseOnEsc: {
+			type: Boolean,
+			default: false,
+			description: `
+				Prop to define if the element won't be dismissed when esc pressed.
+			`,
+		}
 	},
 
 	computed: {
@@ -61,6 +78,29 @@ export default {
 				return 'right';
 			}
 			return 'right';
+		}
+	},
+
+	mounted() {
+		let self = this; 
+
+		window.addEventListener('keyup', function(ev) {
+				if (ev.keyCode === 27) { // esc
+					self.shouldCloseOnEsc();
+				}
+		});
+	},
+
+	methods: {
+		shouldCloseOnBackdrop() {
+			if(!this.noCloseOnBackdrop) {
+				this.$emit('input', !this.value);
+			}
+		},
+		shouldCloseOnEsc() {
+			if(!this.noCloseOnEsc) {
+				this.$emit('input', !this.value);
+			}
 		}
 	},
 };
