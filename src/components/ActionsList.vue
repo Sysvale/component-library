@@ -10,14 +10,14 @@
 				v-if="position === 'left'"
 			>
 				<div
-					v-if="!itsBeignShown && actions.length > expandedQuantity"
+					v-if="!itsBeignShown && actions.length > numberOfExpandedActions"
 					class="actionRightBorder action p-4"
 					@click="expandList"
 				>
 					{{ collapsedActionName }}
 				</div>
 				<div
-					v-if="actions.length > expandedQuantity && itsBeignShown"
+					v-if="actions.length > numberOfExpandedActions && itsBeignShown"
 					class="actionRightBorder action p-4"
 					@click="collapseList"
 				>
@@ -30,7 +30,7 @@
 			>
 				<transition name="slide-fade">
 					<div
-						v-if="i <= internalExpandedQuantity - 1"
+						v-if="i <= internalnumberOfExpandedActions - 1"
 						class="action p-4"
 						:class="{ actionLeftBorder: i > 0 }"
 						@click="$emit('actionClicked', action)"
@@ -43,14 +43,14 @@
 				v-if="position === 'right'"
 			>
 				<div
-					v-if="!itsBeignShown && actions.length > expandedQuantity"
+					v-if="!itsBeignShown && actions.length > numberOfExpandedActions"
 					class="actionLeftBorder action p-4"
 					@click="expandList"
 				>
 					{{ collapsedActionName }}
 				</div>
 				<div
-					v-if="actions.length > expandedQuantity && itsBeignShown"
+					v-if="actions.length > numberOfExpandedActions && itsBeignShown"
 					class="actionLeftBorder action p-4"
 					@click="collapseList"
 				>
@@ -71,7 +71,7 @@ export default {
 			description: 'The list of the actions to be displayed.',
 			required: true,
 		},
-		expandedQuantity: {
+		numberOfExpandedActions: {
 			type: Number,
 			default: 2,
 			description: 'The number of items that will be displayed when the component is redered.',
@@ -99,19 +99,19 @@ export default {
 	data() {
 		return {
 			action: _.cloneDeep(this.actions),
-			internalExpandedQuantity: this.expandedQuantity,
+			internalnumberOfExpandedActions: this.numberOfExpandedActions,
 			itsBeignShown: false,
 		}
 	},
 
 	methods: {
 		expandList() {
-			this.internalExpandedQuantity = this.action.length;
+			this.internalnumberOfExpandedActions = this.action.length;
 			this.itsBeignShown = !this.itsBeignShown;
 		},
 
 		collapseList() {
-			this.internalExpandedQuantity = this.expandedQuantity;
+			this.internalnumberOfExpandedActions = this.numberOfExpandedActions;
 			this.itsBeignShown = !this.itsBeignShown;
 		},
 	},

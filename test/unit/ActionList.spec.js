@@ -26,13 +26,13 @@ test('Component is mounted properly', () => {
 });
 
 describe("Action list functioning", () => {
-	test('If when the expected quantity to be shown is 1 and there is an array of length 4, are rendered 1 action and 1 button to show more', () => {
+	test('If when the number of expanded actions to be shown is 1 and there is an array of length 4, are rendered 1 action and 1 button to show more', () => {
 		window._ = lodash;
 		const wrapper = mount(ActionsList, {
 			localVue,
 			propsData: {
 				actions: actions,
-				expandedQuantity: 1,
+				numberOfExpandedActions: 1,
 				position: 'right',
 			},
 		});
@@ -41,13 +41,13 @@ describe("Action list functioning", () => {
 		expect(wrapper.findAll('.actionLeftBorder').length).toBe(1);
 	});
 	
-	test('If when the expected quantity to be shown is 4 and there is an array of length 4, are rendered 4 actions', () => {
+	test('If when the number of expanded actions to be shown is 4 and there is an array of length 4, are rendered 4 actions', () => {
 		window._ = lodash;
 		const wrapper = mount(ActionsList, {
 			localVue,
 			propsData: {
 				actions: actions,
-				expandedQuantity: 4
+				numberOfExpandedActions: 4
 			},
 		});
 	
@@ -60,7 +60,7 @@ describe("Action list functioning", () => {
 			localVue,
 			propsData: {
 				actions: actions,
-				expandedQuantity: 1,
+				numberOfExpandedActions: 1,
 				position: 'right',
 			},
 		});
@@ -83,7 +83,7 @@ describe("Action list functioning", () => {
 			localVue,
 			propsData: {
 				actions: actions,
-				expandedQuantity: 4
+				numberOfExpandedActions: 4
 			},
 		});	
 		wrapper.find('.action').trigger('click');

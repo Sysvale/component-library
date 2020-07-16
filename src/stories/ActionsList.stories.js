@@ -10,7 +10,7 @@ import ActionsList from '../components/ActionsList.vue';
 const template = `
 	<s-actions-list 
 		:actions="actions"
-		:expandedQuantity="expandedQuantity"
+		:numberOfExpandedActions="numberOfExpandedActions"
 		:collapsedActionName="collapsedActionName"
 		:expandedActionName="expandedActionName"
 		:position="position"
@@ -103,8 +103,8 @@ export const actionsList = () => ({
 		actions: {
 			default: () => object('Actions:', actions),
 		},
-		expandedQuantity: {
-			default: () => number('Expected quantity:', 2),
+		numberOfExpandedActions: {
+			default: () => number('Number of expanded actions:', 2),
 		},
 		collapsedActionName: {
 			default: () => text('Collapsed action name:', 'More actions'),
