@@ -52,7 +52,7 @@ describe("Behavior tests", () => {
 			},
 		});
 
-		const overlay = wrapper.find('#overlay');
+		const overlay = wrapper.find('.overlay');
 		overlay.trigger('click');
 		await wrapper.vm.$nextTick();
 		expect(wrapper.emitted().input).toBeFalsy();
