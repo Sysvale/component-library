@@ -114,8 +114,8 @@ export default {
 
 		keyupListener(ev) {
 			if (ev.keyCode === KeyCodes.ESC) { // esc
-					this.shouldCloseOnEsc();
-				}
+				this.shouldCloseOnEsc();
+			}
 		},
 
 		attachKeyupEvent() {
