@@ -84,17 +84,19 @@ export default {
 	watch: {
 		value(newValue) {
 			if(!newValue) {
-				window.removeEventListener('keyup', this.keyupListener);
+				this.dettachKeyupEvent();
+				return;
 			}
+			this.attachKeyupEvent();
 		}
 	},
 
-	mounted() {
-		window.addEventListener('keyup', this.keyupListener);
+	created	() {
+		this.attachKeyupEvent();
 	},
 
 	beforeDestroy() {
-		window.removeEventListener('keyup', this.keyupListener);
+		this.dettachKeyupEvent();
 	},
 
 	methods: {
@@ -114,6 +116,14 @@ export default {
 					this.shouldCloseOnEsc();
 				}
 		},
+
+		attachKeyupEvent() {
+			window.addEventListener('keyup', this.keyupListener);
+		},
+
+		dettachKeyupEvent() {
+			window.removeEventListener('keyup', this.keyupListener);
+		}
 	},
 };
 </script>
