@@ -33,7 +33,7 @@ const template = `
 
 const componentDescription = {
     name: 'SideSheet',
-    summary: 'SideSheet are components used to show some content as modal in side of page',
+    summary: 'SideSheet are components used to show some content as modal in one of the sides of a page',
     usage: {
         whenToUse: [
             'You need to separate content by pages.', 
