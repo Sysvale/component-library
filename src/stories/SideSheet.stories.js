@@ -32,17 +32,19 @@ const template = `
 `;
 
 const componentDescription = {
-    name: 'SideSheet',
-    summary: 'SideSheet are components used to show some content as modal in one of the sides of a page',
-    usage: {
-        whenToUse: [
+		name: 'SideSheet',
+		summary: 'SideSheet are components used to show some content as modal in one of the sides of a page',
+		usage: {
+				whenToUse: [
+						'You want to place filters that will be shown when you click in some component.', 
             'You want to place filters that will be shown when you click in some component.', 
-        ],
-        whenNotUse:[
-            'You need a modal.',
-			'You need a navigation solution.',
-			'You are need a form to register something.'
-        ]
+						'You want to place filters that will be shown when you click in some component.', 
+				],
+				whenNotUse:[
+						'You need a modal.',
+						'You need a navigation solution.',
+						'You are need a form to register something.'
+				]
 	},
 };
 
