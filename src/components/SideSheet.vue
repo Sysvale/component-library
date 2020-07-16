@@ -52,7 +52,7 @@ export default {
 			type: Boolean,
 			default: false,
 			description: `
-				Prop to define that the element will be shown at left screen side (right ifs default).
+				Prop to define that the element will be shown at left screen side (right is the default).
 			`,
 		},
 		noCloseOnBackdrop: {
@@ -66,7 +66,7 @@ export default {
 			type: Boolean,
 			default: false,
 			description: `
-				Prop to define if the element won't be dismissed when esc pressed.
+				Prop to define if the element won't be dismissed when esc is pressed.
 			`,
 		}
 	},
@@ -76,9 +76,7 @@ export default {
 			if (this.left) {
 				return 'left';
 			}
-			if (this.right) {
-				return 'right';
-			}
+
 			return 'right';
 		}
 	},
