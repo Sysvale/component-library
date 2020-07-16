@@ -81,12 +81,20 @@ export default {
 		}
 	},
 
+	watch: {
+		value(newValue) {
+			if(!newValue) {
+				window.removeEventListener('keyup', this.keyupListener);
+			}
+		}
+	},
+
 	mounted() {
-		window.addEventListener('keyup', (ev) => {
-				if (ev.keyCode === KeyCodes.ESC) { // esc
-					this.shouldCloseOnEsc();
-				}
-		});
+		window.addEventListener('keyup', this.keyupListener);
+	},
+
+	beforeDestroy() {
+		window.removeEventListener('keyup', this.keyupListener);
 	},
 
 	methods: {
@@ -99,7 +107,13 @@ export default {
 			if(!this.noCloseOnEsc) {
 				this.$emit('input', !this.value);
 			}
-		}
+		},
+
+		keyupListener(ev) {
+			if (ev.keyCode === KeyCodes.ESC) { // esc
+					this.shouldCloseOnEsc();
+				}
+		},
 	},
 };
 </script>
