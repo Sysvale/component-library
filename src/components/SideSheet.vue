@@ -185,7 +185,7 @@ export default {
 	transition: all .4s ease;
 }
 .slide-fade-right-enter, .slide-fade-right-leave-to{
-	transform: translateX(10px);
+	transform: translateX(8px);
 	opacity: 0;
 }
 
@@ -196,7 +196,7 @@ export default {
 	transition: all .4s ease;
 }
 .slide-fade-left-enter, .slide-fade-left-leave-to{
-	transform: translateX(-10px);
+	transform: translateX(-8px);
 	opacity: 0;
 }
 </style>
