@@ -36,13 +36,12 @@ const componentDescription = {
     summary: 'SideSheet are components used to show some content as modal in one of the sides of a page',
     usage: {
         whenToUse: [
-            'You need to separate content by pages.', 
-            `It’s not appropriate to divide content using tabs, sidebars or using 
-            cards and links in one page to navigate to another.`
+            'You want to place filters that will be shown when you click in some component.', 
         ],
         whenNotUse:[
-            'You have too many items to be displayed in the menu.',
-            'You want to show the links vertically.'
+            'You need a modal.',
+			'You need a navigation solution.',
+			'You are need a form to register something.'
         ]
 	},
 };
