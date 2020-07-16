@@ -27,6 +27,8 @@
 
 <script>
 import { XIcon } from 'vue-feather-icons';
+import { KeyCodes } from '../utils';
+
 export default {
 	components: {
 		XIcon,
@@ -80,11 +82,9 @@ export default {
 	},
 
 	mounted() {
-		let self = this; 
-
-		window.addEventListener('keyup', function(ev) {
-				if (ev.keyCode === 27) { // esc
-					self.shouldCloseOnEsc();
+		window.addEventListener('keyup', (ev) => {
+				if (ev.keyCode === KeyCodes.ESC) { // esc
+					this.shouldCloseOnEsc();
 				}
 		});
 	},
@@ -96,7 +96,7 @@ export default {
 			}
 		},
 		shouldCloseOnEsc() {
-			if(!this.noCloseOnEsc) {
+			if (!this.noCloseOnEsc) {
 				this.$emit('input', !this.value);
 			}
 		}
@@ -104,40 +104,40 @@ export default {
 };
 </script>
 <style>
-	#overlay {
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: rgba(0, 0, 0, 0.4);
-		z-index: 9999;
-		cursor: pointer;
-	}
+#overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 9999;
+	cursor: pointer;
+}
 
-	#container {
-		background: #fff;
-		width: 328px;
-		height: 100%;
-		padding: 20px;
-		border-radius: 0px 0px 0px 0px;
-	}
+#container {
+	background: #fff;
+	width: 328px;
+	height: 100%;
+	padding: 20px;
+	border-radius: 0px 0px 0px 0px;
+}
 
-	#close-icon {
-		color: rgb(106, 117, 128, 0.75);
-	}
+#close-icon {
+	color: rgb(106, 117, 128, 0.75);
+}
 
-	#close-icon:hover {
-		color: rgb(106, 117, 128, 1);
-	}
+#close-icon:hover {
+	color: rgb(106, 117, 128, 1);
+}
 
-	.right {
-		float: right;
-	}
+.right {
+	float: right;
+}
 
-	.left {
-		float: left;
-	}
+.left {
+	float: left;
+}
 </style>
