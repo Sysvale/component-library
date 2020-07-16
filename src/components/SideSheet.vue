@@ -83,7 +83,7 @@ export default {
 
 	watch: {
 		value(newValue) {
-			if(!newValue) {
+			if (!newValue) {
 				this.dettachKeyupEvent();
 				return;
 			}
@@ -101,7 +101,7 @@ export default {
 
 	methods: {
 		shouldCloseOnBackdrop() {
-			if(!this.noCloseOnBackdrop) {
+			if (!this.noCloseOnBackdrop) {
 				this.$emit('input', !this.value);
 			}
 		},
