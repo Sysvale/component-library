@@ -106,7 +106,7 @@ export default {
 			}
 		},
 		shouldCloseOnEsc() {
-			if(!this.noCloseOnEsc) {
+			if (!this.noCloseOnEsc) {
 				this.$emit('input', !this.value);
 			}
 		},
