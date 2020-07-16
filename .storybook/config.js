@@ -18,6 +18,7 @@ import {
 	EmptyState,
 	Nav,
 	Dropdown,
+	SideSheet,
 	ActionsList,
 } from '../src/components';
 
@@ -33,6 +34,7 @@ Vue.component('s-empty-state', EmptyState);
 Vue.component('s-nav', Nav);
 Vue.component('multiselect', Multiselect);
 Vue.component('s-dropdown', Dropdown);
+Vue.component('s-side-sheet', SideSheet);
 Vue.component('s-actions-list', ActionsList);
 
 Vue.use(BootstrapVue);
