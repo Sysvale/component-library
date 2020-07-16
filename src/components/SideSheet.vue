@@ -64,7 +64,7 @@ export default {
 			type: Boolean,
 			default: false,
 			description: `
-				Prop to define if the element won't be dismissed when esc pressed.
+				Prop to define if the element won't be dismissed when esc is pressed.
 			`,
 		}
 	},
