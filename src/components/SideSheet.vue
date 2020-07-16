@@ -1,30 +1,31 @@
 <template>
 	<span id="side-sheet">
-		
-		<div
-			v-if="value"
-			class="overlay"
-			tabindex="0"
-			@click="shouldCloseOnBackdrop"
-		>
+		<transition :name="floatTransition">
 			<div
-				class="container"
-				:class="floatClass"
-				@click.stop
+				v-if="value"
+				class="overlay"
+				tabindex="0"
+				@click="shouldCloseOnBackdrop"
 			>
-				<slot name="close-icon">
-					<div
-						class="text-right pb-2"
-					>
-						<x-icon
-							id="close-icon"
-							@click.stop="$emit('input', !value)"
-						/>
-					</div>
-				</slot>
-				<slot/>
+				<div
+					class="container"
+					:class="floatClass"
+					@click.stop
+				>
+					<slot name="close-icon">
+						<div
+							class="text-right pb-2"
+						>
+							<x-icon
+								id="close-icon"
+								@click.stop="$emit('input', !value)"
+							/>
+						</div>
+					</slot>
+					<slot/>
+				</div>
 			</div>
-		</div>
+		</transition>
 	</span>
 </template>
 
@@ -82,6 +83,14 @@ export default {
 			}
 
 			return 'right';
+		},
+
+		floatTransition() {
+			if (this.left) {
+				return 'slide-fade-left';
+			}
+
+			return 'slide-fade-right';
 		}
 	},
 
@@ -167,5 +176,27 @@ export default {
 
 .left {
 	float: left;
+}
+
+.slide-fade-right-enter-active {
+	transition: all .4s ease;
+}
+.slide-fade-right-leave-active {
+	transition: all .4s ease;
+}
+.slide-fade-right-enter, .slide-fade-right-leave-to{
+	transform: translateX(8px);
+	opacity: 0;
+}
+
+.slide-fade-left-enter-active {
+	transition: all .4s ease;
+}
+.slide-fade-left-leave-active {
+	transition: all .4s ease;
+}
+.slide-fade-left-enter, .slide-fade-left-leave-to{
+	transform: translateX(-8px);
+	opacity: 0;
 }
 </style>
