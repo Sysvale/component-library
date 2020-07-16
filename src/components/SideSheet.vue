@@ -40,6 +40,7 @@ export default {
 			description: `
 				Prop to control if the SideSheet should be shown or not (usually by v-model)
 			`,
+			required: true,
 		},
 		right: {
 			type: Boolean,
