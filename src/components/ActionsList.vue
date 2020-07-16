@@ -11,14 +11,14 @@
 			>
 				<div
 					v-if="!itsBeignShown && actions.length > expandedQuantity"
-					class="actionLeftBorder action p-4"
+					class="actionRightBorder action p-4"
 					@click="expandList"
 				>
 					{{ collapsedActionName }}
 				</div>
 				<div
 					v-if="actions.length > expandedQuantity && itsBeignShown"
-					class="actionLeftBorder action p-4"
+					class="actionRightBorder action p-4"
 					@click="collapseList"
 				>
 					{{ expandedActionName }}
@@ -44,14 +44,14 @@
 			>
 				<div
 					v-if="!itsBeignShown && actions.length > expandedQuantity"
-					class="actionRightBorder action p-4"
+					class="actionLeftBorder action p-4"
 					@click="expandList"
 				>
 					{{ collapsedActionName }}
 				</div>
 				<div
 					v-if="actions.length > expandedQuantity && itsBeignShown"
-					class="actionRightBorder action p-4"
+					class="actionLeftBorder action p-4"
 					@click="collapseList"
 				>
 					{{ expandedActionName }}
