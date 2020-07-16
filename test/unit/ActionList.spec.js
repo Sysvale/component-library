@@ -13,18 +13,6 @@ let actions = [
 	{title: 'Icon4', img: 'img4'},
 ];
 
-test('Component is mounted properly', () => {
-	window._ = lodash;
-	const wrapper = mount(ActionsList, {
-		localVue,
-		propsData: {
-			actions: actions,
-		},
-	});
-
-	expect(wrapper).toMatchSnapshot();
-});
-
 describe("Action list functioning", () => {
 	test('If when the number of expanded actions to be shown is 1 and there is an array of length 4, are rendered 1 action and 1 button to show more', () => {
 		window._ = lodash;
