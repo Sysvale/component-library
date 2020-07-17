@@ -14,7 +14,7 @@
 				>
 					<slot name="close-icon">
 						<div
-							class="text-right py-3"
+							class="text-right p-3"
 						>
 							<x-icon
 								id="close-icon"
