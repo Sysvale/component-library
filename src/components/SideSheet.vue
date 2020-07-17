@@ -8,7 +8,7 @@
 				@click="shouldCloseOnBackdrop"
 			>
 				<div
-					class="container"
+					class="container px-0"
 					:class="floatClass"
 					@click.stop
 				>
