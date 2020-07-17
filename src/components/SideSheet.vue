@@ -158,7 +158,6 @@ export default {
 	background: #fff;
 	width: 328px;
 	height: 100%;
-	padding: 20px;
 	border-radius: 0px 0px 0px 0px;
 }
 
