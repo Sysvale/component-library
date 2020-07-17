@@ -14,7 +14,7 @@
 				>
 					<slot name="close-icon">
 						<div
-							class="text-right pb-2"
+							class="text-right py-3"
 						>
 							<x-icon
 								id="close-icon"
@@ -158,7 +158,6 @@ export default {
 	background: #fff;
 	width: 328px;
 	height: 100%;
-	padding: 20px;
 	border-radius: 0px 0px 0px 0px;
 }
 
