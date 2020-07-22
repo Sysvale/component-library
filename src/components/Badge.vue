@@ -1,18 +1,38 @@
 <template>
 	<div
-		class="badge-container px-3 d-flex justify-content-center"
+		class="badge-container"
 		:style="colorCodeMode ? styleVariables : ''"
 		:class="!colorCodeMode ? predefinedStyle : ''"
 	>
-		<small class="regular">
-			{{ content }}
-		</small>
+		<div
+			class="d-flex justify-space-between align-items-center padding-left-12"
+		>
+			<small class="regular">
+				{{ content }}
+			</small>
+
+			<div
+				class="dismissible-icon-container ml-1 dismissible-icon-container d-flex"
+				:class="isDismissible ? '' : 'padding-right-12'"
+				@click="$emit('close', true)"
+			>
+				<x-icon
+					v-if="isDismissible"
+					size="0.9x"
+					class="m-1"
+				/>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
-
+import { XIcon } from 'vue-feather-icons'
 export default {
+	components: {
+		XIcon,
+	},
+	
 	props: {
 		content: {
 			type: String,
@@ -48,6 +68,12 @@ export default {
 				to work with. Seting this property to 'true',
 				you can use 'yellow', 'green', ... 'gray'
 				to use the predefined badge styles.`,
+		},
+		isDismissible: {
+			type: Boolean,
+			default: false,
+			description: `Specifies if the badge will display a 
+				'x' icon that emits the 'close' event.`,
 		},
 	},
 
@@ -96,6 +122,7 @@ export default {
 	width: fit-content;
 	background-color: var(--bg-color);
 	color: var(--color);
+	padding: 2px 4px;
 }
 
 .yellow {
@@ -126,5 +153,23 @@ export default {
 .gray {
 	color: #2f2f2f;
 	background-color: #acacac40;
+}
+
+.padding-right-12 {
+	padding-right: 12px;
+}
+
+.padding-left-12 {
+	padding-left: 12px;
+}
+
+.dismissible-icon-container {
+	cursor: pointer;
+	border-radius: 100%;
+}
+
+.dismissible-icon-container:hover {
+	background-color: hsla(0, 0%, 10%, 0.1);
+	transition: 0.5s ease;
 }
 </style>
