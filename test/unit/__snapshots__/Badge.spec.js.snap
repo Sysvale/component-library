@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component is mounted properly 1`] = `
-<div class="badge-container px-3 d-flex justify-content-center yellow"><small class="regular">
-    Test
-  </small></div>
+<div class="badge-container yellow">
+  <div class="d-flex justify-space-between align-items-center padding-left-12"><small class="regular">
+      Test
+    </small>
+    <div class="dismissible-icon-container ml-1 d-flex padding-right-12">
+      <!---->
+    </div>
+  </div>
+</div>
 `;
