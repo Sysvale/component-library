@@ -12,7 +12,7 @@
 			</small>
 
 			<div
-				class="dismissible-icon-container ml-1 dismissible-icon-container d-flex"
+				class="dismissible-icon-container ml-1 d-flex"
 				:class="isDismissible ? '' : 'padding-right-12'"
 				@click="$emit('close', true)"
 			>
