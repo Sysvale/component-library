@@ -1,5 +1,6 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
+import { action } from '@storybook/addon-actions';
 import {
 	withKnobs, text, select, boolean,
 } from '@storybook/addon-knobs';
@@ -8,30 +9,32 @@ import Badge from '../components/Badge.vue';
 
 // ------ COMPONENT INFO ------
 const template = `
-    <s-badge
-        :color="color"
-        :bgColor="bgColor"
-        :content="text"
-        :variant="variant"
-        :colorCodeMode="colorCodeMode"
-    />`;
+	<s-badge
+		:color="color"
+		:bgColor="bgColor"
+		:content="text"
+		:variant="variant"
+		:colorCodeMode="colorCodeMode"
+		:isDismissible="isDismissible"
+		@close="logClosed"
+	/>`;
 
 const componentDescription = {
-    name: 'Badge',
-    summary: 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.',
-    usage: {
-        whenToUse: [
-            'You want to show status associated with your logic business or users actions.', 
-            `You want to highlight important metadata about features or content.`,
-            `You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.).`,
-            `The badge is readonly.`,
-        ],
-        whenNotUse:[
-            'The status that the badge represents, can be setted or removed by the user.',
-            'Clicking the component should trigger a functionality or execute an action.',
-            'You want to categorize something.',
-        ]
-    },
+	name: 'Badge',
+	summary: 'Badges are small status descriptors used, primarly, to highlight important metadata about features or content.',
+	usage: {
+		whenToUse: [
+			'You want to show status associated with your logic business or users actions.', 
+			`You want to highlight important metadata about features or content.`,
+			`You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.).`,
+			`The badge is readonly.`,
+		],
+		whenNotUse:[
+			'The status that the badge represents, can be setted or removed by the user.',
+			'Clicking the component should trigger a functionality or execute an action.',
+			'You want to categorize something.',
+		]
+	},
 };
 
 const docsDecorator = () => {
@@ -72,6 +75,9 @@ export default {
 
 // ------ KNOBS SETTINGS ------
 export const badge = () => ({
+	methods: {
+		logClosed: action('close icon clicked'),
+	},
 	props: {
 		text: {
 			default: () => text('Label text:', 'Negative'),
@@ -94,6 +100,9 @@ export const badge = () => ({
 		},
 		colorCodeMode: {
 			default: () => boolean('Color Code Mode', false)
+		},
+		isDismissible: {
+			default: () => boolean('Is dismissible', false)
 		}
 	},
 	template: template,
