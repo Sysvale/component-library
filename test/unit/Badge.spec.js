@@ -116,3 +116,18 @@ describe("Prop 'bgColor' and 'color' tests", () => {
 		expect(wrapper.vm.styleVariables).toStrictEqual({"--bg-color": "blue", "--color": "white"});
 	});
 });
+
+test('if the event is emited correctly when the dismissible icon is clicked', () => {
+	const wrapper = mount(Badge, {
+		localVue,
+		propsData: {
+			isDismissible: true,
+			content: 'Test',
+		},
+	});
+
+	wrapper.find('.dismissible-icon-container').trigger('click');
+
+	expect(wrapper.emitted().close).toBeTruthy();
+	expect(wrapper.emitted().close).toEqual([ [ true ] ]);
+});
