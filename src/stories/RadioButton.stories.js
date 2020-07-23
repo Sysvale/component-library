@@ -9,14 +9,12 @@ import RadioButton from '../components/RadioButton.vue';
 
 // ------ COMPONENT INFO ------
 const template = `
-	<div>
-		<s-radio-button
-			v-model="value"
-			:text="text"
-			:id="id"
-			:disabled="disabled"
-		/>
-	</div>
+	<s-radio-button
+		v-model="value"
+		:text="text"
+		:id="id"
+		:disabled="disabled"
+	/>
 	`;
 
 const componentDescription = {
