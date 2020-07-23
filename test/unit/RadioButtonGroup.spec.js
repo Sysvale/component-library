@@ -1,5 +1,5 @@
 import { mount, createLocalVue } from '@vue/test-utils';
-import RadioButton from '../../src/components/RadioButton.vue';
+import RadioButtonGroup from '../../src/components/RadioButtonGroup.vue';
 
 import BootstrapVue from 'bootstrap-vue';
 const localVue = createLocalVue();
@@ -22,7 +22,7 @@ const options = [
 ];
 
 test('Component is mounted properly', () => {
-	const wrapper = mount(RadioButton, {
+	const wrapper = mount(RadioButtonGroup, {
 		localVue,
 		propsData: {
 			value: '',

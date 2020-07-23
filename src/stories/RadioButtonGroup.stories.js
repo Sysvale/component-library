@@ -5,12 +5,12 @@ import {
 	withKnobs, boolean, array, text
 } from '@storybook/addon-knobs';
 
-import RadioButton from '../components/RadioButton.vue';
+import RadioButtonGroup from '../components/RadioButtonGroup.vue';
 
 // ------ COMPONENT INFO ------
 const template = `
 	<div>
-		<s-radio-button
+		<s-radio-button-group
 			v-model="value"
 			:options="options"
 			:disabled="disabled"
@@ -19,7 +19,7 @@ const template = `
 	`;
 
 const componentDescription = {
-	name: 'RadioButton',
+	name: 'RadioButtonGroup',
 	summary: 'RadioButtons are custom radio created to facilitate the selection and feedback',
 	usage: {
 		whenToUse: [
@@ -40,7 +40,7 @@ const docsDecorator = () => {
 	return {
 		data() {
 			return {
-				component: RadioButton,
+				component: RadioButtonGroup,
 				template,
 				componentDescription,
 			};
@@ -58,8 +58,8 @@ const docsDecorator = () => {
 
 // ------ STORYBOOK SETTINGS ------
 export default {
-	component: RadioButton,
-	title: 'cs/RadioButton',
+	component: RadioButtonGroup,
+	title: 'cs/RadioButtonGroup',
 	decorators: [docsDecorator, withKnobs, withA11y, withDesign],
 	parameters: {
 		a11y: {
@@ -90,7 +90,7 @@ const options = [
 	},
 ];
 
-export const radioButton = () => ({
+export const radioButtonGroup = () => ({
 	props: {
 		value: {
 			default: () => text('V-model:', value),

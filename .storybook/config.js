@@ -20,7 +20,7 @@ import {
 	Dropdown,
 	SideSheet,
 	ActionsList,
-	RadioButton,
+	RadioButtonGroup,
 } from '../src/components';
 
 import DocsWrapper from '../src/DocsWrapper.vue';
@@ -37,7 +37,7 @@ Vue.component('multiselect', Multiselect);
 Vue.component('s-dropdown', Dropdown);
 Vue.component('s-side-sheet', SideSheet);
 Vue.component('s-actions-list', ActionsList);
-Vue.component('s-radio-button', RadioButton);
+Vue.component('s-radio-button-group', RadioButtonGroup);
 
 Vue.use(BootstrapVue);
 
