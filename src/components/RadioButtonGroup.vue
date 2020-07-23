@@ -1,0 +1,136 @@
+<template>
+	<span id="radioButton">
+		<div
+			v-for="option in options"
+			:key="option.id"
+		>
+			<label
+				class="radio-button-container"
+				:disabled="option.disabled || disabled"
+				:for="option.id"
+			>
+				<input type="radio" :id="option.id" :value="option.id" v-model="selected" :disabled="option.disabled || disabled">
+				<label class="m-0" :for="option.id">{{ option.text }}</label>
+			</label>
+		</div>
+	</span>
+</template>
+
+<script>
+export default {
+	props: {
+		value: {
+			type: [String, Number, Boolean],
+			default: null,
+			description: 'The prop used as v-model to track the selection of the RadioButton.',
+			required: true,
+		},
+		options: {
+			type: Array,
+			default: () => [],
+			description: 'The prop used as v-model to track the selection of the RadioButton.',
+			required: true,
+		},
+		disabled: {
+			type: Boolean,
+			default: false,
+			description: 'Used to control the availability of the RadioButton.',
+			required: false,
+		},
+	},
+	
+	data() {
+		return {
+			selected: this.value,
+		}
+	},
+
+	watch: {
+		selected(value) {
+			this.$emit('input', value);
+		},
+	},
+};
+</script>
+<style>
+#radioButton [type="radio"]:checked,
+#radioButton [type="radio"]:not(:checked) {
+	position: absolute;
+	left: -9999px;
+}
+
+#radioButton [type="radio"]:checked + label,
+#radioButton [type="radio"]:not(:checked) + label
+{
+	position: relative;
+	padding-left: 28px;
+	cursor: pointer;
+	line-height: 20px;
+	display: inline-block;
+	color: #4F6070;
+}
+
+#radioButton [type="radio"]:checked + label:before,
+#radioButton [type="radio"]:not(:checked) + label:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #6A7580;
+	border-radius: 100%;
+	background: #fff;
+}
+
+#radioButton [type="radio"]:checked + label:after,
+#radioButton [type="radio"]:not(:checked) + label:after {
+	content: '';
+	width: 12px;
+	height: 12px;
+	background: #285ab9;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	border-radius: 100%;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#radioButton [type="radio"]:not(:checked) + label:after {
+	opacity: 0;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}
+
+#radioButton [type="radio"]:checked + label:after {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+#radioButton .radio-button-container {
+	border: 1px solid #CED4DA;
+	padding: 12px 16px;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	display: inline-block;
+}
+
+#radioButton .radio-button-container:hover {
+	background-color: rgba(248, 249, 250, 0.75);
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#radioButton .radio-button-container[disabled="disabled"] {
+	background-color: #E9ECEF;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#radioButton .radio-button-container[disabled="disabled"] [type="radio"]:checked + label:before,
+#radioButton .radio-button-container[disabled="disabled"] [type="radio"]:not(:checked) + label:before {
+	background: transparent;
+}
+</style>
