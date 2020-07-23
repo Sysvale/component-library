@@ -20,14 +20,14 @@ const template = `
 	`;
 
 const componentDescription = {
-    name: 'RadioButton',
-    summary: 'RadioButtons are custom radio created to facilitate the selection and feedback',
-    usage: {
-        whenToUse: [
+	name: 'RadioButton',
+	summary: 'RadioButtons are custom radio created to facilitate the selection and feedback',
+	usage: {
+		whenToUse: [
 			'The options you want to provide with the RadioButtons are mutually exclusive',
 			'Use RadioButtons in any situation that you would use the <input type="radio" />',
 		],
-        whenNotUse:[
+		whenNotUse:[
 			'Do not use RadioButtons when 2 or more options can be selected at the same time.',
 			'Do not use RadioButtons when you have 4 or more options',
 		],
