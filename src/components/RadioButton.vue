@@ -1,13 +1,18 @@
 <template>
 	<span id="radioButton">
-		<label
-			class="radio-button-container"
-			:disabled="disabled"
-			:for="id"
+		<div
+			v-for="option in options"
+			:key="option.id"
 		>
-			<input type="radio" :id="id" :value="id" v-model="selected" :disabled="disabled">
-			<label class="m-0" :for="id">{{ text }}</label>
-		</label>
+			<label
+				class="radio-button-container"
+				:disabled="option.disabled || disabled"
+				:for="option.id"
+			>
+				<input type="radio" :id="option.id" :value="option.id" v-model="selected" :disabled="option.disabled || disabled">
+				<label class="m-0" :for="option.id">{{ option.text }}</label>
+			</label>
+		</div>
 	</span>
 </template>
 
@@ -20,16 +25,10 @@ export default {
 			description: 'The prop used as v-model to track the selection of the RadioButton.',
 			required: true,
 		},
-		text: {
-			type: String,
-			default: '',
-			description: 'Used to display the label.',
-			required: true,
-		},
-		id: {
-			type: String,
-			default: 'id',
-			description: 'The id of the RadioButton.',
+		options: {
+			type: Array,
+			default: () => [],
+			description: 'The prop used as v-model to track the selection of the RadioButton.',
 			required: true,
 		},
 		disabled: {

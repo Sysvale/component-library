@@ -5,13 +5,28 @@ import BootstrapVue from 'bootstrap-vue';
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 
+const options = [
+	{
+		text: 'Component1',
+		id: 'id1',
+		disabled: true,
+	},
+	{
+		text: 'Component2',
+		id: 'id2',
+	},
+	{
+		text: 'Component3',
+		id: 'id3',
+	},
+];
+
 test('Component is mounted properly', () => {
 	const wrapper = mount(RadioButton, {
 		localVue,
 		propsData: {
-			id: 'id',
-			text: 'test',
 			value: '',
+			options: options,
 		},
 	});
 

@@ -2,19 +2,20 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import {
-	withKnobs, boolean, object, text
+	withKnobs, boolean, array, text
 } from '@storybook/addon-knobs';
 
 import RadioButton from '../components/RadioButton.vue';
 
 // ------ COMPONENT INFO ------
 const template = `
-	<s-radio-button
-		v-model="value"
-		:text="text"
-		:id="id"
-		:disabled="disabled"
-	/>
+	<div>
+		<s-radio-button
+			v-model="value"
+			:options="options"
+			:disabled="disabled"
+		/>
+	</div>
 	`;
 
 const componentDescription = {
@@ -29,6 +30,9 @@ const componentDescription = {
 			'Do not use RadioButtons when 2 or more options can be selected at the same time.',
 			'Do not use RadioButtons when you have 4 or more options',
 		],
+		observation: `You can disable each on of the radio button components by passing the property 'disable: true'
+		in its respective object. If you want to disable all of the RadioButtons, you must pass the prop 'disabled'
+		to te component.`,
 	},
 };
 
@@ -70,17 +74,29 @@ export default {
 
 // ------ KNOBS SETTINGS ------
 const value = '';
+const options = [
+	{
+		text: 'Component1',
+		id: 'id1',
+		disabled: true,
+	},
+	{
+		text: 'Component2',
+		id: 'id2',
+	},
+	{
+		text: 'Component3',
+		id: 'id3',
+	},
+];
 
 export const radioButton = () => ({
 	props: {
 		value: {
 			default: () => text('V-model:', value),
 		},
-		text: {
-			default: () => text('Text:', 'Component'),
-		},
-		id: {
-			default: () => text('Id:', 'id'),
+		options: {
+			default: () => array('Options:', options),
 		},
 		disabled: {
 			default: () => boolean('Disabled:', false),
