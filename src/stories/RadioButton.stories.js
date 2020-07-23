@@ -9,7 +9,14 @@ import RadioButton from '../components/RadioButton.vue';
 
 // ------ COMPONENT INFO ------
 const template = `
-	<s-radio-button />`;
+	<div>
+		<s-radio-button
+			v-model="value"
+			:text="text"
+			:id="id"
+		/>
+	</div>
+	`;
 
 const componentDescription = {
     name: 'RadioButton',
@@ -58,8 +65,20 @@ export default {
 };
 
 // ------ KNOBS SETTINGS ------
+const value = '';
+
 export const radioButton = () => ({
 	props: {
+		value: {
+			default: () => text('V-model:', value),
+		},
+		text: {
+			default: () => text('Text:', 'Component'),
+		},
+		id: {
+			default: () => text('Id:', 'id'),
+		},
+
 	},
 	template,
 });

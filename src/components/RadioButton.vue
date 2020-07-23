@@ -1,27 +1,46 @@
 <template>
 	<span id="radioButton">
-		<span
+		<label
 			class="radio-button-border"
-			@click="checkRadio"
+			:for="id"
 		>
-			<input type="radio" id="test1" name="radio-group" :checked="isChecked">
-			<label for="test1">Component library</label>
-		</span>
+			<input type="radio" :id="id" :value="id" v-model="selected">
+			<label class="m-0" :for="id">{{ text }}</label>
+		</label>
 	</span>
 </template>
 
 <script>
 export default {
+	props: {
+		value: {
+			type: [String, Number, Boolean],
+			default: null,
+		},
+		text: {
+			type: String,
+			default: '',
+		},
+		id: {
+			type: String,
+			default: '',
+		},
+	},
+
+	mounted() {
+		console.log('valuee: ', this.value);
+	},
+	
 	data() {
 		return {
-			isChecked: false
+			selected: this.value,
 		}
 	},
 
-	methods: {
-		checkRadio () {	
-			this.isChecked = true;
-		}
+	watch: {
+		selected(value) {
+			this.$emit('input', value);
+		},
 	},
 };
 </script>
@@ -87,6 +106,7 @@ export default {
 	padding: 12px 16px;
 	border-radius: 0.5rem;
 	cursor: pointer;
+	display: inline-block;
 }
 
 #radioButton .radio-button-border:hover {
