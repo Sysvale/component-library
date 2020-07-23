@@ -5,7 +5,7 @@
 			:disabled="disabled"
 			:for="id"
 		>
-			<input type="radio" :id="id" :value="id" v-model="selected">
+			<input type="radio" :id="id" :value="id" v-model="selected" :disabled="disabled">
 			<label class="m-0" :for="id">{{ text }}</label>
 		</label>
 	</span>
@@ -17,18 +17,26 @@ export default {
 		value: {
 			type: [String, Number, Boolean],
 			default: null,
+			description: 'The prop used as v-model to track the selection of the RadioButton.',
+			required: true,
 		},
 		text: {
 			type: String,
 			default: '',
+			description: 'Used to display the label.',
+			required: true,
 		},
 		id: {
 			type: String,
-			default: '',
+			default: 'id',
+			description: 'The id of the RadioButton.',
+			required: true,
 		},
 		disabled: {
 			type: Boolean,
 			default: false,
+			description: 'Used to control the availability of the RadioButton.',
+			required: false,
 		},
 	},
 
