@@ -14,17 +14,23 @@ const template = `
 			v-model="value"
 			:text="text"
 			:id="id"
+			:disabled="disabled"
 		/>
 	</div>
 	`;
 
 const componentDescription = {
     name: 'RadioButton',
-    summary: '',
+    summary: 'RadioButtons are custom radio created to facilitate the selection and feedback',
     usage: {
-        whenToUse: [],
-        whenNotUse:[],
-		observation: ``,
+        whenToUse: [
+			'The options you want to provide with the RadioButtons are mutually exclusive',
+			'Use RadioButtons in any situation that you would use the <input type="radio" />',
+		],
+        whenNotUse:[
+			'Do not use RadioButtons when 2 or more options can be selected at the same time.',
+			'Do not use RadioButtons when you have 4 or more options',
+		],
 	},
 };
 
@@ -78,7 +84,9 @@ export const radioButton = () => ({
 		id: {
 			default: () => text('Id:', 'id'),
 		},
-
+		disabled: {
+			default: () => boolean('Disabled:', false),
+		},
 	},
 	template,
 });

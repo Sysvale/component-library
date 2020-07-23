@@ -1,7 +1,8 @@
 <template>
 	<span id="radioButton">
 		<label
-			class="radio-button-border"
+			class="radio-button-container"
+			:disabled="disabled"
 			:for="id"
 		>
 			<input type="radio" :id="id" :value="id" v-model="selected">
@@ -25,10 +26,14 @@ export default {
 			type: String,
 			default: '',
 		},
+		disabled: {
+			type: Boolean,
+			default: false,
+		},
 	},
 
 	mounted() {
-		console.log('valuee: ', this.value);
+		console.log('Disabled: ', this.disabled);
 	},
 	
 	data() {
@@ -101,7 +106,7 @@ export default {
 	transform: scale(1);
 }
 
-#radioButton .radio-button-border {
+#radioButton .radio-button-container {
 	border: 1px solid #CED4DA;
 	padding: 12px 16px;
 	border-radius: 0.5rem;
@@ -109,9 +114,20 @@ export default {
 	display: inline-block;
 }
 
-#radioButton .radio-button-border:hover {
+#radioButton .radio-button-container:hover {
 	background-color: rgba(248, 249, 250, 0.75);
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
+}
+
+#radioButton .radio-button-container[disabled="disabled"] {
+	background-color: #E9ECEF;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#radioButton .radio-button-container[disabled="disabled"] [type="radio"]:checked + label:before,
+#radioButton .radio-button-container[disabled="disabled"] [type="radio"]:not(:checked) + label:before {
+	background: transparent;
 }
 </style>
