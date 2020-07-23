@@ -39,10 +39,6 @@ export default {
 			required: false,
 		},
 	},
-
-	mounted() {
-		console.log('Disabled: ', this.disabled);
-	},
 	
 	data() {
 		return {
