@@ -1,17 +1,33 @@
 <template>
 	<span id="radioButton">
 		<div
-			v-for="option in options"
-			:key="option.id"
+			:class="{'d-flex': row }"
 		>
-			<label
-				class="radio-button-container"
-				:disabled="option.disabled || disabled"
-				:for="option.id"
+			<div
+				v-for="option in options"
+				:key="option.id"
+				:class="{'ml-3': row }"
 			>
-				<input type="radio" :id="option.id" :value="option.id" v-model="selected" :disabled="option.disabled || disabled">
-				<label class="m-0" :for="option.id">{{ option.text }}</label>
-			</label>
+				<label
+					class="radio-button-container"
+					:disabled="option.disabled || disabled"
+					:for="option.id"
+				>
+					<input
+						type="radio"
+						:id="option.id"
+						:value="option.id"
+						v-model="selected"
+						:disabled="option.disabled || disabled"
+					>
+					<label
+						class="m-0"
+						:for="option.id"
+					>
+						{{ option.text }}
+					</label>
+				</label>
+			</div>
 		</div>
 	</span>
 </template>
@@ -37,6 +53,19 @@ export default {
 			description: 'Used to control the availability of the RadioButton.',
 			required: false,
 		},
+		column: {
+			type: Boolean,
+			default: true,
+			description: `The default direction option. When true, the radio buttons will be
+				displayed in a column.`,
+			required: false,
+		},
+		row: {
+			type: Boolean,
+			default: false,
+			description: `When true, the radio buttons will be displayed in a row.`,
+			required: false,
+		}
 	},
 	
 	data() {
