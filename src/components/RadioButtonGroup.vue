@@ -1,12 +1,12 @@
 <template>
 	<span id="radioButton">
 		<div
-			:class="{'d-flex': row }"
+			:class="{'d-flex': inline }"
 		>
 			<div
 				v-for="option in options"
 				:key="option.id"
-				:class="{'ml-3': row }"
+				:class="{'ml-3': inline }"
 			>
 				<label
 					class="radio-button-container"
@@ -53,14 +53,7 @@ export default {
 			description: 'Used to control the availability of the RadioButton.',
 			required: false,
 		},
-		column: {
-			type: Boolean,
-			default: true,
-			description: `The default direction option. When true, the radio buttons will be
-				displayed in a column.`,
-			required: false,
-		},
-		row: {
+		inline: {
 			type: Boolean,
 			default: false,
 			description: `When true, the radio buttons will be displayed in a row.`,
