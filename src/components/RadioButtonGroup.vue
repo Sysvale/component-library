@@ -140,7 +140,7 @@ export default {
 }
 
 #radioButton .radio-button-container:hover {
-	background-color: rgba(248, 249, 250, 0.75);
+	background-color: rgba(235, 242, 249, 0.5);
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
