@@ -14,6 +14,7 @@ const template = `
 			v-model="value"
 			:options="options"
 			:disabled="disabled"
+			:inline="inline"
 		/>
 	</div>
 	`;
@@ -100,6 +101,9 @@ export const radioButtonGroup = () => ({
 		},
 		disabled: {
 			default: () => boolean('Disabled:', false),
+		},
+		inline: {
+			default: () => boolean('Inline:', false),
 		},
 	},
 	template,

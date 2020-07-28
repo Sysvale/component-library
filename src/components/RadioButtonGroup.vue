@@ -1,17 +1,33 @@
 <template>
 	<span id="radioButton">
 		<div
-			v-for="option in options"
-			:key="option.id"
+			:class="{'d-flex': inline }"
 		>
-			<label
-				class="radio-button-container"
-				:disabled="option.disabled || disabled"
-				:for="option.id"
+			<div
+				v-for="option in options"
+				:key="option.id"
+				:class="{'ml-3': inline }"
 			>
-				<input type="radio" :id="option.id" :value="option.id" v-model="selected" :disabled="option.disabled || disabled">
-				<label class="m-0" :for="option.id">{{ option.text }}</label>
-			</label>
+				<label
+					class="radio-button-container"
+					:disabled="option.disabled || disabled"
+					:for="option.id"
+				>
+					<input
+						type="radio"
+						:id="option.id"
+						:value="option.id"
+						v-model="selected"
+						:disabled="option.disabled || disabled"
+					>
+					<label
+						class="m-0"
+						:for="option.id"
+					>
+						{{ option.text }}
+					</label>
+				</label>
+			</div>
 		</div>
 	</span>
 </template>
@@ -37,6 +53,12 @@ export default {
 			description: 'Used to control the availability of the RadioButton.',
 			required: false,
 		},
+		inline: {
+			type: Boolean,
+			default: false,
+			description: `When true, the radio buttons will be displayed in a row.`,
+			required: false,
+		}
 	},
 	
 	data() {
@@ -118,7 +140,7 @@ export default {
 }
 
 #radioButton .radio-button-container:hover {
-	background-color: rgba(248, 249, 250, 0.75);
+	background-color: rgba(235, 242, 249, 0.5);
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
