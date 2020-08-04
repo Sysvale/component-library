@@ -36,7 +36,7 @@
 export default {
 	props: {
 		value: {
-			type: [String, Number, Boolean],
+			// type: [String, Number, Boolean],
 			default: null,
 			description: 'The prop used as v-model to track the selection of the RadioButton.',
 			required: true,
