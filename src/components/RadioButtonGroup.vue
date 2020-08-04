@@ -5,24 +5,23 @@
 		>
 			<div
 				v-for="option in options"
-				:key="option.id"
-				:class="{'ml-3': inline }"
+				:key="option.value"
 			>
 				<label
 					class="radio-button-container"
 					:disabled="option.disabled || disabled"
-					:for="option.id"
+					:for="option.value"
 				>
 					<input
 						type="radio"
-						:id="option.id"
-						:value="option.id"
+						:id="option.value"
+						:value="option.value"
 						v-model="selected"
 						:disabled="option.disabled || disabled"
 					>
 					<label
 						class="m-0"
-						:for="option.id"
+						:for="option.value"
 					>
 						{{ option.text }}
 					</label>
