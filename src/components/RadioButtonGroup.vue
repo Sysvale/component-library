@@ -71,6 +71,13 @@ export default {
 		selected(value) {
 			this.$emit('input', value);
 		},
+
+		value: {
+			handler(newValue) {
+				this.selected = newValue;
+			},
+			immediate: true,
+		},
 	},
 };
 </script>
