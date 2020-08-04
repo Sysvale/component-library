@@ -4,8 +4,9 @@
 			:class="{'d-flex': inline }"
 		>
 			<div
-				v-for="option in options"
+				v-for="(option, i) in options"
 				:key="option.value"
+				:class="{'ml-3': inline && i > 0}"
 			>
 				<label
 					class="radio-button-container"
