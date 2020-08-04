@@ -246,7 +246,7 @@ export default {
 			const formattedProp = {};
 
 			formattedProp.name = _.keys(this.componentData.props)[index];
-			formattedProp.type = item.type.name || '--';
+			formattedProp.type = item.type ? (item.type.name || '--') : '--';
 			formattedProp.required = item.required || false;
 			formattedProp.defaultValue = item.default === false ? false : (item.default || '--');
 			formattedProp.description = item.description || '--';

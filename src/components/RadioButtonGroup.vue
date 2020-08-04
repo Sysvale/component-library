@@ -4,25 +4,25 @@
 			:class="{'d-flex': inline }"
 		>
 			<div
-				v-for="option in options"
-				:key="option.id"
-				:class="{'ml-3': inline }"
+				v-for="(option, i) in options"
+				:key="option.value"
+				:class="{'ml-3': inline && i > 0}"
 			>
 				<label
 					class="radio-button-container"
 					:disabled="option.disabled || disabled"
-					:for="option.id"
+					:for="option.value"
 				>
 					<input
 						type="radio"
-						:id="option.id"
-						:value="option.id"
+						:id="option.value"
+						:value="option.value"
 						v-model="selected"
 						:disabled="option.disabled || disabled"
 					>
 					<label
 						class="m-0"
-						:for="option.id"
+						:for="option.value"
 					>
 						{{ option.text }}
 					</label>
@@ -36,7 +36,7 @@
 export default {
 	props: {
 		value: {
-			type: [String, Number, Boolean],
+			// type: [String, Number, Boolean],
 			default: null,
 			description: 'The prop used as v-model to track the selection of the RadioButton.',
 			required: true,
