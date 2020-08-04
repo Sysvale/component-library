@@ -8,16 +8,16 @@ localVue.use(BootstrapVue);
 const options = [
 	{
 		text: 'Component1',
-		id: 'id1',
+		value: 'value1',
 		disabled: true,
 	},
 	{
 		text: 'Component2',
-		id: 'id2',
+		value: 'value2',
 	},
 	{
 		text: 'Component3',
-		id: 'id3',
+		value: 'value3',
 	},
 ];
 
