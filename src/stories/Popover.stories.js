@@ -19,20 +19,22 @@ const template = `
 			</b-button>
 			<s-popover
 				target="trigger-popover"
-				size="xl"
+				size="lg"
 			>
-				Embedding content <span class="text-danger">using slots</span> affords you
-				<em>greater <strong>control.</strong></em> and basic HTML support.
+				<p class="p-3">
+					Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Atirei o pau no gatis, per gatis num morreus. Pra lá , depois divoltis porris, paradis. Leite de capivaris, leite de mula manquis sem cabeça.
+					Viva Forevis aptent taciti sociosqu ad litora torquent. Per aumento de cachacis, eu reclamis. Nec orci ornare consequat.
+				</p>
 			</s-popover>
 		</div>
 `;
 
 const componentDescription = {
 		name: 'Popover',
-		summary: 'SideSheet are components used to show some content as modal in one of the sides of a page',
+		summary: 'Popover is a component emulate a tooltip behavior, can be applied to any interactive element. This component supports the click interaction.',
 		usage: {
 				whenToUse: [
-						'You want to place filters that will be shown when you click in some component.', 
+						'You want to place filters or sort fields that will be shown when you click in some component.', 
 				],
 				whenNotUse:[
 						'You need a modal.',
@@ -44,9 +46,6 @@ const componentDescription = {
 		default: {		
 			description: 'Slot used to display the content inside the component.'
 		},
-		'close-icon': {
-			description: 'Slot used to customize the close button shown above the content'
-		}
 	},
 };
 

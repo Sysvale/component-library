@@ -1,16 +1,13 @@
 <template>
 	<span id="s-popover">
 		<b-popover
-			:class="popoverClasses"
+			:custom-class="popoverClasses"
 			:target="target"
 			:placement="placement"
 			triggers="click"
 			:offset="internalOffset"
-			@show="beforeShow"
 		>
-			<div ref="popoverElement" id="popover-body">
-				<slot />
-			</div>
+			<slot />
 		</b-popover>
 	</span>
 </template>
@@ -19,56 +16,52 @@
 export default {
 	data() {
 		return {
-			internalOffset: this.offset,
+			internalOffset: '-60%',
+			sizes: {
+				default: 276,
+				sm: 180,
+				lg: 360,
+				xl: 520,
+			},
 		}
 	},
 
 	props: {
-		value: {
-			type: Boolean,
-			default: false,
-			description: `
-				Prop to control if the SideSheet should be shown or not (usually by v-model)
-			`,
-		},
 		right: {
 			type: Boolean,
 			default: false,
 			description: `
-				Prop to define that the element will be shown at right screen side.
+				Prop to define that the element will be shown at right of target element (left is the default).
 			`,
 		},
 		left: {
 			type: Boolean,
-			default: false,
+			default: true,
 			description: `
-				Prop to define that the element will be shown at left screen side (right is the default).
+				Prop to define that the element will be shown at left of target element.
 			`,
 		},
 		target: {
 			type: String,
 			default: null,
+			description: `
+				Prop to define the element that you want to trigger the popover.
+			`,
 			required: true,
 		},
-
 		offset: {
 			type: String,
-			default: '-60%',
+			default: null,
+			description: `
+				Prop to define the shift center of popover by specified number of pixels.
+			`,
 		},
-
 		size: {
 			type: String,
-			default: null,
-		}
-	},
-
-	watch: {
-		target(newTarget) {
-			if (!newTarget) {
-				return;
-			}
-			var width = document.getElementById(newTarget).offsetWidth;
-			console.log(width);
+			default: 'default',
+			description: `
+				Prop to define the width of the popover (Options: 'xl', 'lg', 'sm', 'default').
+			`,
 		}
 	},
 
@@ -77,35 +70,29 @@ export default {
 			return this.right ? 'bottomright' : 'bottomleft';
 		},
 
-		maxWidth() {
-			return 'max-width: 276px;';
-		},
-
 		popoverClasses() {
-			return this.size ? ` s-popover-${this.size} ` : '';
+			const sizeClass = this.size ? `s-popover-${this.size}` : '';
+			return `${sizeClass} s-popover`;
 		},
 	},
 
 	mounted() {
-		const popover = document.getElementById('popover-body');
-		// const popover = document.querySelectorAll('#s-popover .something');
-		console.log(popover);
-		console.log(this.$refs.popoverElement);
+		this.calcOffset();
 	},
 
 	methods: {
-		beforeShow() {
+		calcOffset() {
+			if (this.offset) {
+				this.internalOffset = this.offset;
+				return;
+			}
+
 			const button = document.getElementById(this.target);
-			const popover = document.getElementById('popover-elem');
-			console.log(this.$refs.popoverElement);
-			if (button && popover) {
+			if (button) {
 				const buttonWidth = button.offsetWidth;
-				const popoverWidth = popover.offsetWidth;
-				console.log(buttonWidth);
-				console.log(popoverWidth);
-				const factor = this.left ? -1 : 1;
-				this.internalOffset = width * factor / 2;
-				console.log(this.internalOffset);
+				const popoverWidth = this.sizes[this.size];
+				const factor = this.right ? 1 : -1;
+				this.internalOffset = (popoverWidth - buttonWidth) * factor / 2;
 			}
 		},
 	},
@@ -118,6 +105,25 @@ export default {
 }
 
 .b-popover {
-	max-width: 360px;
+	max-width: none;
+	width: 276px;
+}
+
+.s-popover {
+	border: 1px solid #CED4DA;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 8px;
+}
+
+.b-popover.s-popover-sm {
+	width: 180px;
+}
+
+.b-popover.s-popover-lg {
+	width: 360px;
+}
+
+.b-popover.s-popover-xl {
+	width: 520px;
 }
 </style>
