@@ -19,6 +19,7 @@ import {
 	Nav,
 	Dropdown,
 	SideSheet,
+	Popover,
 	ActionsList,
 	RadioButtonGroup,
 } from '../src/components';
@@ -36,6 +37,7 @@ Vue.component('s-nav', Nav);
 Vue.component('multiselect', Multiselect);
 Vue.component('s-dropdown', Dropdown);
 Vue.component('s-side-sheet', SideSheet);
+Vue.component('s-popover', Popover);
 Vue.component('s-actions-list', ActionsList);
 Vue.component('s-radio-button-group', RadioButtonGroup);
 
