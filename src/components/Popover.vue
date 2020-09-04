@@ -87,12 +87,12 @@ export default {
 				return;
 			}
 
-			const button = document.getElementById(this.target);
-			if (button) {
-				const buttonWidth = button.offsetWidth;
+			const target = document.getElementById(this.target);
+			if (target) {
+				const targetWidth = target.offsetWidth;
 				const popoverWidth = this.sizes[this.size];
 				const factor = this.right ? 1 : -1;
-				this.internalOffset = (popoverWidth - buttonWidth) * factor / 2;
+				this.internalOffset = (popoverWidth - targetWidth) * factor / 2;
 			}
 		},
 	},
