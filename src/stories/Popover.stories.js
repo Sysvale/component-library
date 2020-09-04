@@ -2,7 +2,7 @@
 import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import {
-	withKnobs, boolean, object, text
+	withKnobs, boolean, select, number, text,
 } from '@storybook/addon-knobs';
 
 import Popover from '../components/Popover.vue';
@@ -19,11 +19,13 @@ const template = `
 			</b-button>
 			<s-popover
 				target="trigger-popover"
-				size="lg"
+				:size="size"
+				:right="right"
+				:left="left"
 			>
 				<p class="p-3">
 					Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Atirei o pau no gatis, per gatis num morreus. Pra lá , depois divoltis porris, paradis. Leite de capivaris, leite de mula manquis sem cabeça.
-					Viva Forevis aptent taciti sociosqu ad litora torquent. Per aumento de cachacis, eu reclamis. Nec orci ornare consequat.
+					Viva Forevis aptent taciti sociosqu ad litora torquent.
 				</p>
 			</s-popover>
 		</div>
@@ -92,7 +94,15 @@ export const popover = () => ({
 			default: () => boolean('Right aligned:', false),
 		},
 		left: {
-			default: () => boolean('Left aligned:', false),
+			default: () => boolean('Left aligned:', true),
+		},
+		size: {
+			default: () => select('Size:', {
+				default: 'default',
+				xl: 'xl',
+				lg: 'lg',
+				sm: 'sm',
+			}, 'lg'),
 		},
 	},
 	template,
