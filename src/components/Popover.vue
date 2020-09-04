@@ -27,18 +27,12 @@ export default {
 	},
 
 	props: {
-		right: {
-			type: Boolean,
-			default: false,
+		alignment: {
+			type: String,
+			default: 'left',
 			description: `
-				Prop to define that the element will be shown at right of target element (left is the default).
-			`,
-		},
-		left: {
-			type: Boolean,
-			default: true,
-			description: `
-				Prop to define that the element will be shown at left of target element.
+				Prop to define that the element will be shown align to 'right' or 'left'
+				relative to target element ('left' is the default).
 			`,
 		},
 		target: {
@@ -67,12 +61,23 @@ export default {
 
 	computed: {
 		placement() {
-			return this.right ? 'bottomright' : 'bottomleft';
+			return this.alignment === 'right' ? 'bottomright' : 'bottomleft';
 		},
 
 		popoverClasses() {
 			const sizeClass = this.size ? `s-popover-${this.size}` : '';
 			return `${sizeClass} s-popover`;
+		},
+	},
+
+	watch: {
+		alignment(newValue) {
+			this.alignment = newValue;
+			this.calcOffset();
+		},
+		offset(newValue) {
+			this.offset = newValue;
+			this.calcOffset();
 		},
 	},
 
@@ -91,7 +96,7 @@ export default {
 			if (target) {
 				const targetWidth = target.offsetWidth;
 				const popoverWidth = this.sizes[this.size];
-				const factor = this.right ? 1 : -1;
+				const factor = this.alignment === 'right' ? 1 : -1;
 				this.internalOffset = (popoverWidth - targetWidth) * factor / 2;
 			}
 		},

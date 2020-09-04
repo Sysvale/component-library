@@ -20,8 +20,7 @@ const template = `
 			<s-popover
 				target="trigger-popover"
 				:size="size"
-				:right="right"
-				:left="left"
+				:alignment="alignment"
 			>
 				<p class="p-3">
 					Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Atirei o pau no gatis, per gatis num morreus. Pra lá , depois divoltis porris, paradis. Leite de capivaris, leite de mula manquis sem cabeça.
@@ -90,11 +89,11 @@ export const popover = () => ({
 		};
 	},
 	props: {
-		right: {
-			default: () => boolean('Right aligned:', false),
-		},
-		left: {
-			default: () => boolean('Left aligned:', true),
+		alignment: {
+			default: () => select('Alignment:', {
+				left: 'left',
+				right: 'right',
+			}, 'left'),
 		},
 		size: {
 			default: () => select('Size:', {

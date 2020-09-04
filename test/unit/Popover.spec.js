@@ -22,13 +22,9 @@ describe("Items styles test", () => {
 		App = localVue.component('App', {
 			components: { Popover },
 			props: {
-				right: {
-					type: Boolean,
-					default: false,
-				},
-				left: {
-					type: Boolean,
-					default: true,
+				alignment: {
+					type: String,
+					default: 'left',
 				},
 			},
 			template: `
@@ -37,8 +33,7 @@ describe("Items styles test", () => {
 					<popover
 						target="trigger-popover"
 						size="lg"
-						:right="right"
-						:left="left"
+						:alignment="alignment"
 					/>
 				</div>
 			`,
@@ -49,7 +44,7 @@ describe("Items styles test", () => {
 		const wrapper = mount(App, {
 			localVue,
 			propsData: {
-				left: true,
+				alignment: 'left',
 			},
 			attachTo: document.body,
 		});
@@ -62,7 +57,7 @@ describe("Items styles test", () => {
 		const wrapper = mount(App, {
 			localVue,
 			propsData: {
-				right: true,
+				alignment: 'right',
 			},
 			attachTo: document.body,
 		});
