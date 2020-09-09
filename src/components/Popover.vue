@@ -31,15 +31,15 @@ export default {
 			type: String,
 			default: 'left',
 			description: `
-				Prop to define that the element will be shown align to 'right' or 'left'
-				relative to target element ('left' is the default).
+				Defines if the popover will be right or left aligned
+				relative to target element.
 			`,
 		},
 		target: {
 			type: String,
 			default: null,
 			description: `
-				Prop to define the element that you want to trigger the popover.
+				Defines the element that you want to trigger the popover.
 			`,
 			required: true,
 		},
@@ -47,14 +47,14 @@ export default {
 			type: String,
 			default: null,
 			description: `
-				Prop to define the shift center of popover by specified number of pixels.
+				Change the horizontal alignment of the popover by a specified number of pixels.
 			`,
 		},
 		size: {
 			type: String,
 			default: 'default',
 			description: `
-				Prop to define the width of the popover (Options: 'xl', 'lg', 'sm', 'default').
+				Defines the width of the popover (Options: 'xl', 'lg', 'sm', 'default').
 			`,
 		}
 	},
