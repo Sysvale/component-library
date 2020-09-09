@@ -22,6 +22,7 @@ import {
 	Popover,
 	ActionsList,
 	RadioButtonGroup,
+	ProgressBar,
 } from '../src/components';
 
 import DocsWrapper from '../src/DocsWrapper.vue';
@@ -40,6 +41,7 @@ Vue.component('s-side-sheet', SideSheet);
 Vue.component('s-popover', Popover);
 Vue.component('s-actions-list', ActionsList);
 Vue.component('s-radio-button-group', RadioButtonGroup);
+Vue.component('s-progress-bar', ProgressBar);
 
 Vue.use(BootstrapVue);
 
