@@ -22,18 +22,17 @@ const template = `
 
 const componentDescription = {
 		name: 'Progress bar',
-		summary: `Popover is a pop-up box that appears when the user clicks on an element.
-			It is used to emulate a tooltip behavior, and to display content to the user
-			that was previously hidden.`,
+		summary: `Progress bars are components used to indicate the status of something to the user`,
 		usage: {
 				whenToUse: [
-					'You want to place filters, or text that will be shown when you click in some component.', 
+					'You need to convey the idea of progress of something.',
+					'You need to convey the idea of status of something.',
+					'You need to draw attention to an specific information.'
 				],
 				whenNotUse:[
-					'You need a modal.',
-					'You need a navigation solution.',
-					'You need a form to register something.',
-					'You need to show a lot of content.'
+					'To create loaders.',
+					'You need a lot of precision',
+					'To create steppers.',
 				]
 	},
 };
