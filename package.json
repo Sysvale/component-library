@@ -1,6 +1,6 @@
 {
   "name": "@sysvale/component-library",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "",
   "main": "dist/@sysvale/component-library.ssr.js",
   "module": "dist/@sysvale/component-library.esm.js",
