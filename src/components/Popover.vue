@@ -1,18 +1,28 @@
 <template>
 	<span id="s-popover">
-		<b-popover
-			:custom-class="popoverClasses"
-			:target="target"
-			:placement="placement"
-			triggers="click"
-			:offset="internalOffset"
+		<div
+			v-if="value"
+			class="overlay"
+			tabindex="0"
+			@click="shouldCloseOnBackdrop"
 		>
-			<slot />
-		</b-popover>
+			<b-popover
+				:show.sync="value"
+				:custom-class="popoverClasses"
+				:target="target"
+				:placement="placement"
+				triggers=""
+				:offset="internalOffset"
+			>
+				<slot />
+			</b-popover>
+		</div>
 	</span>
 </template>
 
 <script>
+import { KeyCodes } from '../utils';
+
 export default {
 	data() {
 		return {
@@ -27,6 +37,14 @@ export default {
 	},
 
 	props: {
+		value: {
+			type: Boolean,
+			default: false,
+			description: `
+				Controls if the popover should be shown or not (usually by v-model)
+			`,
+			required: true,
+		},
 		alignment: {
 			type: String,
 			default: 'left',
@@ -56,6 +74,20 @@ export default {
 			description: `
 				Defines the width of the popover (Options: 'xl', 'lg', 'sm', 'default').
 			`,
+		},
+		noCloseOnBackdrop: {
+			type: Boolean,
+			default: false,
+			description: `
+				Defines if the element won't be dismissed when backdrop is click.
+			`,
+		},
+		noCloseOnEsc: {
+			type: Boolean,
+			default: false,
+			description: `
+				Defines if the element won't be dismissed when esc is pressed.
+			`,
 		}
 	},
 
@@ -79,10 +111,26 @@ export default {
 			this.offset = newValue;
 			this.calcOffset();
 		},
+		value(newValue) {
+			if (!newValue) {
+				this.detachKeyupEvent();
+				return;
+			}
+
+			this.attachKeyupEvent();
+		},
 	},
 
 	mounted() {
 		this.calcOffset();
+	},
+
+	created	() {
+		this.attachKeyupEvent();
+	},
+
+	beforeDestroy() {
+		this.detachKeyupEvent();
 	},
 
 	methods: {
@@ -100,11 +148,50 @@ export default {
 				this.internalOffset = (popoverWidth - targetWidth) * factor / 2;
 			}
 		},
+
+		shouldCloseOnBackdrop() {
+			if (!this.noCloseOnBackdrop) {
+				this.$emit('input', !this.value);
+			}
+		},
+
+		shouldCloseOnEsc() {
+			if (!this.noCloseOnEsc) {
+				this.$emit('input', !this.value);
+			}
+		},
+
+		keyupListener(ev) {
+			if (ev.keyCode === KeyCodes.ESC) {
+				this.shouldCloseOnEsc();
+			}
+		},
+
+		attachKeyupEvent() {
+			window.addEventListener('keyup', this.keyupListener);
+		},
+
+		detachKeyupEvent() {
+			window.removeEventListener('keyup', this.keyupListener);
+		}
 	},
 };
 </script>
 
 <style>
+#s-popover .overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: transparent;
+	z-index: 999;
+	cursor: pointer;
+}
+
 .b-popover .arrow {
 	display: none;
 }
