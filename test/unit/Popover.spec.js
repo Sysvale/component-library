@@ -10,6 +10,7 @@ test('Component is mounted properly', () => {
 		localVue,
 		propsData: {
 			target: 'trigger-popover',
+			value: false,
 		},
 	});
 
@@ -26,11 +27,16 @@ describe("Items styles test", () => {
 					type: String,
 					default: 'left',
 				},
+				value: {
+					type: Boolean,
+					default: false,
+				},
 			},
 			template: `
 				<div>
 					<button id="trigger-popover"> Click </button>
 					<popover
+						v-model="value"
 						target="trigger-popover"
 						size="lg"
 						:alignment="alignment"
@@ -45,6 +51,7 @@ describe("Items styles test", () => {
 			localVue,
 			propsData: {
 				alignment: 'left',
+				value: true,
 			},
 			attachTo: document.body,
 		});
@@ -58,6 +65,7 @@ describe("Items styles test", () => {
 			localVue,
 			propsData: {
 				alignment: 'right',
+				value: true,
 			},
 			attachTo: document.body,
 		});

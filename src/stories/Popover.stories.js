@@ -14,13 +14,17 @@ const template = `
 			<b-button
 				id="trigger-popover"
 				style="height: 40px;"
+				@click="togglePopover"
 			>
 				Click
 			</b-button>
 			<s-popover
+				v-model="show"
 				target="trigger-popover"
 				:size="size"
 				:alignment="alignment"
+				:no-close-on-backdrop="noCloseOnBackdrop"
+					:no-close-on-esc="noCloseOnEsc"
 			>
 				<p class="p-3">
 					Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vê os porris que eu tomo,
@@ -109,6 +113,17 @@ export const popover = () => ({
 				sm: 'sm',
 			}, 'lg'),
 		},
+		noCloseOnBackdrop: {
+			default: () => boolean('No close on brackdrop click:', false),
+		},
+		noCloseOnEsc: {
+			default: () => boolean('No close when esc pressed:', false),
+		},
 	},
 	template,
+	methods: {
+		togglePopover() {
+			this.show = !this.show;
+		},
+	},
 });
