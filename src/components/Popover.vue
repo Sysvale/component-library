@@ -116,6 +116,7 @@ export default {
 				this.detachKeyupEvent();
 				return;
 			}
+
 			this.attachKeyupEvent();
 		},
 	},
