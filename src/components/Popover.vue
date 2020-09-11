@@ -192,12 +192,15 @@ export default {
 	cursor: pointer;
 }
 
-.b-popover .arrow {
+#s-popover .b-popover .arrow {
 	display: none;
 }
 
-.b-popover {
+#s-popover .b-popover {
 	max-width: none;
+}
+
+.b-popover.s-popover-default {
 	width: 276px;
 }
 
