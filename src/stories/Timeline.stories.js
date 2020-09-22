@@ -94,9 +94,6 @@ const history = [
 ];
 
 export const timeline = () => ({
-	methods: {
-		logClosed: action('close icon clicked'),
-	},
 	props: {
 		history: {
 			default: () => array('History object:', history),
