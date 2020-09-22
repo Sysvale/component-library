@@ -2,7 +2,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import { withDesign } from 'storybook-addon-designs';
 import { action } from '@storybook/addon-actions';
 import {
-	withKnobs, text, select, boolean,
+	withKnobs, array,
 } from '@storybook/addon-knobs';
 
 import Timeline from '../components/Timeline.vue';
@@ -10,29 +10,19 @@ import Timeline from '../components/Timeline.vue';
 // ------ COMPONENT INFO ------
 const template = `
 	<s-timeline
-		:color="color"
-		:bgColor="bgColor"
-		:content="text"
-		:variant="variant"
-		:colorCodeMode="colorCodeMode"
-		:isDismissible="isDismissible"
-		@close="logClosed"
+		:history="history"
 	/>`;
 
 const componentDescription = {
 	name: 'Timeline',
-	summary: 'Timelines are small status descriptors used, primarly, to highlight important metadata about features or content.',
+	summary: 'Timelines are components used to display information in a chronological order.',
 	usage: {
 		whenToUse: [
-			'You want to show status associated with your logic business or users actions.', 
-			`You want to highlight important metadata about features or content.`,
-			`You need to show information that is helpful but needs the surrounding context to make sense (status,type, etc.).`,
-			`The Timeline is readonly.`,
+			'You have a series of information that can be categorized by date.', 
 		],
 		whenNotUse:[
-			'The status that the Timeline represents, can be setted or removed by the user.',
-			'Clicking the component should trigger a functionality or execute an action.',
-			'You want to categorize something.',
+			'You are looking for a stepper component.',
+			'The order of the informations you are displaying are irrelevant.',
 		]
 	},
 };
@@ -74,36 +64,43 @@ export default {
 };
 
 // ------ KNOBS SETTINGS ------
+
+const history = [
+	{
+		date: '22/09/2020',
+		title: 'Bloqueio nível 1',
+		text: 'Usuário: Uncle Bob',
+	},
+	{
+		date: '22/09/2020',
+		title: 'Bloqueio nível 1',
+		text: 'Usuário: Uncle Bob',
+	},
+	{
+		date: '22/09/2020',
+		title: 'Bloqueio nível 1',
+		text: 'Usuário: Uncle Bob',
+	},
+	{
+		date: '22/09/2020',
+		title: 'Bloqueio nível 1',
+		text: 'Usuário: Uncle Bob',
+	},
+	{
+		date: '22/09/2020',
+		title: 'Bloqueio nível 1',
+		text: 'Usuário: Uncle Bob',
+	},
+];
+
 export const timeline = () => ({
 	methods: {
 		logClosed: action('close icon clicked'),
 	},
 	props: {
-		text: {
-			default: () => text('Label text:', 'Negative'),
+		history: {
+			default: () => array('History object:', history),
 		},
-		bgColor: {
-			default: () => text('Background color:', '#dc354526')
-		},
-		color: {
-			default: () => text('Color:', '#dc3545')
-		},
-		variant: {
-			default: () => select('Variant', {
-				yellow: 'yellow',
-				green: 'green',
-				red: 'red',
-				blue: 'blue',
-				purple: 'purple',
-				gray: 'gray',
-			}, 'yellow'),
-		},
-		colorCodeMode: {
-			default: () => boolean('Color Code Mode', false)
-		},
-		isDismissible: {
-			default: () => boolean('Is dismissible', false)
-		}
 	},
 	template: template,
 });
