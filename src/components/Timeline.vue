@@ -22,7 +22,7 @@
 					/>
 					<div
 						v-if="((index + 1) < history.length) && (history.length > 1)"
-						class="time-line"
+						class="timeline"
 					/>
 				</div>
 				<div class="event-info-container">
@@ -36,6 +36,7 @@
 						{{ event.text }}
 					</div>
 					<hr
+						class="event-row-divider"
 						v-if="(index + 1) < history.length"
 					>
 				</div>
@@ -60,7 +61,7 @@ export default {
 .panel-body-content {
 	padding: 24px;
 	overflow: auto;
-    max-height: 350px;
+	max-height: 350px;
 	width: 100%;
 	scrollbar-color: #CDCDCD #FFFFFF;
 	scrollbar-width: thin;
@@ -79,7 +80,7 @@ export default {
     border: 1px solid #2EB88D;
 }
 
-.time-line {
+.timeline {
 	height: 100%;
     width: 1px;
     background-color: #CDCDCD;
