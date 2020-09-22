@@ -49,34 +49,8 @@ export default {
 	props: {
 		history: {
 			type: Array,
-			default: [
-				{
-					date: '22/09/2020',
-					title: 'Bloqueio nível 1',
-					text: 'Usuário: Uncle Bob',
-				},
-				{
-					date: '22/09/2020',
-					title: 'Bloqueio nível 1',
-					text: 'Usuário: Uncle Bob',
-				},
-				{
-					date: '22/09/2020',
-					title: 'Bloqueio nível 1',
-					text: 'Usuário: Uncle Bob',
-				},
-				{
-					date: '22/09/2020',
-					title: 'Bloqueio nível 1',
-					text: 'Usuário: Uncle Bob',
-				},
-				{
-					date: '22/09/2020',
-					title: 'Bloqueio nível 1',
-					text: 'Usuário: Uncle Bob',
-				},
-			],
-			description: 'The text that will be displayed inside the badge.',
+			default: () => [],
+			description: 'The array that specifies the events that willbe displayed in the timeline.',
 			required: true,
 		},
 	},
