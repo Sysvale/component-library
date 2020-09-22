@@ -77,24 +77,24 @@ export default {
 	width: 11.5px;
 	border-radius: 50%;
 	background-color: #2EB88D;
-    border: 1px solid #2EB88D;
+	border: 1px solid #2EB88D;
 }
 
 .timeline {
 	height: 100%;
-    width: 1px;
-    background-color: #CDCDCD;
+	width: 1px;
+	background-color: #CDCDCD;
 }
 
 .timeline-container {
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 	align-items: center;
 }
 
 .event-row {
 	display: flex;
-    justify-content: space-between;
+	justify-content: space-between;
 }
 
 .event-info-container {
