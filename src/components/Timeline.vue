@@ -32,7 +32,7 @@
 							{{ event.title }}
 						</p>
 					</div>
-					<div class="light fs-14 mt-1">
+					<div class="text-muted fs-14 mt-1">
 						{{ event.text }}
 					</div>
 					<hr
@@ -143,7 +143,7 @@ export default {
 	margin-bottom: 0px;
 }
 
-.light {
+.text-muted {
 	color: #697580;
 }
 </style>
