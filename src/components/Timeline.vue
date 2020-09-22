@@ -9,7 +9,6 @@
 			<div class="event-row">
 				<div>
 					<p
-						v-if="showDate"
 						class="regular fs-14 text-secondary date-text"
 					>
 						{{ event.date }}
@@ -46,12 +45,7 @@
 </template>
 
 <script>
-import { XIcon } from 'vue-feather-icons'
 export default {
-	components: {
-		XIcon,
-	},
-	
 	props: {
 		history: {
 			type: Array,
@@ -85,53 +79,10 @@ export default {
 			description: 'The text that will be displayed inside the badge.',
 			required: true,
 		},
-		showDate: {
-			type: Boolean,
-			default: true,
-		}
-	},
-
-	computed: {
-		predefinedStyle() {
-			let computed_style = '';
-			switch (this.variant) {
-				case 'yellow':
-					computed_style = 'yellow';
-					break;
-				case 'green':
-					computed_style = 'green';
-					break;
-				case 'red':
-					computed_style = 'red';
-					break;
-				case 'blue':
-					computed_style = 'blue';
-					break;
-				case 'purple':
-					computed_style = 'purple';
-					break;
-				case 'gray':
-					computed_style = 'gray';
-					break;
-				default:
-					computed_style = 'yellow';
-					break;
-			}
-
-			return computed_style;
-		},
-
-		styleVariables() {
-			return {
-				'--bg-color': this.bgColor,
-				'--color': this.color,
-			};
-		},
 	},
 };
 </script>
 <style>
-
 .panel-body-content {
 	padding: 24px;
 	overflow: auto;
