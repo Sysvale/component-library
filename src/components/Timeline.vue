@@ -61,10 +61,10 @@ export default {
 </script>
 <style>
 #timeline .panel-body-content {
-	padding: 24px !important;;
+	padding: 24px !important;
 	overflow: auto;
 	max-height: 350px;
-	width: 100% !important;;
+	width: 100% !important;
 	scrollbar-color: #CDCDCD #FFFFFF;
 	scrollbar-width: thin;
 }
@@ -75,16 +75,16 @@ export default {
 }
 
 #timeline .event-pin {
-	height: 12px !important;;
-	width: 11.5px !important;;
-	border-radius: 50% !important;;
+	min-height: 12px !important;
+	min-width: 11.5px !important;
+	border-radius: 50% !important;
 	background-color: #2EB88D;
 	border: 1px solid #2EB88D;
 }
 
 #timeline .timeline {
 	height: 100% !important;
-	width: 1px !important;;
+	width: 1px !important;
 	background-color: #CDCDCD;
 }
 
@@ -100,7 +100,7 @@ export default {
 }
 
 #timeline .event-info-container {
-	width: 70% !important;;
+	width: 50% !important;
 	margin-top: -8px;
 }
 
