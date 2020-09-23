@@ -1,48 +1,50 @@
 <template>
-	<div
-		class="panel-body-content"
-	>
+	<span id="timeline">
 		<div
-			v-for="(event, index) in history"
-			:key="index"
+			class="panel-body-content"
 		>
-			<div class="event-row">
-				<div>
-					<p
-						class="regular fs-14 text-secondary date-text"
-					>
-						{{ event.date }}
-					</p>
-				</div>
-				<div
-					class="timeline-container"
-				>
-					<span
-						class="event-pin"
-					/>
-					<div
-						v-if="((index + 1) < history.length) && (history.length > 1)"
-						class="timeline"
-					/>
-				</div>
-				<div class="event-info-container">
+			<div
+				v-for="(event, index) in history"
+				:key="index"
+			>
+				<div class="event-row">
 					<div>
 						<p
-							class="mb-0 event-title regular">
-							{{ event.title }}
+							class="regular fs-14 text-secondary date-text"
+						>
+							{{ event.date }}
 						</p>
 					</div>
-					<div class="text-muted fs-14 mt-1">
-						{{ event.text }}
-					</div>
-					<hr
-						class="event-row-divider"
-						v-if="(index + 1) < history.length"
+					<div
+						class="timeline-container"
 					>
+						<span
+							class="event-pin"
+						/>
+						<div
+							v-if="((index + 1) < history.length) && (history.length > 1)"
+							class="timeline"
+						/>
+					</div>
+					<div class="event-info-container">
+						<div>
+							<p
+								class="mb-0 event-title regular">
+								{{ event.title }}
+							</p>
+						</div>
+						<div class="text-muted fs-14 mt-1">
+							{{ event.text }}
+						</div>
+						<hr
+							class="event-row-divider"
+							v-if="(index + 1) < history.length"
+						>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</span>
 </template>
 
 <script>
@@ -58,67 +60,67 @@ export default {
 };
 </script>
 <style>
-.panel-body-content {
-	padding: 24px;
+#timeline .panel-body-content {
+	padding: 24px !important;;
 	overflow: auto;
 	max-height: 350px;
-	width: 100%;
+	width: 100% !important;;
 	scrollbar-color: #CDCDCD #FFFFFF;
 	scrollbar-width: thin;
 }
 
-.event-title {
+#timeline .event-title {
 	color: #182532;
 	font-weight: 600;
 }
 
-.event-pin {
-	height: 12px;
-	width: 11.5px;
-	border-radius: 50%;
+#timeline .event-pin {
+	height: 12px !important;;
+	width: 11.5px !important;;
+	border-radius: 50% !important;;
 	background-color: #2EB88D;
 	border: 1px solid #2EB88D;
 }
 
-.timeline {
-	height: 100%;
-	width: 1px;
+#timeline .timeline {
+	height: 100% !important;
+	width: 1px !important;;
 	background-color: #CDCDCD;
 }
 
-.timeline-container {
+#timeline .timeline-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.event-row {
+#timeline .event-row {
 	display: flex;
 	justify-content: space-between;
 }
 
-.event-info-container {
-	width: 70%;
+#timeline .event-info-container {
+	width: 70% !important;;
 	margin-top: -8px;
 }
 
-.panel-body-content::-webkit-scrollbar {
+#timeline .panel-body-content::-webkit-scrollbar {
 	width: 0.35rem;
 }
 
-.panel-body-content::-webkit-scrollbar-thumb {
+#timeline .panel-body-content::-webkit-scrollbar-thumb {
 	border-radius: 4px;
 	background: #CDCDCD#FFFFFF
 }
 
-.date-text {
+#timeline .date-text {
 	text-transform: Capitalize;
 	align-self: flex-end;
 	margin-top: -4px;
 	margin-bottom: 0px;
 }
 
-.text-muted {
+#timeline .text-muted {
 	color: #697580;
 }
 </style>
